@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/newback"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/logo" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:gravity="center"
+            android:hint="example@diu.edu.bd"
+            android:inputType="textWebEmailAddress"
+            android:paddingLeft="60dp"
+            android:paddingTop="20dp"
+            android:paddingRight="60dp"
+            android:paddingBottom="20dp"
+            android:textColor="@color/colorText"
+            android:textColorHint="#8ce0f2f1" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:gravity="center"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@color/colorText"
+            android:textColorHint="#8ce0f2f1" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_round"
+            android:gravity="center"
+            android:onClick="loginFunction"
+            android:text="Login"
+            android:textColor="@color/colorText" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/btn_login"
+            android:layout_marginTop="10dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/register"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Don't have an account? "
+
+                    android:textSize="12dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_signup"
+                    android:clickable="true"
+                    android:onClick="signupFunction"
+                    android:layout_marginLeft="5dp"
+                    android:text="Register"
+                    android:textColor="@color/colorAccent"
+                    />
+            </LinearLayout>
+                <TextView
+                    android:layout_marginTop="24dp"
+                    android:layout_below="@id/register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_forgetpass"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="forgetpassFunction"
+                    android:text="I forget my password"
+                    android:textColor="@color/colorAccent"
+                    />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

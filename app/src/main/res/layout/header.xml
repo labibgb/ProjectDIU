@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:id="@+id/profile"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@color/colorHeadder">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/profile_icon"
+            android:elevation="6dp"
+            app:civ_border_width="4dp"
+            app:civ_border_color="#FF000000">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+        <TextView
+            android:layout_below="@+id/profile_image"
+            android:id="@+id/person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="left"
+            android:text="Paul Pial"
+            android:textColor="@color/colorText"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_below="@+id/person_name"
+            android:id="@+id/person_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="left"
+            android:text="example@diu.edu.bd"
+            android:textColor="@color/colorText"
+            android:textSize="12sp" />
+    </RelativeLayout>
+</LinearLayout>

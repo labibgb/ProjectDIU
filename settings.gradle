@@ -1,0 +1,2 @@
+rootProject.name='DIU Shuttle'
+include ':app'

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DIU Shuttle</string>
+    <string name="DrawOpen">DrawerOpen</string>
+    <string name="DrawClose">DrawerClose</string>
+</resources>
