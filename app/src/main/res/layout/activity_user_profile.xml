@@ -89,16 +89,18 @@
         >
         <EditText
             android:id="@+id/fname"
-            android:layout_width="250dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight=".5"
             android:text="Paul"
             android:textColor="@color/colorText"
             />
         <EditText
             android:id="@+id/lname"
             android:layout_marginLeft="5dp"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight=".5"
             android:text="Pial"
             android:textColor="@color/colorText"
             />
