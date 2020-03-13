@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void signupFunction( View view )
     {
+        Intent intent = new Intent( this , user_registration.class );
+        startActivity( intent );
         Toast.makeText(this, "Register Click" , Toast.LENGTH_LONG ).show();
     }
 

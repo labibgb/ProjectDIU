@@ -4,22 +4,59 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+
+    LocationManager locationManager;
+    LocationListener locationListener;
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) == PackageManager.PERMISSION_GRANTED ){
+
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            }
+        }
+    }
 
     //Declare all the layout and View
     DrawerLayout drawerLayout;
@@ -29,14 +66,54 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     Menu menu;
-    TextView headername, headeremail;
-    boolean flag = false;
+    TextView headername, headeremail , text0;
 
+    boolean flag = false;
+    /*public void getWeather( View view )
+    {
+        EditText location = findViewById(R.id.location);
+        jsonSample sample = new jsonSample();
+        String api = "https://samples.openweathermap.org/data/2.5/weather?q="+location.getText().toString()+"&appid=b6907d289e10d714a6e88b30761fae22";
+        sample.execute(api);
+    }*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //Check Permission
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                Log.i("location" , location.toString());
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        };
+        if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
+
+            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
+        }
+        else {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+        }
+        ///send api link to get data
+
 
         ///Initialize navigation toolbar
         drawerLayout = (DrawerLayout) findViewById( R.id.drawer );
@@ -69,6 +146,7 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         headername.setText("Mahmudul Hasan Labib");
         headeremail = headerView.findViewById( R.id.person_email );
         headeremail.setText("mahmudul-xx-xxxx@diu.edu.bd");
+        //text0 = findViewById(R.id.text0);
     }
 
     ///Close Drawer after press the back button.
@@ -122,4 +200,56 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 
         return true;
     }
+    ///Get data from APi.
+    /*
+    public  class jsonSample extends AsyncTask< String , Void , String >{
+
+
+        @Override
+        protected String doInBackground(String... urls) {
+
+            String results = "";
+            URL url;
+            HttpURLConnection urlConnection = null;
+            try {
+
+                url = new URL( urls[ 0 ] );
+                urlConnection = (HttpURLConnection) url.openConnection();
+                InputStream in = urlConnection.getInputStream();
+                InputStreamReader reader = new InputStreamReader( in );
+                int data = reader.read();
+                while ( data != -1 )
+                {
+                    char current = (char) data;
+                    results += current;
+                    data = reader.read();
+                }
+                return  results;
+            }catch( Exception e ) {
+                e.printStackTrace();
+
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            try{
+                JSONObject jsonObject = new JSONObject(s);
+                String weather = jsonObject.getString("weather");
+                JSONArray array = new JSONArray( weather );
+                for( int i = 0 ; i < array.length() ; i++ )
+                {
+                    JSONObject getData = array.getJSONObject( i );
+                    text0.setText(getData.getString("description").toUpperCase());
+                }
+            }catch (Exception e )
+            {
+                e.printStackTrace();
+            }
+
+        }
+    }*/
 }

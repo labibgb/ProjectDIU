@@ -714,6 +714,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color hintcolor
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1235,6 +1236,8 @@ id blocking
 id bottom
 id btn_forgetpass
 id btn_login
+id btn_post_reg
+id btn_pre_reg
 id btn_signup
 id businfo
 id buttonPanel
@@ -1249,6 +1252,7 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id confirm_pass
 id container
 id content
 id contentPanel
@@ -1302,6 +1306,8 @@ id image
 id imageView
 id info
 id info_update
+id inp_fname
+id inp_lname
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1315,6 +1321,7 @@ id listMode
 id list_item
 id lname
 id logo
+id map
 id masked
 id message
 id middle
@@ -1327,6 +1334,7 @@ id nav_logout
 id navigationView
 id navigation_header_container
 id never
+id new_pass
 id none
 id normal
 id notice
@@ -1352,6 +1360,7 @@ id profile_image
 id progress_circular
 id progress_horizontal
 id radio
+id reg_email
 id register
 id reservation
 id right
@@ -1504,8 +1513,11 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_home
 layout activity_main
+layout activity_maps
 layout activity_splash
 layout activity_user_profile
+layout activity_user_reg_complete
+layout activity_user_registration
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1534,6 +1546,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout set_password
 layout support_simple_spinner_dropdown_item
 menu menu_item
 mipmap ic_launcher
@@ -1592,6 +1605,7 @@ string common_signin_button_text
 string common_signin_button_text_long
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string google_maps_key
 string hide_bottom_view_on_scroll_behavior
 string mtrl_chip_close_icon_content_description
 string password_toggle_content_description
@@ -1601,6 +1615,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string title_activity_maps
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

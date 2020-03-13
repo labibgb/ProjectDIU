@@ -2,4 +2,5 @@
     <string name="app_name">DIU Shuttle</string>
     <string name="DrawOpen">DrawerOpen</string>
     <string name="DrawClose">DrawerClose</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
