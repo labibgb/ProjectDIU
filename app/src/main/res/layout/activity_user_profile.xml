@@ -71,10 +71,10 @@
         android:layout_marginTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="@color/color1"
         android:layout_below="@+id/user_header"
         android:text="USER INFORMATION"
         android:gravity="center"
+        android:textStyle="bold"
         android:textColor="@color/colorText"
         android:textSize="22dp"
         />

@@ -8,7 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:minHeight="?attr/actionBarSize"
-        android:background="@color/colorText"
-        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
 </LinearLayout>

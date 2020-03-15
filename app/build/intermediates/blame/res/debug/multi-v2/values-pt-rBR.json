@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Labib\\.gradle\\caches\\transforms-2\\files-2.1\\1cd7eff88f5e86d0249af2958bf465f0\\core-1.1.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5679",
-                        "endColumns": "100",
-                        "endOffsets": "5775"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Labib\\.gradle\\caches\\transforms-2\\files-2.1\\c39f27975e2128f358c90a3c3f9b8fee\\jetified-play-services-basement-17.0.0\\res\\values-pt-rBR\\values.xml",
+                    "source": "C:\\Users\\Labib\\.gradle\\caches\\transforms-2\\files-2.1\\71eb48b14b66228356f88fd98aa67d17\\jetified-play-services-basement-15.0.1\\res\\values-pt-rBR\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Labib\\.gradle\\caches\\transforms-2\\files-2.1\\6fb3f6cd2b75dfe7dd10f87d94351f9e\\jetified-play-services-base-17.0.0\\res\\values-pt-rBR\\values.xml",
+                    "source": "C:\\Users\\Labib\\.gradle\\caches\\transforms-2\\files-2.1\\9403c5fd7ad5616c60c063c7cb37d7b6\\jetified-play-services-base-15.0.1\\res\\values-pt-rBR\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -69,6 +52,23 @@
                         "startOffsets": "2843,2950,3130,3259,3369,3595,3727,3879,4217,4446,4556,4751,4883,5099,5286,5385,5481",
                         "endColumns": "106,179,128,109,225,131,151,133,228,109,194,131,215,186,98,95,112",
                         "endOffsets": "2945,3125,3254,3364,3590,3722,3874,4008,4441,4551,4746,4878,5094,5281,5380,5476,5589"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Labib\\.gradle\\caches\\transforms-2\\files-2.1\\1cd7eff88f5e86d0249af2958bf465f0\\core-1.1.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5679",
+                        "endColumns": "100",
+                        "endOffsets": "5775"
                     }
                 }
             ]

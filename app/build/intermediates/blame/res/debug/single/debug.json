@@ -60,12 +60,12 @@
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\src\\main\\res\\menu\\menu_item.xml"
     },
     {
-        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_bus_stops.png.flat",
-        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\bus_stops.png"
-    },
-    {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\font_alfa_slab_one.xml.flat",
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\src\\main\\res\\font\\alfa_slab_one.xml"
+    },
+    {
+        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_bus_stops.png.flat",
+        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\bus_stops.png"
     },
     {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_bus_stops.png.flat",
@@ -120,24 +120,24 @@
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\route_map.png"
     },
     {
-        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_route_map.png.flat",
-        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\route_map.png"
-    },
-    {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_assignment_turned_in_black_24dp.xml.flat",
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_assignment_turned_in_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_route_map.png.flat",
+        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\route_map.png"
     },
     {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_send_black_24dp.xml.flat",
-        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_send_black_24dp.xml"
-    },
-    {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_profile_icon.png.flat",
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\profile_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_send_black_24dp.xml.flat",
+        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_send_black_24dp.xml"
     },
     {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_notifications_black_24dp.xml.flat",
@@ -156,12 +156,12 @@
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
-    },
-    {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable_headerbackground.jpg.flat",
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\src\\main\\res\\drawable\\headerbackground.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
     },
     {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_notifications_black_24dp.png.flat",
@@ -216,16 +216,20 @@
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_assignment_turned_in_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\layout_header.xml.flat",
-        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\src\\main\\res\\layout\\header.xml"
-    },
-    {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_maps.xml.flat",
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\src\\main\\res\\layout\\activity_maps.xml"
     },
     {
+        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\layout_header.xml.flat",
+        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\src\\main\\res\\layout\\header.xml"
+    },
+    {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_send_black_24dp.png.flat",
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_send_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_fare_calculator.xml.flat",
+        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\src\\main\\res\\layout\\activity_fare_calculator.xml"
     },
     {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_logo.png.flat",
@@ -326,6 +330,10 @@
     {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_profile_icon.xml.flat",
         "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\profile_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\layout_home_content.xml.flat",
+        "source": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\src\\main\\res\\layout\\home_content.xml"
     },
     {
         "merged": "C:\\Users\\Labib\\AndroidStudioProjects\\DIUShuttle\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_notifications_black_24dp.png.flat",

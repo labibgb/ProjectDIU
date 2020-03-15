@@ -41,23 +41,6 @@ import java.net.URL;
 
 public class home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-
-    LocationManager locationManager;
-    LocationListener locationListener;
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-
-            if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) == PackageManager.PERMISSION_GRANTED ){
-
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-            }
-        }
-    }
-
     //Declare all the layout and View
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -83,35 +66,7 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         setContentView(R.layout.activity_home);
 
         //Check Permission
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                Log.i("location" , location.toString());
-            }
 
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
-        if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
-
-            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
-        }
-        else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-        }
         ///send api link to get data
 
 
@@ -119,9 +74,10 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         drawerLayout = (DrawerLayout) findViewById( R.id.drawer );
         toolbar = (Toolbar) findViewById( R.id.toolbar );
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
         navigationView = (NavigationView) findViewById( R.id.navigationView );
         navigationView.setNavigationItemSelectedListener( this );
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         ///Hide or visible navigation menu item. Initially only Login menu visible.
        /* menu = navigationView.getMenu();
@@ -195,6 +151,11 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         else if( menuItem.getItemId() == R.id.userprofile )
         {
             final Intent intent = new Intent( this , user_profile.class );
+            startActivity( intent );
+        }
+        else if( menuItem.getItemId() == R.id.fare )
+        {
+            final Intent intent = new Intent( this , MapsActivity.class );
             startActivity( intent );
         }
 
