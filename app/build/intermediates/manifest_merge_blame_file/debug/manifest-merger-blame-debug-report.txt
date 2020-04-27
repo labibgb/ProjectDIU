@@ -6,48 +6,48 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="16"
-8-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml
+8-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml
+9-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml
 10    <!--
 11         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
 12         Google Maps Android API v2, but you must specify either coarse or fine
 13         location permissions for the 'MyLocation' functionality.
 14    -->
 15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-15-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:9:5-79
-15-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:9:22-76
+15-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:9:5-79
+15-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:9:22-76
 16    <uses-permission android:name="android.permission.INTERNET" />
-16-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:10:5-67
-16-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:10:22-64
+16-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:10:5-67
+16-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:10:22-64
 17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-17-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:11:5-81
-17-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:11:22-78
+17-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:11:5-81
+17-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:11:22-78
 18
 19    <uses-feature
-19-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:13:5-15:35
+19-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:13:5-15:35
 20        android:name="android.hardware.sensor.accelerometer"
-20-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:14:9-61
+20-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:14:9-61
 21        android:required="true" />
-21-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:15:9-32
+21-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:15:9-32
 22    <uses-feature
-22-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:16:5-18:35
+22-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:16:5-18:35
 23        android:name="android.hardware.sensor.compass"
-23-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:17:9-55
+23-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:17:9-55
 24        android:required="true" />
-24-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:18:9-32
+24-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:18:9-32
 25    <uses-feature
-25-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:13:5-15:35
+25-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:13:5-15:35
 26        android:name="android.hardware.sensor.accelerometer"
-26-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:14:9-61
+26-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:14:9-61
 27        android:required="true" />
-27-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:15:9-32
+27-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:15:9-32
 28    <uses-feature
-28-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:22:5-24:35
+28-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:22:5-24:35
 29        android:name="android.hardware.location.gps"
-29-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:23:9-53
+29-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:23:9-53
 30        android:required="true" />
-30-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:24:9-32
+30-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:24:9-32
 31
 32    <!-- Include required permissions for Google Maps API to run. -->
 33    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -62,26 +62,24 @@
 37-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\4bbde61da67042b632e3443da65cb1ef\jetified-play-services-maps-15.0.1\AndroidManifest.xml:28:9-32
 38
 39    <application
-39-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:26:5-67:19
+39-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:26:5-67:19
 40        android:allowBackup="true"
-40-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:27:9-35
+40-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:27:9-35
 41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 41-->[androidx.core:core:1.1.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\1cd7eff88f5e86d0249af2958bf465f0\core-1.1.0\AndroidManifest.xml:24:18-86
 42        android:debuggable="true"
 43        android:icon="@drawable/logo"
-43-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:28:9-38
+43-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:28:9-38
 44        android:label="@string/app_name"
-44-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:29:9-41
+44-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:29:9-41
 45        android:roundIcon="@drawable/logo"
-45-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:30:9-43
+45-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:30:9-43
 46        android:supportsRtl="true"
-46-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:31:9-35
+46-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:31:9-35
 47        android:testOnly="true"
 48        android:theme="@style/AppTheme" >
-48-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:32:9-40
-49        <activity android:name="com.example.diushuttle.fare_calculator" />
-49-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:33:9-62
-49-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:33:19-50
+48-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:32:9-40
+49
 50        <!--
 51             The API key for Google Maps-based APIs is defined as a string resource.
 52             (See the file "res/values/google_maps_api.xml").
@@ -91,73 +89,94 @@
 56             You can define the keys for the debug and release targets in src/debug/ and src/release/.
 57        -->
 58        <meta-data
-58-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:42:9-44:55
+58-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:42:9-44:55
 59            android:name="com.google.android.geo.API_KEY"
-59-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:43:13-58
+59-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:43:13-58
 60            android:value="@string/google_maps_key" />
-60-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:44:13-52
+60-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:44:13-52
 61
 62        <activity
-62-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:46:9-48:59
-63            android:name="com.example.diushuttle.MapsActivity"
-63-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:47:13-41
-64            android:label="@string/title_activity_maps" />
-64-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:48:13-56
-65        <activity android:name="com.example.diushuttle.user_reg_complete" />
-65-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:49:9-55
-65-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:49:19-52
-66        <activity android:name="com.example.diushuttle.user_registration" />
-66-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:50:9-55
-66-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:50:19-52
-67        <activity android:name="com.example.diushuttle.user_profile" />
-67-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:51:9-50
-67-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:51:19-47
-68        <activity android:name="com.example.diushuttle.splash" >
-68-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:52:9-58:20
-68-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:52:19-41
-69            <intent-filter>
-69-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:53:13-57:29
-70                <action android:name="android.intent.action.MAIN" />
-70-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:54:17-69
-70-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:54:25-66
-71
-72                <category android:name="android.intent.category.LAUNCHER" />
-72-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:56:17-77
-72-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:56:27-74
-73            </intent-filter>
-74        </activity>
-75        <activity android:name="com.example.diushuttle.home" />
-75-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:59:9-42
-75-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:59:19-39
-76        <activity
-76-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:60:9-62:50
-77            android:name="com.example.diushuttle.MainActivity"
-77-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:61:13-41
-78            android:parentActivityName="com.example.diushuttle.home" />
-78-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:62:13-47
-79
-80        <meta-data
-80-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:64:9-66:57
-81            android:name="preloaded_fonts"
-81-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:65:13-43
-82            android:resource="@array/preloaded_fonts" />
-82-->C:\Users\Labib\AndroidStudioProjects\DIUShuttle\app\src\main\AndroidManifest.xml:66:13-54
-83
-84        <activity
-84-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:23:9-26:75
-85            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-85-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:24:13-79
-86            android:exported="false"
-86-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:25:13-37
-87            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-87-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:26:13-72
-88
-89        <meta-data
-89-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\71eb48b14b66228356f88fd98aa67d17\jetified-play-services-basement-15.0.1\AndroidManifest.xml:23:9-25:69
-90            android:name="com.google.android.gms.version"
-90-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\71eb48b14b66228356f88fd98aa67d17\jetified-play-services-basement-15.0.1\AndroidManifest.xml:24:13-58
-91            android:value="@integer/google_play_services_version" />
-91-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\71eb48b14b66228356f88fd98aa67d17\jetified-play-services-basement-15.0.1\AndroidManifest.xml:25:13-66
-92    </application>
-93
-94</manifest>
+62-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:46:9-87
+63            android:name="com.example.diushuttle.fare_calculator"
+63-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:46:19-50
+64            android:parentActivityName="com.example.diushuttle.home" />
+64-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:46:51-85
+65        <activity
+65-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:47:9-49:59
+66            android:name="com.example.diushuttle.MapsActivity"
+66-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:48:13-41
+67            android:label="@string/title_activity_maps" />
+67-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:49:13-56
+68        <activity
+68-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:50:9-102
+69            android:name="com.example.diushuttle.user_reg_complete"
+69-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:50:19-52
+70            android:parentActivityName="com.example.diushuttle.user_registration" />
+70-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:50:53-100
+71        <activity
+71-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:51:9-97
+72            android:name="com.example.diushuttle.user_registration"
+72-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:51:19-52
+73            android:parentActivityName="com.example.diushuttle.MainActivity" />
+73-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:51:53-95
+74        <activity
+74-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:52:9-85
+75            android:name="com.example.diushuttle.user_profile"
+75-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:52:19-47
+76            android:parentActivityName="com.example.diushuttle.home" />
+76-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:52:48-82
+77        <activity
+77-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:53:9-59:20
+78            android:name="com.example.diushuttle.splash"
+78-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:53:19-41
+79            android:theme="@style/AppTheme.NoActionBar" >
+79-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:53:42-85
+80            <intent-filter>
+80-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:54:13-58:29
+81                <action android:name="android.intent.action.MAIN" />
+81-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:55:17-69
+81-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:55:25-66
+82
+83                <category android:name="android.intent.category.LAUNCHER" />
+83-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:57:17-77
+83-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:57:27-74
+84            </intent-filter>
+85        </activity>
+86        <activity
+86-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:60:9-85
+87            android:name="com.example.diushuttle.home"
+87-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:60:19-39
+88            android:theme="@style/AppTheme.NoActionBar" />
+88-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:60:40-83
+89        <activity
+89-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:61:9-63:50
+90            android:name="com.example.diushuttle.MainActivity"
+90-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:62:13-41
+91            android:parentActivityName="com.example.diushuttle.home" />
+91-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:63:13-47
+92
+93        <meta-data
+93-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:64:9-66:57
+94            android:name="preloaded_fonts"
+94-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:65:13-43
+95            android:resource="@array/preloaded_fonts" />
+95-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:66:13-54
+96
+97        <activity
+97-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:23:9-26:75
+98            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+98-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:24:13-79
+99            android:exported="false"
+99-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:25:13-37
+100            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+100-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:26:13-72
+101
+102        <meta-data
+102-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\71eb48b14b66228356f88fd98aa67d17\jetified-play-services-basement-15.0.1\AndroidManifest.xml:23:9-25:69
+103            android:name="com.google.android.gms.version"
+103-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\71eb48b14b66228356f88fd98aa67d17\jetified-play-services-basement-15.0.1\AndroidManifest.xml:24:13-58
+104            android:value="@integer/google_play_services_version" />
+104-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\71eb48b14b66228356f88fd98aa67d17\jetified-play-services-basement-15.0.1\AndroidManifest.xml:25:13-66
+105    </application>
+106
+107</manifest>

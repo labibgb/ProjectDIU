@@ -30,7 +30,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fare_calculator"></activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,24 +43,24 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name=".fare_calculator" android:parentActivityName=".home"/>
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".user_reg_complete" />
-        <activity android:name=".user_registration" />
-        <activity android:name=".user_profile" />
-        <activity android:name=".splash">
+        <activity android:name=".user_reg_complete" android:parentActivityName=".user_registration"/>
+        <activity android:name=".user_registration" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".user_profile" android:parentActivityName=".home" />
+        <activity android:name=".splash" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home" />
+        <activity android:name=".home" android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:parentActivityName=".home" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

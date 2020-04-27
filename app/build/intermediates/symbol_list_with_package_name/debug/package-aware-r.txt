@@ -1404,6 +1404,8 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id shortcut
+id show_speed_container
+id show_speed_fragment
 id showCustom
 id showHome
 id showTitle
@@ -1550,6 +1552,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout drawer_toolbar
+layout fragment_show_speed
 layout header
 layout home_content
 layout mtrl_layout_snackbar
@@ -1650,6 +1653,7 @@ style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style AppTheme
+style AppTheme_NoActionBar
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog

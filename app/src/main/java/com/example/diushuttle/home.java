@@ -64,7 +64,15 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        /*
+        showSpeed showspeed = new showSpeed();
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add( R.id.show_speed_container, showspeed )
+                .commit();
+
+         */
         //Check Permission
 
         ///send api link to get data
@@ -155,7 +163,7 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         }
         else if( menuItem.getItemId() == R.id.fare )
         {
-            final Intent intent = new Intent( this , MapsActivity.class );
+            final Intent intent = new Intent( this , fare_calculator.class );
             startActivity( intent );
         }
 

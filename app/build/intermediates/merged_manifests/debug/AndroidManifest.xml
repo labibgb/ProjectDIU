@@ -46,7 +46,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.diushuttle.fare_calculator" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -60,19 +60,32 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name="com.example.diushuttle.fare_calculator"
+            android:parentActivityName="com.example.diushuttle.home" />
+        <activity
             android:name="com.example.diushuttle.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name="com.example.diushuttle.user_reg_complete" />
-        <activity android:name="com.example.diushuttle.user_registration" />
-        <activity android:name="com.example.diushuttle.user_profile" />
-        <activity android:name="com.example.diushuttle.splash" >
+        <activity
+            android:name="com.example.diushuttle.user_reg_complete"
+            android:parentActivityName="com.example.diushuttle.user_registration" />
+        <activity
+            android:name="com.example.diushuttle.user_registration"
+            android:parentActivityName="com.example.diushuttle.MainActivity" />
+        <activity
+            android:name="com.example.diushuttle.user_profile"
+            android:parentActivityName="com.example.diushuttle.home" />
+        <activity
+            android:name="com.example.diushuttle.splash"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.diushuttle.home" />
+        <activity
+            android:name="com.example.diushuttle.home"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.diushuttle.MainActivity"
             android:parentActivityName="com.example.diushuttle.home" />
