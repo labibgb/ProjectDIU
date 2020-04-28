@@ -4,12 +4,12 @@
         "source": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_assignment_turned_in_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_profile_icon.png.flat",
-        "source": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\profile_icon.png"
-    },
-    {
         "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_info_black_24dp.png.flat",
         "source": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_info_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_profile_icon.png.flat",
+        "source": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\profile_icon.png"
     },
     {
         "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_set_password.xml.flat",
@@ -34,6 +34,10 @@
     {
         "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\anim_mytranstion.xml.flat",
         "source": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\src\\main\\res\\anim\\mytranstion.xml"
+    },
+    {
+        "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_update_profile.xml.flat",
+        "source": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\src\\main\\res\\layout\\fragment_update_profile.xml"
     },
     {
         "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_bus_stops.xml.flat",
@@ -106,6 +110,10 @@
     {
         "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\font_lato.xml.flat",
         "source": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\src\\main\\res\\font\\lato.xml"
+    },
+    {
+        "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_update_password.xml.flat",
+        "source": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\src\\main\\res\\layout\\fragment_update_password.xml"
     },
     {
         "merged": "C:\\Users\\Labib\\Desktop\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_user_registration.xml.flat",

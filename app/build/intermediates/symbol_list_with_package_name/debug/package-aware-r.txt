@@ -27,6 +27,13 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fragment_close_enter
+anim fragment_close_exit
+anim fragment_fade_enter
+anim fragment_fade_exit
+anim fragment_fast_out_extra_slow_in
+anim fragment_open_enter
+anim fragment_open_exit
 anim mytranstion
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
@@ -1304,6 +1311,7 @@ id filled
 id fixed
 id fname
 id forever
+id fragment_container_view_tag
 id ghost_view
 id gone
 id group_divider
@@ -1364,12 +1372,14 @@ id parent
 id parentPanel
 id parent_matrix
 id password
+id password_update
 id percent
 id person_email
 id person_name
 id person_number
 id pin
 id profile
+id profile_container
 id profile_image
 id progress_circular
 id progress_horizontal
@@ -1404,11 +1414,11 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id shortcut
-id show_speed_container
 id show_speed_fragment
 id showCustom
 id showHome
 id showTitle
+id show_speed_container
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1428,6 +1438,8 @@ id stoppages
 id stretch
 id submenuarrow
 id submit_area
+id submit_password
+id submit_update
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -1469,6 +1481,7 @@ id user_header
 id userprofile
 id view_offset_helper
 id visible
+id visible_removing_fragment_view_tag
 id wide
 id withText
 id wrap
@@ -1553,6 +1566,8 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout drawer_toolbar
 layout fragment_show_speed
+layout fragment_update_password
+layout fragment_update_profile
 layout header
 layout home_content
 layout mtrl_layout_snackbar
@@ -2195,6 +2210,8 @@ styleable FlowLayout itemSpacing lineSpacing
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
+styleable Fragment android_name android_id android_tag
+styleable FragmentContainerView android_name android_tag
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
 styleable LinearConstraintLayout android_orientation

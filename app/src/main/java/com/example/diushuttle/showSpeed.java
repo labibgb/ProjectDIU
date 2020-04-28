@@ -25,8 +25,8 @@ public class showSpeed extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_show_speed, container, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.show_speed_fragment);
-        textView.setText("This this text");
+        //TextView textView = (TextView) rootView.findViewById(R.id.show_speed_fragment);
+        //textView.setText("This this text");
         return  rootView;
     }
 }

@@ -64,15 +64,16 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        /*
         showSpeed showspeed = new showSpeed();
+        if( findViewById( R.id.show_speed_container ) != null )
+        {
+            if( savedInstanceState != null ) return;
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .add( R.id.show_speed_container, showspeed , null)
+                    .commit();
+        }
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add( R.id.show_speed_container, showspeed )
-                .commit();
-
-         */
         //Check Permission
 
         ///send api link to get data

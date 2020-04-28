@@ -51,22 +51,22 @@
 31
 32    <!-- Include required permissions for Google Maps API to run. -->
 33    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-33-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\4bbde61da67042b632e3443da65cb1ef\jetified-play-services-maps-15.0.1\AndroidManifest.xml:23:5-79
-33-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\4bbde61da67042b632e3443da65cb1ef\jetified-play-services-maps-15.0.1\AndroidManifest.xml:23:22-76
+33-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\42582d52181bd448c9df2e41c650b12f\jetified-play-services-maps-15.0.1\AndroidManifest.xml:23:5-79
+33-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\42582d52181bd448c9df2e41c650b12f\jetified-play-services-maps-15.0.1\AndroidManifest.xml:23:22-76
 34
 35    <uses-feature
-35-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\4bbde61da67042b632e3443da65cb1ef\jetified-play-services-maps-15.0.1\AndroidManifest.xml:26:5-28:35
+35-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\42582d52181bd448c9df2e41c650b12f\jetified-play-services-maps-15.0.1\AndroidManifest.xml:26:5-28:35
 36        android:glEsVersion="0x00020000"
-36-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\4bbde61da67042b632e3443da65cb1ef\jetified-play-services-maps-15.0.1\AndroidManifest.xml:27:9-41
+36-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\42582d52181bd448c9df2e41c650b12f\jetified-play-services-maps-15.0.1\AndroidManifest.xml:27:9-41
 37        android:required="true" />
-37-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\4bbde61da67042b632e3443da65cb1ef\jetified-play-services-maps-15.0.1\AndroidManifest.xml:28:9-32
+37-->[com.google.android.gms:play-services-maps:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\42582d52181bd448c9df2e41c650b12f\jetified-play-services-maps-15.0.1\AndroidManifest.xml:28:9-32
 38
 39    <application
 39-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:26:5-67:19
 40        android:allowBackup="true"
 40-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:27:9-35
 41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-41-->[androidx.core:core:1.1.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\1cd7eff88f5e86d0249af2958bf465f0\core-1.1.0\AndroidManifest.xml:24:18-86
+41-->[androidx.core:core:1.1.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\34b4ab0d8b65ac74ddd00d45b26dd963\core-1.1.0\AndroidManifest.xml:24:18-86
 42        android:debuggable="true"
 43        android:icon="@drawable/logo"
 43-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:28:9-38
@@ -163,20 +163,20 @@
 95-->C:\Users\Labib\Desktop\ProjectDIU\app\src\main\AndroidManifest.xml:66:13-54
 96
 97        <activity
-97-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:23:9-26:75
+97-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\b58b1cdff2fb37fd054ed3705aa4557c\jetified-play-services-base-15.0.1\AndroidManifest.xml:23:9-26:75
 98            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-98-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:24:13-79
+98-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\b58b1cdff2fb37fd054ed3705aa4557c\jetified-play-services-base-15.0.1\AndroidManifest.xml:24:13-79
 99            android:exported="false"
-99-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:25:13-37
+99-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\b58b1cdff2fb37fd054ed3705aa4557c\jetified-play-services-base-15.0.1\AndroidManifest.xml:25:13-37
 100            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-100-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\9403c5fd7ad5616c60c063c7cb37d7b6\jetified-play-services-base-15.0.1\AndroidManifest.xml:26:13-72
+100-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\b58b1cdff2fb37fd054ed3705aa4557c\jetified-play-services-base-15.0.1\AndroidManifest.xml:26:13-72
 101
 102        <meta-data
-102-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\71eb48b14b66228356f88fd98aa67d17\jetified-play-services-basement-15.0.1\AndroidManifest.xml:23:9-25:69
+102-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\196b79e0de27ffcf8598a986aeb367d2\jetified-play-services-basement-15.0.1\AndroidManifest.xml:23:9-25:69
 103            android:name="com.google.android.gms.version"
-103-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\71eb48b14b66228356f88fd98aa67d17\jetified-play-services-basement-15.0.1\AndroidManifest.xml:24:13-58
+103-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\196b79e0de27ffcf8598a986aeb367d2\jetified-play-services-basement-15.0.1\AndroidManifest.xml:24:13-58
 104            android:value="@integer/google_play_services_version" />
-104-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\71eb48b14b66228356f88fd98aa67d17\jetified-play-services-basement-15.0.1\AndroidManifest.xml:25:13-66
+104-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\196b79e0de27ffcf8598a986aeb367d2\jetified-play-services-basement-15.0.1\AndroidManifest.xml:25:13-66
 105    </application>
 106
 107</manifest>
