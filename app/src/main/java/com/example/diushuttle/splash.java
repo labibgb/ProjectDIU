@@ -17,7 +17,7 @@ public class splash extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.logo );
         Animation myanimation = AnimationUtils.loadAnimation(this, R.anim.mytranstion );
         image.startAnimation( myanimation );
-        final Intent intent = new Intent( this , home.class );
+        final Intent intent = new Intent( this , Dashboard.class );
         Thread timer = new Thread() {
             public  void  run()
             {

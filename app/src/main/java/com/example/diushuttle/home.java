@@ -167,7 +167,11 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
             final Intent intent = new Intent( this , fare_calculator.class );
             startActivity( intent );
         }
-
+        else if( menuItem.getItemId() == R.id.routemap )
+        {
+            final Intent intent = new Intent( this , MapsActivity.class );
+            startActivity( intent );
+        }
         return true;
     }
     ///Get data from APi.

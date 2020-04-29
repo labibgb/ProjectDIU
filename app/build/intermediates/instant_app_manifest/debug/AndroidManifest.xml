@@ -61,20 +61,31 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name="com.example.diushuttle.Dashboard"
+            android:theme="@style/AppTheme.NoActionBar" >
+>
+        </activity>
+        <activity
             android:name="com.example.diushuttle.fare_calculator"
-            android:parentActivityName="com.example.diushuttle.home" />
+            android:parentActivityName="com.example.diushuttle.home"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.diushuttle.MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:parentActivityName="com.example.diushuttle.home"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.diushuttle.user_reg_complete"
-            android:parentActivityName="com.example.diushuttle.user_registration" />
+            android:parentActivityName="com.example.diushuttle.user_registration"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.diushuttle.user_registration"
-            android:parentActivityName="com.example.diushuttle.MainActivity" />
+            android:parentActivityName="com.example.diushuttle.MainActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.diushuttle.user_profile"
-            android:parentActivityName="com.example.diushuttle.home" />
+            android:parentActivityName="com.example.diushuttle.home"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.diushuttle.splash"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -89,7 +100,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.diushuttle.MainActivity"
-            android:parentActivityName="com.example.diushuttle.home" />
+            android:parentActivityName="com.example.diushuttle.home"
+            android:windowSoftInputMode="adjustResize" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -26,20 +26,4 @@
             app:itemHorizontalPadding="10dp"
             app:itemIconTint="@color/colorText"
             app:menu="@menu/menu_item" />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="65dp"
-            android:gravity="center"
-            >
-        </RelativeLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-                <FrameLayout
-                    android:id="@+id/show_speed_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
