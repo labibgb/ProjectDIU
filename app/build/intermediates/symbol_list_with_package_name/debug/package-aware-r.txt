@@ -1278,7 +1278,6 @@ id coordinator
 id custom
 id customPanel
 id dark
-id dashboard_title
 id decor_content_parent
 id default_activity_button
 id default_content
@@ -1331,7 +1330,6 @@ id icon_only
 id ifRoom
 id image
 id imageView
-id imageView8
 id info
 id info_update
 id inp_fname
@@ -1358,7 +1356,6 @@ id mini
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
-id nav_login
 id nav_logout
 id navigationView
 id navigation_header_container
@@ -1387,7 +1384,6 @@ id person_name
 id person_number
 id pin
 id profile
-id profile_container
 id profile_image
 id progress_circular
 id progress_horizontal
@@ -1425,7 +1421,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
-id show_speed_container
+id show_speed
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1462,7 +1458,6 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView9
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1549,12 +1544,11 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_dashboard
 layout activity_fare_calculator
 layout activity_home
 layout activity_main
-layout activity_maps
 layout activity_splash
+layout activity_update_password
 layout activity_user_profile
 layout activity_user_reg_complete
 layout activity_user_registration
@@ -1574,9 +1568,6 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout drawer_toolbar
-layout fragment_show_speed
-layout fragment_update_password
-layout fragment_update_profile
 layout header
 layout home_content
 layout mtrl_layout_snackbar
@@ -1599,9 +1590,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
-layout set_password
 layout support_simple_spinner_dropdown_item
-layout toolbar
 menu menu_item
 mipmap ic_launcher
 mipmap ic_launcher_round

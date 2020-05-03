@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
 import android.content.Context;
@@ -29,6 +30,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
@@ -39,7 +47,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL;
+
+public class home extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
 
     //Declare all the layout and View
     DrawerLayout drawerLayout;
@@ -50,68 +60,33 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
     FragmentTransaction fragmentTransaction;
     Menu menu;
     TextView headername, headeremail , text0;
-
     boolean flag = false;
-    /*public void getWeather( View view )
-    {
-        EditText location = findViewById(R.id.location);
-        jsonSample sample = new jsonSample();
-        String api = "https://samples.openweathermap.org/data/2.5/weather?q="+location.getText().toString()+"&appid=b6907d289e10d714a6e88b30761fae22";
-        sample.execute(api);
-    }*/
+    private GoogleMap mMap;
+    LocationManager locationManager;
+    LocationListener locationListener;
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if( requestCode == 1 ) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+                }
+            }
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        showSpeed showspeed = new showSpeed();
-        if( findViewById( R.id.show_speed_container ) != null )
-        {
-            if( savedInstanceState != null ) return;
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .add( R.id.show_speed_container, showspeed , null)
-                    .commit();
-        }
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+        setupLayout();
+        //fragmentManager = getSupportFragmentManager();
 
-        //Check Permission
-
-        ///send api link to get data
-
-
-        ///Initialize navigation toolbar
-        drawerLayout = (DrawerLayout) findViewById( R.id.drawer );
-        toolbar = (Toolbar) findViewById( R.id.toolbar );
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
-        navigationView = (NavigationView) findViewById( R.id.navigationView );
-        navigationView.setNavigationItemSelectedListener( this );
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
-        ///Hide or visible navigation menu item. Initially only Login menu visible.
-       /* menu = navigationView.getMenu();
-        menu.findItem(R.id.nav_logout).setVisible(false);
-        menu.findItem(R.id.userprofile).setVisible(false);
-        menu.findItem(R.id.feedback).setVisible(false);
-        menu.findItem(R.id.notice).setVisible(false);
-        menu.findItem(R.id.businfo).setVisible(false);
-        menu.findItem(R.id.reservation).setVisible(false);*/
-
-        ///Show navigation indicator
-        toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.DrawOpen, R.string.DrawClose );
-        drawerLayout.addDrawerListener(toggle);
-        navigationView.bringToFront();
-        toggle.setDrawerIndicatorEnabled(true);
-        toggle.setDrawerSlideAnimationEnabled(true);
-        toggle.syncState();
-
-        //Show header data from profile database
-        View headerView = navigationView.getHeaderView(0);
-        headername = headerView.findViewById( R.id.person_name);
-        headername.setText("Mahmudul Hasan Labib");
-        headeremail = headerView.findViewById( R.id.person_email );
-        headeremail.setText("mahmudul-xx-xxxx@diu.edu.bd");
-        //text0 = findViewById(R.id.text0);
     }
 
     ///Close Drawer after press the back button.
@@ -133,31 +108,7 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 
         ///Close the drawer after select some item.
         drawerLayout.closeDrawer(GravityCompat.START);
-
-        if( menuItem.getItemId() == R.id.nav_login ){
-
-            /*menu.findItem(R.id.nav_logout).setVisible(true);
-            menu.findItem(R.id.userprofile).setVisible(true);
-            menu.findItem(R.id.feedback).setVisible(true);
-            menu.findItem(R.id.notice).setVisible(true);
-            menu.findItem(R.id.businfo).setVisible(true);
-            menu.findItem(R.id.reservation).setVisible(true);
-            menu.findItem(R.id.nav_login).setVisible(false);*/
-            final Intent intent = new Intent( this , MainActivity.class );
-            startActivity( intent );
-
-        }
-        else if( menuItem.getItemId() == R.id.nav_logout )
-        {
-            /*menu.findItem(R.id.nav_logout).setVisible(false);
-            menu.findItem(R.id.userprofile).setVisible(false);
-            menu.findItem(R.id.feedback).setVisible(false);
-            menu.findItem(R.id.notice).setVisible(false);
-            menu.findItem(R.id.businfo).setVisible(false);
-            menu.findItem(R.id.reservation).setVisible(false);*
-            menu.findItem(R.id.nav_login).setVisible(true);*/
-        }
-        else if( menuItem.getItemId() == R.id.userprofile )
+        if( menuItem.getItemId() == R.id.userprofile )
         {
             final Intent intent = new Intent( this , user_profile.class );
             startActivity( intent );
@@ -169,61 +120,99 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         }
         else if( menuItem.getItemId() == R.id.routemap )
         {
-            final Intent intent = new Intent( this , MapsActivity.class );
+
+        }
+        else if( menuItem.getItemId() == R.id.businfo )
+        {
+
+        }
+        else if( menuItem.getItemId() == R.id.reservation )
+        {
+
+        }
+        else if( menuItem.getItemId() == R.id.feedback )
+        {
+
+        }
+        else if( menuItem.getItemId() == R.id.notice )
+        {
+
+        }
+        else if( menuItem.getItemId() == R.id.nav_logout )
+        {
+            Intent intent = new Intent( this , MainActivity.class );
             startActivity( intent );
+            finish();
         }
         return true;
     }
-    ///Get data from APi.
-    /*
-    public  class jsonSample extends AsyncTask< String , Void , String >{
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
 
-        @Override
-        protected String doInBackground(String... urls) {
+        mMap.setMapType(MAP_TYPE_NORMAL);
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
 
-            String results = "";
-            URL url;
-            HttpURLConnection urlConnection = null;
-            try {
-
-                url = new URL( urls[ 0 ] );
-                urlConnection = (HttpURLConnection) url.openConnection();
-                InputStream in = urlConnection.getInputStream();
-                InputStreamReader reader = new InputStreamReader( in );
-                int data = reader.read();
-                while ( data != -1 )
-                {
-                    char current = (char) data;
-                    results += current;
-                    data = reader.read();
-                }
-                return  results;
-            }catch( Exception e ) {
-                e.printStackTrace();
-
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-
-            try{
-                JSONObject jsonObject = new JSONObject(s);
-                String weather = jsonObject.getString("weather");
-                JSONArray array = new JSONArray( weather );
-                for( int i = 0 ; i < array.length() ; i++ )
-                {
-                    JSONObject getData = array.getJSONObject( i );
-                    text0.setText(getData.getString("description").toUpperCase());
-                }
-            }catch (Exception e )
-            {
-                e.printStackTrace();
+                Log.i("loaction" , location.toString() );
+                LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
+                mMap.addMarker(new MarkerOptions().position(sydney).title("You are here"));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15), 3000, null);
             }
 
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        };
+        if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
+
+            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
         }
-    }*/
+        else {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+        }
+    }
+
+    public void setupLayout()
+    {
+        ///Initialize navigation toolbar
+        drawerLayout = (DrawerLayout) findViewById( R.id.drawer );
+        toolbar = (Toolbar) findViewById( R.id.toolbar );
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+        navigationView = (NavigationView) findViewById( R.id.navigationView );
+        navigationView.setNavigationItemSelectedListener( this );
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+
+
+        ///Show navigation indicator
+        toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.DrawOpen, R.string.DrawClose );
+        drawerLayout.addDrawerListener(toggle);
+        navigationView.bringToFront();
+        toggle.setDrawerIndicatorEnabled(true);
+        toggle.setDrawerSlideAnimationEnabled(true);
+        toggle.syncState();
+
+        //Show header data from profile database
+        View headerView = navigationView.getHeaderView(0);
+        headername = headerView.findViewById( R.id.person_name);
+        headername.setText("Mahmudul Hasan Labib");
+        headeremail = headerView.findViewById( R.id.person_email );
+        headeremail.setText("mahmudul-xx-xxxx@diu.edu.bd");
+    }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.diushuttle">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -42,27 +43,31 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <activity android:name=".Dashboard" android:theme="@style/AppTheme.NoActionBar">></activity>
+
         <activity
             android:name=".fare_calculator"
+            android:label="Fare"
             android:parentActivityName=".home"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"
-            android:parentActivityName=".home"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:windowSoftInputMode="adjustPan" /> <!-- android:theme="@style/AppTheme.NoActionBar" -->
         <activity
             android:name=".user_reg_complete"
+            android:label="Register"
             android:parentActivityName=".user_registration"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".user_registration"
+            android:label="Register"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".user_profile"
+            android:label="Profile"
             android:parentActivityName=".home"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".UpdatePassword"
+            android:label="Change Password"
+            android:parentActivityName=".user_profile"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".splash"
@@ -78,8 +83,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".home"
-            android:windowSoftInputMode="adjustResize" />
+            android:label="Login"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
 
         <meta-data
             android:name="preloaded_fonts"

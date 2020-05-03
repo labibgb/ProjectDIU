@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i( "email" , email.getText().toString() );
         Log.i( "Password" , password.getText().toString() );
         Toast.makeText( this , "Hey " + email.getText().toString(),  Toast.LENGTH_LONG).show();
+        openHome();
     }
     public void signupFunction( View view )
     {

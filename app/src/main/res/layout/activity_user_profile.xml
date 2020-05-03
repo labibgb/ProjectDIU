@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,8 +7,155 @@
     android:background="@drawable/gardient_color"
     android:fitsSystemWindows="true"
     tools:context=".user_profile">
-    <FrameLayout
-        android:id="@+id/profile_container"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="100dp"
+        android:id="@+id/user_header"
+        android:background="@color/colorHeadder"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/profile_icon"
+            android:elevation="6dp"
+            app:civ_border_width="4dp"
+            app:civ_border_color="#FF000000">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/person_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="Paul Pial"
+                android:textColor="@color/colorText"
+                android:textSize="20dp" />
+            <TextView
+                android:layout_below="@+id/person_name"
+                android:id="@+id/person_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="example@diu.edu.bd"
+                android:textColor="@color/colorText"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_below="@+id/person_email"
+                android:id="@+id/person_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="01677631851"
+                android:textColor="@color/colorText"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/banner"
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/user_header"
+        android:text="USER INFORMATION"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorText"
+        android:textSize="22dp"
+        />
+    <LinearLayout
+        android:layout_below="@+id/banner"
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="5dp"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/fname"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".5"
+            android:text="Paul"
+            android:textColor="@color/colorText"
+            />
+        <EditText
+            android:id="@+id/lname"
+            android:layout_marginLeft="5dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".5"
+            android:text="Pial"
+            android:textColor="@color/colorText"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/edit_name"
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="example@diu.edu.bd"
+        android:textColor="@color/colorText"
+        android:textSize="20dp"
+        />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/email"
+        android:id="@+id/edit_number"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="01677631851"
+        android:textColor="@color/colorText"
+        android:textSize="20dp"
+        />
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/edit_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_update"
+        android:gravity="center">
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:text="Save"
+            android:id="@+id/submit_update"
+            android:gravity="center"
+            android:background="@color/tpbackground"
+            android:textColor="@color/colorText"
+            android:textSize="20dp"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/info_update"
+        android:id="@+id/change_password"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="Looking to change password?"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15dp"
+        />
+
+</RelativeLayout>
