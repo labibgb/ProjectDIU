@@ -13,9 +13,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -27,6 +30,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,10 +46,13 @@ import com.google.android.material.navigation.NavigationView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
+import java.util.Locale;
 
 import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL;
 
@@ -59,11 +66,12 @@ public class home extends AppCompatActivity implements OnMapReadyCallback, Navig
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     Menu menu;
-    TextView headername, headeremail , text0;
+    TextView headername, headeremail , showspeed;
     boolean flag = false;
     private GoogleMap mMap;
     LocationManager locationManager;
     LocationListener locationListener;
+    ProgressDialog progressDialog;
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
@@ -85,6 +93,8 @@ public class home extends AppCompatActivity implements OnMapReadyCallback, Navig
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         setupLayout();
+
+
         //fragmentManager = getSupportFragmentManager();
 
     }
@@ -158,9 +168,41 @@ public class home extends AppCompatActivity implements OnMapReadyCallback, Navig
             public void onLocationChanged(Location location) {
 
                 Log.i("loaction" , location.toString() );
+                mMap.clear();
+                //progressDialog.dismiss();
                 LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
                 mMap.addMarker(new MarkerOptions().position(sydney).title("You are here"));
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15), 3000, null);
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15.0f) );
+                Geocoder geocoder = new Geocoder( getApplicationContext() , Locale.getDefault() );
+                try {
+                    List<Address > listAddress = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                    if( listAddress != null && listAddress.size() > 0 )
+                    {
+                        showspeed = findViewById( R.id.show_speed );
+                        String address = "";
+
+                        Log.i("Address" , listAddress.get(0).toString() );
+                        if( listAddress.get(0).getLocality() != null )
+                        {
+                            address  += listAddress.get(0).getLocality();
+
+                        }
+                        if( listAddress.get(0).getSubAdminArea() != null )
+                        {
+                            address += ", ";
+                            address += listAddress.get(0).getSubAdminArea();
+                        }
+                        if( listAddress.get(0).getAdminArea() != null )
+                        {
+                            address += ", ";
+                            address += listAddress.get(0).getAdminArea();
+                        }
+                        showspeed.setText(address);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
 
             @Override
@@ -214,5 +256,11 @@ public class home extends AppCompatActivity implements OnMapReadyCallback, Navig
         headername.setText("Mahmudul Hasan Labib");
         headeremail = headerView.findViewById( R.id.person_email );
         headeremail.setText("mahmudul-xx-xxxx@diu.edu.bd");
+    }
+    public  void startProgress()
+    {
+        progressDialog = new ProgressDialog( home.this );
+        progressDialog.show();
+        progressDialog.setContentView( R.layout.progress_dialog);
     }
 }

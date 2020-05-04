@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lt\\values-lt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mahmu\\.gradle\\caches\\transforms-2\\files-2.1\\4a5c0ba8c2b2947ea228407dc3bb089d\\jetified-play-services-base-15.0.1\\res\\values-lt\\values.xml",
+                    "source": "C:\\Users\\mahmu\\.gradle\\caches\\transforms-2\\files-2.1\\d810550874c071a7f5afc391a91fdc61\\jetified-play-services-base-17.0.0\\res\\values-lt\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\mahmu\\.gradle\\caches\\transforms-2\\files-2.1\\765af06b11750110a5a98d34659b8df7\\jetified-play-services-basement-15.0.1\\res\\values-lt\\values.xml",
+                    "source": "C:\\Users\\mahmu\\.gradle\\caches\\transforms-2\\files-2.1\\5feaec8abf5f0f657ccb7d51c61164e6\\jetified-play-services-basement-17.0.0\\res\\values-lt\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
