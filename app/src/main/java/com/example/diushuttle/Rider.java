@@ -35,6 +35,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 import java.util.Locale;
@@ -134,7 +135,8 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
         }
         else if( menuItem.getItemId() == R.id.nav_logout )
         {
-            Intent intent = new Intent( this , MainActivity.class );
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent( this , UserSelection.class );
             startActivity( intent );
             finish();
         }

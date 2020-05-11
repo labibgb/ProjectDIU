@@ -15,12 +15,13 @@ public class user_registration extends AppCompatActivity {
     {
         EditText editText = findViewById(R.id.reg_email);
         String email = editText.getText().toString();
-        editText.setText("");
         boolean isOk = mailValidation( email );
         if ( isOk == true ){
 
             Intent intent = new Intent( this , user_reg_complete.class );
+            intent.putExtra("email", email);
             startActivity( intent );
+            finish();
         }
         else{
 

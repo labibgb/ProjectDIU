@@ -1,30 +1,32 @@
 package com.example.diushuttle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import  android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
-    public void loginFunction( View view )
-    {
-        EditText email = findViewById( R.id.email);
-        EditText password = findViewById( R.id.password );
-        Log.i( "email" , email.getText().toString() );
-        Log.i( "Password" , password.getText().toString() );
-        Toast.makeText( this , "Hey " + email.getText().toString(),  Toast.LENGTH_LONG).show();
-        openHome();
-    }
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthListener;
+    Button login;
     public void signupFunction( View view )
     {
         Intent intent = new Intent( this , user_registration.class );
         startActivity( intent );
-        Toast.makeText(this, "Register Click" , Toast.LENGTH_LONG ).show();
     }
 
     public void forgetpassFunction( View view )
@@ -41,5 +43,53 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
+        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if( user != null )
+                {
+                    openHome();
+                    return;
+                }
+            }
+        };
+
+        login = findViewById( R.id.btn_login );
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText email = (EditText) findViewById( R.id.email);
+                EditText password = (EditText) findViewById( R.id.password );
+                String Email = email.getText().toString();
+                String Password = password.getText().toString();
+                if( Email.isEmpty() == true || Password.isEmpty() == true )
+                {
+                    Toast.makeText( MainActivity.this, "Please insert a valid email or password" , Toast.LENGTH_SHORT ).show();
+                    return;
+                }
+                mAuth.signInWithEmailAndPassword( Email , Password ).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if( !task.isSuccessful()) {
+                            Toast.makeText(MainActivity.this, "Email or Password doesn't match.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+            }
+        });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthListener);
     }
 }
