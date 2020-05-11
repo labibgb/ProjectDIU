@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.diushuttle">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -31,7 +30,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".UserSelection" android:theme="@style/AppTheme.NoActionBar"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -46,11 +45,11 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".fare_calculator"
             android:label="Fare"
-            android:parentActivityName=".home"
+            android:parentActivityName=".Rider"
             android:windowSoftInputMode="adjustPan" /> <!-- android:theme="@style/AppTheme.NoActionBar" -->
         <activity
             android:name=".user_reg_complete"
@@ -65,7 +64,7 @@
         <activity
             android:name=".user_profile"
             android:label="Profile"
-            android:parentActivityName=".home"
+            android:parentActivityName=".Rider"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".UpdatePassword"
@@ -82,7 +81,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home"
+            android:name=".Rider"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"

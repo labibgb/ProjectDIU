@@ -9,212 +9,286 @@
 8-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
 9-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml
-10
-11    <!--
-12         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-13         Google Maps Android API v2, but you must specify either coarse or fine
-14         location permissions for the 'MyLocation' functionality.
-15    -->
-16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-16-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:10:5-79
-16-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:10:22-76
-17    <uses-permission android:name="android.permission.INTERNET" />
-17-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:11:5-67
-17-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:11:22-64
-18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-18-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:12:5-81
-18-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:12:22-78
-19
-20    <uses-feature
-20-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:14:5-16:35
-21        android:name="android.hardware.sensor.accelerometer"
-21-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:15:9-61
-22        android:required="true" />
-22-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:16:9-32
-23    <uses-feature
-23-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:17:5-19:35
-24        android:name="android.hardware.sensor.compass"
-24-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:18:9-55
-25        android:required="true" />
-25-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:19:9-32
-26    <uses-feature
-26-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:14:5-16:35
-27        android:name="android.hardware.sensor.accelerometer"
-27-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:15:9-61
-28        android:required="true" />
-28-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:16:9-32
-29    <uses-feature
-29-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:23:5-25:35
-30        android:name="android.hardware.location.gps"
-30-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:24:9-53
-31        android:required="true" />
-31-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:25:9-32
-32
-33    <!-- Include required permissions for Google Maps API to run. -->
+10    <!--
+11         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+12         Google Maps Android API v2, but you must specify either coarse or fine
+13         location permissions for the 'MyLocation' functionality.
+14    -->
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:9:5-79
+15-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:9:22-76
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:10:5-67
+16-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:10:22-64
+17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+17-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:11:5-81
+17-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:11:22-78
+18
+19    <uses-feature
+19-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:13:5-15:35
+20        android:name="android.hardware.sensor.accelerometer"
+20-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:14:9-61
+21        android:required="true" />
+21-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:15:9-32
+22    <uses-feature
+22-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:16:5-18:35
+23        android:name="android.hardware.sensor.compass"
+23-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:17:9-55
+24        android:required="true" />
+24-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:18:9-32
+25    <uses-feature
+25-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:13:5-15:35
+26        android:name="android.hardware.sensor.accelerometer"
+26-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:14:9-61
+27        android:required="true" />
+27-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:15:9-32
+28    <uses-feature
+28-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:22:5-24:35
+29        android:name="android.hardware.location.gps"
+29-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:23:9-53
+30        android:required="true" />
+30-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:24:9-32
+31
+32    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+33    <!-- <uses-sdk android:minSdkVersion="14"/> -->
 34    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-34-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\cad243eba5d5e9d30aead8f2caf75568\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
-34-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\cad243eba5d5e9d30aead8f2caf75568\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+34-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:25:5-79
+34-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:25:22-76
 35
 36    <uses-feature
-36-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\cad243eba5d5e9d30aead8f2caf75568\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+36-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
 37        android:glEsVersion="0x00020000"
-37-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\cad243eba5d5e9d30aead8f2caf75568\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+37-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
 38        android:required="true" />
-38-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\cad243eba5d5e9d30aead8f2caf75568\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+38-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 39
 40    <application
-40-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:27:5-96:19
+40-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:26:5-95:19
 41        android:allowBackup="true"
-41-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:28:9-35
+41-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:27:9-35
 42        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-42-->[androidx.core:core:1.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\34b4ab0d8b65ac74ddd00d45b26dd963\core-1.1.0\AndroidManifest.xml:24:18-86
+42-->[androidx.core:core:1.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\bcfc0b80df78591183083cc148e1cf2c\core-1.1.0\AndroidManifest.xml:24:18-86
 43        android:debuggable="true"
 44        android:icon="@drawable/logo"
-44-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:29:9-38
+44-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:28:9-38
 45        android:label="@string/app_name"
-45-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:30:9-41
+45-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:29:9-41
 46        android:roundIcon="@drawable/logo"
-46-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:31:9-43
+46-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:30:9-43
 47        android:supportsRtl="true"
-47-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:32:9-35
+47-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:31:9-35
 48        android:testOnly="true"
 49        android:theme="@style/AppTheme" >
-49-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:9-40
-50
-51        <!--
-52             The API key for Google Maps-based APIs is defined as a string resource.
-53             (See the file "res/values/google_maps_api.xml").
-54             Note that the API key is linked to the encryption key used to sign the APK.
-55             You need a different API key for each encryption key, including the release key that is used to
-56             sign the APK for publishing.
-57             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-58        -->
-59        <meta-data
-59-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:43:9-45:55
-60            android:name="com.google.android.geo.API_KEY"
-60-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:44:13-58
-61            android:value="@string/google_maps_key" />
-61-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:45:13-52
-62
-63        <activity
-63-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:47:9-49:68
-64            android:name="com.example.diushuttle.MapsActivity"
-64-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:48:13-41
-65            android:label="@string/title_activity_maps" />
-65-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:49:13-56
-66        <activity
-66-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:50:9-54:55
-67            android:name="com.example.diushuttle.fare_calculator"
-67-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:51:13-44
-68            android:label="Fare"
-68-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:52:13-33
-69            android:parentActivityName="com.example.diushuttle.home"
-69-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:53:13-47
-70            android:windowSoftInputMode="adjustPan" /> <!-- android:theme="@style/AppTheme.NoActionBar" -->
-70-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:54:13-52
-71        <activity
-71-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:55:9-59:55
-72            android:name="com.example.diushuttle.user_reg_complete"
-72-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:56:13-46
-73            android:label="Register"
-73-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:57:13-37
-74            android:parentActivityName="com.example.diushuttle.user_registration"
-74-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:58:13-60
-75            android:windowSoftInputMode="adjustPan" />
-75-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:59:13-52
-76        <activity
-76-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:60:9-64:55
-77            android:name="com.example.diushuttle.user_registration"
-77-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:61:13-46
-78            android:label="Register"
-78-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:62:13-37
-79            android:parentActivityName="com.example.diushuttle.MainActivity"
-79-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:63:13-55
-80            android:windowSoftInputMode="adjustPan" />
-80-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:64:13-52
-81        <activity
-81-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:65:9-69:55
-82            android:name="com.example.diushuttle.user_profile"
-82-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:66:13-41
-83            android:label="Profile"
-83-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:67:13-36
-84            android:parentActivityName="com.example.diushuttle.home"
-84-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:68:13-47
-85            android:windowSoftInputMode="adjustPan" />
-85-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:69:13-52
-86        <activity
-86-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:70:9-74:55
-87            android:name="com.example.diushuttle.UpdatePassword"
-87-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:71:13-43
-88            android:label="Change Password"
-88-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:72:13-44
-89            android:parentActivityName="com.example.diushuttle.user_profile"
-89-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:73:13-55
-90            android:windowSoftInputMode="adjustPan" />
-90-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:74:13-52
-91        <activity
-91-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:75:9-83:20
-92            android:name="com.example.diushuttle.splash"
-92-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:76:13-35
-93            android:theme="@style/AppTheme.NoActionBar" >
-93-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:77:13-56
-94            <intent-filter>
-94-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:78:13-82:29
-95                <action android:name="android.intent.action.MAIN" />
-95-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:79:17-69
-95-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:79:25-66
-96
-97                <category android:name="android.intent.category.LAUNCHER" />
-97-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:81:17-77
-97-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:81:27-74
-98            </intent-filter>
-99        </activity>
-100        <activity
-100-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:84:9-86:59
-101            android:name="com.example.diushuttle.home"
-101-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:85:13-33
-102            android:theme="@style/AppTheme.NoActionBar" />
-102-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:86:13-56
-103        <activity
-103-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:87:9-91:55
-104            android:name="com.example.diushuttle.MainActivity"
-104-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:88:13-41
-105            android:label="Login"
-105-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:89:13-34
-106            android:theme="@style/AppTheme.NoActionBar"
-106-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:90:13-56
-107            android:windowSoftInputMode="adjustPan" />
-107-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:91:13-52
-108
-109        <meta-data
-109-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:93:9-95:57
-110            android:name="preloaded_fonts"
-110-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:94:13-43
-111            android:resource="@array/preloaded_fonts" />
-111-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:95:13-54
-112        <!-- Needs to be explicitly declared on P+ -->
-113        <uses-library
-113-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\cad243eba5d5e9d30aead8f2caf75568\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
-114            android:name="org.apache.http.legacy"
-114-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\cad243eba5d5e9d30aead8f2caf75568\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
-115            android:required="false" />
-115-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\cad243eba5d5e9d30aead8f2caf75568\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
-116
-117        <activity
-117-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\d810550874c071a7f5afc391a91fdc61\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-118            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-118-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\d810550874c071a7f5afc391a91fdc61\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-119            android:exported="false"
-119-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\d810550874c071a7f5afc391a91fdc61\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-120            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-120-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\d810550874c071a7f5afc391a91fdc61\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-121
-122        <meta-data
-122-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5feaec8abf5f0f657ccb7d51c61164e6\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-123            android:name="com.google.android.gms.version"
-123-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5feaec8abf5f0f657ccb7d51c61164e6\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-124            android:value="@integer/google_play_services_version" />
-124-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5feaec8abf5f0f657ccb7d51c61164e6\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-125    </application>
+49-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:32:9-40
+50        <activity
+50-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:9-104
+51            android:name="com.example.diushuttle.UserSelection"
+51-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:19-48
+52            android:theme="@style/AppTheme.NoActionBar" />
+52-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:49-92
+53        <!--
+54             The API key for Google Maps-based APIs is defined as a string resource.
+55             (See the file "res/values/google_maps_api.xml").
+56             Note that the API key is linked to the encryption key used to sign the APK.
+57             You need a different API key for each encryption key, including the release key that is used to
+58             sign the APK for publishing.
+59             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+60        -->
+61        <meta-data
+61-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:42:9-44:55
+62            android:name="com.google.android.geo.API_KEY"
+62-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:43:13-58
+63            android:value="@string/google_maps_key" />
+63-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:44:13-52
+64
+65        <activity
+65-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:46:9-48:59
+66            android:name="com.example.diushuttle.MapsActivity"
+66-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:47:13-41
+67            android:label="@string/title_activity_maps" />
+67-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:48:13-56
+68        <activity
+68-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:49:9-53:55
+69            android:name="com.example.diushuttle.fare_calculator"
+69-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:50:13-44
+70            android:label="Fare"
+70-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:51:13-33
+71            android:parentActivityName="com.example.diushuttle.Rider"
+71-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:52:13-48
+72            android:windowSoftInputMode="adjustPan" /> <!-- android:theme="@style/AppTheme.NoActionBar" -->
+72-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:53:13-52
+73        <activity
+73-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:54:9-58:55
+74            android:name="com.example.diushuttle.user_reg_complete"
+74-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:55:13-46
+75            android:label="Register"
+75-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:56:13-37
+76            android:parentActivityName="com.example.diushuttle.user_registration"
+76-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:57:13-60
+77            android:windowSoftInputMode="adjustPan" />
+77-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:58:13-52
+78        <activity
+78-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:59:9-63:55
+79            android:name="com.example.diushuttle.user_registration"
+79-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:60:13-46
+80            android:label="Register"
+80-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:61:13-37
+81            android:parentActivityName="com.example.diushuttle.MainActivity"
+81-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:62:13-55
+82            android:windowSoftInputMode="adjustPan" />
+82-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:63:13-52
+83        <activity
+83-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:64:9-68:55
+84            android:name="com.example.diushuttle.user_profile"
+84-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:65:13-41
+85            android:label="Profile"
+85-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:66:13-36
+86            android:parentActivityName="com.example.diushuttle.Rider"
+86-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:67:13-48
+87            android:windowSoftInputMode="adjustPan" />
+87-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:68:13-52
+88        <activity
+88-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:69:9-73:55
+89            android:name="com.example.diushuttle.UpdatePassword"
+89-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:70:13-43
+90            android:label="Change Password"
+90-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:71:13-44
+91            android:parentActivityName="com.example.diushuttle.user_profile"
+91-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:72:13-55
+92            android:windowSoftInputMode="adjustPan" />
+92-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:73:13-52
+93        <activity
+93-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:74:9-82:20
+94            android:name="com.example.diushuttle.splash"
+94-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:75:13-35
+95            android:theme="@style/AppTheme.NoActionBar" >
+95-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:76:13-56
+96            <intent-filter>
+96-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:77:13-81:29
+97                <action android:name="android.intent.action.MAIN" />
+97-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:78:17-69
+97-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:78:25-66
+98
+99                <category android:name="android.intent.category.LAUNCHER" />
+99-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:80:17-77
+99-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:80:27-74
+100            </intent-filter>
+101        </activity>
+102        <activity
+102-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:83:9-85:59
+103            android:name="com.example.diushuttle.Rider"
+103-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:84:13-34
+104            android:theme="@style/AppTheme.NoActionBar" />
+104-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:85:13-56
+105        <activity
+105-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:86:9-90:55
+106            android:name="com.example.diushuttle.MainActivity"
+106-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:87:13-41
+107            android:label="Login"
+107-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:88:13-34
+108            android:theme="@style/AppTheme.NoActionBar"
+108-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:89:13-56
+109            android:windowSoftInputMode="adjustPan" />
+109-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:90:13-52
+110
+111        <meta-data
+111-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:92:9-94:57
+112            android:name="preloaded_fonts"
+112-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:93:13-43
+113            android:resource="@array/preloaded_fonts" />
+113-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:94:13-54
+114
+115        <service
+115-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:29:9-35:19
+116            android:name="com.google.firebase.components.ComponentDiscoveryService"
+116-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:30:13-84
+117            android:directBootAware="true"
+117-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
+118            android:exported="false" >
+118-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:31:13-37
+119            <meta-data
+119-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:32:13-34:85
+120                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+120-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:33:17-109
+121                android:value="com.google.firebase.components.ComponentRegistrar" />
+121-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:34:17-82
+122            <meta-data
+122-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:36:13-38:85
+123                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+123-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:37:17-109
+124                android:value="com.google.firebase.components.ComponentRegistrar" />
+124-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:38:17-82
+125        </service>
 126
-127</manifest>
+127        <activity
+127-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:24:9-31:50
+128            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+128-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:25:13-85
+129            android:excludeFromRecents="true"
+129-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:26:13-46
+130            android:exported="true"
+130-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:27:13-36
+131            android:launchMode="singleTask"
+131-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:28:13-44
+132            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+132-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:29:13-102
+133            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+133-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:30:13-72
+134        <activity
+134-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:23:9-27:75
+135            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+135-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:24:13-93
+136            android:excludeFromRecents="true"
+136-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:25:13-46
+137            android:exported="false"
+137-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:26:13-37
+138            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+138-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:27:13-72
+139        <!--
+140            Service handling Google Sign-In user revocation. For apps that do not integrate with
+141            Google Sign-In, this service will never be started.
+142        -->
+143        <service
+143-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:33:9-36:110
+144            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+144-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:34:13-89
+145            android:exported="true"
+145-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:35:13-36
+146            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
+146-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:36:13-107
+147        <uses-library
+147-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+148            android:name="org.apache.http.legacy"
+148-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+149            android:required="false" />
+149-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+150
+151        <activity
+151-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+152            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+152-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+153            android:exported="false"
+153-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+154            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+154-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+155
+156        <provider
+156-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+157            android:name="com.google.firebase.provider.FirebaseInitProvider"
+157-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+158            android:authorities="com.example.diushuttle.firebaseinitprovider"
+158-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+159            android:exported="false"
+159-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+160            android:initOrder="100" />
+160-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+161
+162        <meta-data
+162-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5651dba254cf8fbf19521c2cfe936503\jetified-play-services-basement-17.1.1\AndroidManifest.xml:23:9-25:69
+163            android:name="com.google.android.gms.version"
+163-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5651dba254cf8fbf19521c2cfe936503\jetified-play-services-basement-17.1.1\AndroidManifest.xml:24:13-58
+164            android:value="@integer/google_play_services_version" />
+164-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5651dba254cf8fbf19521c2cfe936503\jetified-play-services-basement-17.1.1\AndroidManifest.xml:25:13-66
+165    </application>
+166
+167</manifest>

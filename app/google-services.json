@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "377004686457",
+    "firebase_url": "https://diushuttle.firebaseio.com",
+    "project_id": "diushuttle",
+    "storage_bucket": "diushuttle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377004686457:android:6e9ce4e1bbf061b40ae8a8",
+        "android_client_info": {
+          "package_name": "com.example.diushuttle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377004686457-8il9uipfo7lqklg2bvai2spufhfm0u29.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.diushuttle",
+            "certificate_hash": "1b7327572468d6d1d1e5baa5b3183acf0da06384"
+          }
+        },
+        {
+          "client_id": "377004686457-57sru5ossbh69ucljcvgg74uf28vhig9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFhS6OIHmhPWtvj7cSOBsRecHOB4hp4ck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377004686457-57sru5ossbh69ucljcvgg74uf28vhig9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
