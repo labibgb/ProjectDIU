@@ -59,7 +59,21 @@ public class user_reg_complete extends AppCompatActivity {
                 }
                 else
                 {
-                    completereg();
+                    mAuth.createUserWithEmailAndPassword( email, password ).addOnCompleteListener(user_reg_complete.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if( !task.isSuccessful()) {
+                                Toast.makeText(user_reg_complete.this, "Somethings went wrong.", Toast.LENGTH_LONG).show();
+                            }
+                            else
+                            {
+                                String user_id = mAuth.getCurrentUser().getUid();
+                                DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Rider").child(user_id);
+                                current_user_db.setValue(true);
+                            }
+                        }
+                    });
                     return;
                 }
             }
@@ -90,24 +104,6 @@ public class user_reg_complete extends AppCompatActivity {
     public void showerror()
     {
         Toast.makeText(this, "Please insert a valid password" , Toast.LENGTH_LONG ).show();
-    }
-    public void completereg()
-    {
-        mAuth.createUserWithEmailAndPassword( email, password ).addOnCompleteListener(user_reg_complete.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                if( !task.isSuccessful()) {
-                    Toast.makeText(user_reg_complete.this, "Somethings went wrong.", Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    String user_id = mAuth.getCurrentUser().getUid();
-                    DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Rider").child(user_id);
-                    current_user_db.setValue(true);
-                }
-            }
-        });
     }
 
     @Override

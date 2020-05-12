@@ -1,14 +1,15 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-97:12
-INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-97:12
-INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-97:12
-INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-97:12
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-98:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\6029c1862846be4a7ec1743d4d20ec64\material-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\6c5a1a33c151bf1b1b969a4997bc8337\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\923cd97b32caebf2e6b5629d421a10e9\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\eea79921d0082cd3162f25540a57b311\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\fc5ce96d0556e9e525188cc47c233aa7\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4b3b0678bb0b14985322d4d5fda6cfa7\jetified-geofire-android-3.0.0\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:17:1-39:12
@@ -58,20 +59,20 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\mahmu\.gradle\caches
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\744e890fd9c2229fd55f0f204e895827\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\98d089a38742e126ed8a316c84c1a52b\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\ab934f928bf51d43ca6d564e84d9eda0\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-97:12
-INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-97:12
-INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-97:12
+INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-98:12
 	package
 		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-97:12
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-98:12
 		INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-97:12
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-98:12
 		INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:2:11-69
@@ -81,6 +82,8 @@ ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:
 		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:9:22-76
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:10:5-67
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4b3b0678bb0b14985322d4d5fda6cfa7\jetified-geofire-android-3.0.0\AndroidManifest.xml:11:5-67
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4b3b0678bb0b14985322d4d5fda6cfa7\jetified-geofire-android-3.0.0\AndroidManifest.xml:11:5-67
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
@@ -110,7 +113,7 @@ ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:
 	android:name
 		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:23:9-53
 application
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:26:5-95:19
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:26:5-96:19
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\6029c1862846be4a7ec1743d4d20ec64\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\6029c1862846be4a7ec1743d4d20ec64\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\eea79921d0082cd3162f25540a57b311\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
@@ -157,112 +160,118 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ma
 		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:27:9-35
 	android:theme
 		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:32:9-40
+activity#com.example.diushuttle.DriverMap
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:9-100
+	android:theme
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:45-88
+	android:name
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:19-44
+activity#com.example.diushuttle.DriverLogin
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:34:9-93
+	android:theme
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:34:47-90
+	android:name
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:34:19-46
 activity#com.example.diushuttle.UserSelection
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:9-104
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:35:9-37:59
 	android:theme
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:49-92
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:37:13-56
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:19-48
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:36:13-42
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:42:9-44:55
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:46:9-48:55
 	android:value
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:44:13-52
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:48:13-52
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:43:13-58
-activity#com.example.diushuttle.MapsActivity
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:46:9-48:59
-	android:label
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:48:13-56
-	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:47:13-41
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:47:13-58
 activity#com.example.diushuttle.fare_calculator
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:49:9-53:55
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:50:9-54:55
 	android:parentActivityName
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:52:13-48
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:53:13-48
 	android:label
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:51:13-33
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:52:13-33
 	android:windowSoftInputMode
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:53:13-52
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:54:13-52
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:50:13-44
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:51:13-44
 activity#com.example.diushuttle.user_reg_complete
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:54:9-58:55
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:55:9-59:55
 	android:parentActivityName
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:57:13-60
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:58:13-60
 	android:label
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:56:13-37
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:57:13-37
 	android:windowSoftInputMode
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:58:13-52
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:59:13-52
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:55:13-46
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:56:13-46
 activity#com.example.diushuttle.user_registration
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:59:9-63:55
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:60:9-64:55
 	android:parentActivityName
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:62:13-55
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:63:13-55
 	android:label
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:61:13-37
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:62:13-37
 	android:windowSoftInputMode
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:63:13-52
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:64:13-52
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:60:13-46
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:61:13-46
 activity#com.example.diushuttle.user_profile
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:64:9-68:55
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:65:9-69:55
 	android:parentActivityName
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:67:13-48
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:68:13-48
 	android:label
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:66:13-36
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:67:13-36
 	android:windowSoftInputMode
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:68:13-52
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:69:13-52
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:65:13-41
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:66:13-41
 activity#com.example.diushuttle.UpdatePassword
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:69:9-73:55
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:70:9-74:55
 	android:parentActivityName
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:72:13-55
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:73:13-55
 	android:label
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:71:13-44
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:72:13-44
 	android:windowSoftInputMode
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:73:13-52
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:74:13-52
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:70:13-43
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:71:13-43
 activity#com.example.diushuttle.splash
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:74:9-82:20
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:75:9-83:20
 	android:theme
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:76:13-56
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:77:13-56
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:75:13-35
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:76:13-35
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:77:13-81:29
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:78:13-82:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:78:17-69
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:79:17-69
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:78:25-66
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:79:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:80:17-77
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:81:17-77
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:80:27-74
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:81:27-74
 activity#com.example.diushuttle.Rider
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:83:9-85:59
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:84:9-86:59
 	android:theme
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:85:13-56
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:86:13-56
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:84:13-34
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:85:13-34
 activity#com.example.diushuttle.MainActivity
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:86:9-90:55
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:87:9-91:55
 	android:label
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:88:13-34
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:89:13-34
 	android:windowSoftInputMode
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:90:13-52
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:91:13-52
 	android:theme
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:89:13-56
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:90:13-56
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:87:13-41
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:88:13-41
 meta-data#preloaded_fonts
-ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:92:9-94:57
+ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:93:9-95:57
 	android:resource
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:94:13-54
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:95:13-54
 	android:name
-		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:93:13-43
+		ADDED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:94:13-43
 uses-sdk
 INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml
@@ -277,6 +286,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\mahmu\.g
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\eea79921d0082cd3162f25540a57b311\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\fc5ce96d0556e9e525188cc47c233aa7\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\fc5ce96d0556e9e525188cc47c233aa7\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4b3b0678bb0b14985322d4d5fda6cfa7\jetified-geofire-android-3.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4b3b0678bb0b14985322d4d5fda6cfa7\jetified-geofire-android-3.0.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:21:5-44

@@ -30,6 +30,8 @@ public class UserSelection extends AppCompatActivity {
     }
     public void  openDriver()
     {
-
+        Intent intent = new Intent( this , DriverLogin.class );
+        startActivity( intent );
+        finish();
     }
 }

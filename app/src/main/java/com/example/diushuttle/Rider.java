@@ -28,6 +28,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.firebase.geofire.GeoFire;
+import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -36,6 +38,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 import java.util.Locale;
@@ -55,9 +59,11 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
     TextView headername, headeremail , showspeed, showlocation;
     boolean flag = false;
     private GoogleMap mMap;
+    Location lastlocation;
     LocationManager locationManager;
     LocationListener locationListener;
     ProgressDialog progressDialog;
+    boolean isLogout = false;
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
@@ -81,7 +87,17 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
         setupLayout();
         startProgress();
         //fragmentManager = getSupportFragmentManager();
-
+        try {
+            String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            if( userid != null ) {
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("riderAvailable");
+                GeoFire geoFire = new GeoFire(ref);
+                geoFire.setLocation(userid, new GeoLocation(lastlocation.getLatitude(), lastlocation.getLongitude()));
+            }
+        }
+        catch ( Exception e ) {
+            e.printStackTrace();
+        }
     }
 
     ///Close Drawer after press the back button.
@@ -135,6 +151,8 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
         }
         else if( menuItem.getItemId() == R.id.nav_logout )
         {
+            isLogout = true;
+            disconnect();
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent( this , UserSelection.class );
             startActivity( intent );
@@ -148,17 +166,21 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
         mMap = googleMap;
 
         mMap.setMapType(MAP_TYPE_NORMAL);
+        mMap.setMyLocationEnabled(true);
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
 
                 Log.i("loaction" , location.toString() );
-                mMap.clear();
+                //mMap.clear();
+                lastlocation = location;
                 progressDialog.dismiss();
-                LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(sydney).title("You are here"));
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15.0f) );
+                LatLng mylocation = new LatLng(location.getLatitude(), location.getLongitude());
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+                //mMap.addMarker(new MarkerOptions().position(sydney).title("You are here"));
+                //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15.0f) );
                 Geocoder geocoder = new Geocoder( getApplicationContext() , Locale.getDefault() );
                 try {
                     List<Address > listAddress = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
@@ -184,6 +206,8 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
                 showspeed = findViewById(R.id.current_speed);
                 showspeed.setText( Integer.toString(intSpeed)+"Km/h" );
 
+
+                lastlocation = location;
 
             }
 
@@ -211,8 +235,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
         }
     }
 
-    public void setupLayout()
-    {
+    public void setupLayout() {
         ///Initialize navigation toolbar
         drawerLayout = (DrawerLayout) findViewById( R.id.drawer );
         toolbar = (Toolbar) findViewById( R.id.toolbar );
@@ -239,10 +262,29 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
         headeremail = headerView.findViewById( R.id.person_email );
         headeremail.setText("mahmudul-xx-xxxx@diu.edu.bd");
     }
-    public  void startProgress()
-    {
+    public  void startProgress() {
         progressDialog = new ProgressDialog( Rider.this );
         progressDialog.show();
         progressDialog.setContentView( R.layout.progress_dialog);
+    }
+    public void disconnect(){
+        try {
+            String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            if( userid != null ) {
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("riderAvailable");
+                GeoFire geoFire = new GeoFire(ref);
+                geoFire.removeLocation(userid);
+            }
+        }
+        catch ( Exception e ) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if( !isLogout)
+            disconnect();
+
     }
 }
