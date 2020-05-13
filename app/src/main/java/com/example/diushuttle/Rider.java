@@ -1,6 +1,7 @@
 package com.example.diushuttle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -26,10 +27,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
+import com.firebase.geofire.GeoQuery;
+import com.firebase.geofire.GeoQueryEventListener;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.internal.GoogleApiAvailabilityCache;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -38,6 +47,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -46,22 +56,24 @@ import java.util.Locale;
 
 import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL;
 
-public class Rider extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
+public class Rider extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener , com.google.android.gms.location.LocationListener {
 
     //Declare all the layout and View
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-    Menu menu;
+
     TextView headername, headeremail , showspeed, showlocation;
-    boolean flag = false;
+    Button mRequest;
     private GoogleMap mMap;
+    GoogleApiClient mGoogleApiClint;
     Location lastlocation;
+    LocationRequest mLocationRequest;
     LocationManager locationManager;
     LocationListener locationListener;
+
+    private LatLng pickupLocation;
     ProgressDialog progressDialog;
     boolean isLogout = false;
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -86,20 +98,70 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
         mapFragment.getMapAsync(this);
         setupLayout();
         startProgress();
-        //fragmentManager = getSupportFragmentManager();
-        try {
-            String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            if( userid != null ) {
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("riderAvailable");
-                GeoFire geoFire = new GeoFire(ref);
-                geoFire.setLocation(userid, new GeoLocation(lastlocation.getLatitude(), lastlocation.getLongitude()));
+        mRequest = findViewById(R.id.send_request);
+        mRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Store Rider Last Location.
+                if( !isLogout) {
+                    String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("riderAvailable");
+                    GeoFire geoFire = new GeoFire(ref);
+                    geoFire.setLocation(userid, new GeoLocation(lastlocation.getLatitude(), lastlocation.getLongitude()));
+                    pickupLocation = new LatLng(lastlocation.getLatitude(), lastlocation.getLongitude());
+                    mMap.addMarker(new MarkerOptions().position(pickupLocation).title("Pickup Here"));
+                    mRequest.setText("Please wait...");
+                    getClosestBus();
+                }
             }
-        }
-        catch ( Exception e ) {
-            e.printStackTrace();
-        }
+        });
     }
+    private int radius = 1;
+    private boolean driverFound = false;
+    private String driverAvailableID;
+    private void getClosestBus(){
+        DatabaseReference driverLocation = FirebaseDatabase.getInstance().getReference().child("driverAvailable");
+        GeoFire geoFire = new GeoFire(driverLocation);
+        GeoQuery geoQuery = geoFire.queryAtLocation( new GeoLocation(pickupLocation.latitude, pickupLocation.longitude), radius );
+        geoQuery.removeAllListeners();
+        geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
+            @Override
+            public void onKeyEntered(String key, GeoLocation location) {
+                driverFound = true;
+                driverAvailableID = key;
+            }
 
+            @Override
+            public void onKeyExited(String key) {
+
+            }
+
+            @Override
+            public void onKeyMoved(String key, GeoLocation location) {
+
+            }
+
+            @Override
+            public void onGeoQueryReady() {
+                if( !driverFound ){
+                    radius++;
+                    if( radius < 101 ) {
+                        getClosestBus();
+                    }
+                    else{
+                        radius = 1;
+                        geoQuery.removeAllListeners();
+                        mRequest.setText("no bus found, try again");
+                    }
+                }
+            }
+
+            @Override
+            public void onGeoQueryError(DatabaseError error) {
+
+            }
+        });
+    }
     ///Close Drawer after press the back button.
     @Override
     public void onBackPressed() {
@@ -164,77 +226,82 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        mMap.setMapType(MAP_TYPE_NORMAL);
+        buildGoogleApiClint();
         mMap.setMyLocationEnabled(true);
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
+        if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
-                Log.i("loaction" , location.toString() );
-                //mMap.clear();
-                lastlocation = location;
-                progressDialog.dismiss();
-                LatLng mylocation = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
-                //mMap.addMarker(new MarkerOptions().position(sydney).title("You are here"));
-                //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15.0f) );
-                Geocoder geocoder = new Geocoder( getApplicationContext() , Locale.getDefault() );
-                try {
-                    List<Address > listAddress = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    if( listAddress != null && listAddress.size() > 0 )
-                    {
-                        showlocation = findViewById( R.id.current_location_name );
-                        String address = "";
-
-                        Log.i("Address" , listAddress.get(0).toString() );
-                        if( listAddress.get(0).getFeatureName() != null )
-                        {
-                            address  += listAddress.get(0).getFeatureName();
-
-                        }
-                        showlocation.setText(address);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                double speed = location.getSpeed();
-                speed *= 3.6;
-                int intSpeed = (int)Math.ceil( speed );
-                showspeed = findViewById(R.id.current_speed);
-                showspeed.setText( Integer.toString(intSpeed)+"Km/h" );
-
-
-                lastlocation = location;
-
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
+            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
+        }
+    }
+    protected synchronized void buildGoogleApiClint() {
+        mGoogleApiClint = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+        mGoogleApiClint.connect();
+    }
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(1000);
+        mLocationRequest.setFastestInterval(1000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
             ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
         }
         else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClint, mLocationRequest, this);
         }
     }
 
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+        lastlocation = location;
+        progressDialog.dismiss();
+        LatLng mylocation = new LatLng(location.getLatitude(), location.getLongitude());
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+        //mMap.addMarker(new MarkerOptions().position(sydney).title("You are here"));
+        //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15.0f) );
+        Geocoder geocoder = new Geocoder( getApplicationContext() , Locale.getDefault() );
+        try {
+            List<Address > listAddress = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+            if( listAddress != null && listAddress.size() > 0 )
+            {
+                showlocation = findViewById( R.id.current_location_name );
+                String address = "";
+
+                Log.i("Address" , listAddress.get(0).toString() );
+                if( listAddress.get(0).getFeatureName() != null )
+                {
+                    address  += listAddress.get(0).getFeatureName();
+
+                }
+                showlocation.setText(address);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        double speed = location.getSpeed();
+        speed *= 3.6;
+        int intSpeed = (int)Math.ceil( speed );
+        showspeed = findViewById(R.id.current_speed);
+        showspeed.setText( Integer.toString(intSpeed)+"Km/h" );
+
+    }
     public void setupLayout() {
         ///Initialize navigation toolbar
         drawerLayout = (DrawerLayout) findViewById( R.id.drawer );
@@ -283,8 +350,6 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Navi
     @Override
     protected void onStop() {
         super.onStop();
-        if( !isLogout)
-            disconnect();
-
     }
+
 }

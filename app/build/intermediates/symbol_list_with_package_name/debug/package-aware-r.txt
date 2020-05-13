@@ -1598,6 +1598,7 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id complete_request
 id confirm_button
 id confirm_pass
 id container
@@ -1605,6 +1606,7 @@ id content
 id contentPanel
 id coordinator
 id current_location_name
+id current_request
 id current_speed
 id custom
 id customPanel
@@ -1627,6 +1629,7 @@ id drawer
 id driver
 id driver_email
 id driver_login
+id driver_logout
 id driver_password
 id drivermap
 id dropdown_menu
@@ -1790,6 +1793,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id send_request
 id shortcut
 id showCustom
 id showHome
@@ -2018,6 +2022,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu menu_driver
 menu menu_item
 mipmap ic_launcher
 mipmap ic_launcher_round

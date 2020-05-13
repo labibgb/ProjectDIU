@@ -3,6 +3,7 @@ package com.example.diushuttle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,9 +21,11 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
 
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     Button login;
+    ProgressDialog progressDialog;
     public void signupFunction( View view )
     {
         Intent intent = new Intent( this , user_registration.class );
@@ -43,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mAuth = FirebaseAuth.getInstance();
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if( user != null )
                 {
+                    progressDialog.dismiss();
                     openHome();
                     return;
                 }
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startProgress();
                 EditText email = (EditText) findViewById( R.id.email);
                 EditText password = (EditText) findViewById( R.id.password );
                 String Email = email.getText().toString();
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if( !task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "Email or Password doesn't match.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "Email or Password doesn't match.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -91,5 +95,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         mAuth.removeAuthStateListener(firebaseAuthListener);
+    }
+    public  void startProgress() {
+        progressDialog = new ProgressDialog( MainActivity.this );
+        progressDialog.show();
+        progressDialog.setContentView( R.layout.progress_dialog);
     }
 }

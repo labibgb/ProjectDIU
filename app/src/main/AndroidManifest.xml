@@ -17,9 +17,6 @@
         android:name="android.hardware.sensor.compass"
         android:required="true" />
     <uses-feature
-        android:name="android.hardware.sensor.accelerometer"
-        android:required="true" />
-    <uses-feature
         android:name="android.hardware.location.gps"
         android:required="true" />
 

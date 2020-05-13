@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:title="Current Request"
+            android:icon="@drawable/calculate_fare"
+            android:id="@+id/current_request"
+            />
+        <item
+            android:title="Complete Request"
+            android:icon="@drawable/route_map"
+            android:id="@+id/complete_request"
+            />
+        <item
+            android:title="Bus Stoppage"
+            android:icon="@drawable/bus_stops"
+            android:id="@+id/stoppages"
+            />
+    </group>
+
+
+    <item android:title="Account">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/userprofile"
+                    android:icon="@drawable/profile_icon"
+                    android:title="Profile" />
+                <item
+                    android:title="Notice Board"
+                    android:icon="@drawable/ic_notifications_black_24dp"
+                    android:id="@+id/notice"
+                    />
+                <item
+                    android:title="Bus Information"
+                    android:icon="@drawable/ic_info_black_24dp"
+                    android:id="@+id/businfo"
+                    />
+                <item
+                    android:title="Send Feedback"
+                    android:icon="@drawable/ic_send_black_24dp"
+                    android:id="@+id/feedback"
+                    />
+                <item
+                    android:id="@+id/driver_logout"
+                    android:icon="@drawable/ic_logout"
+                    android:title="Logout" />
+            </group>
+        </menu>
+    </item>
+
+
+</menu>

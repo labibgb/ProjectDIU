@@ -33,11 +33,6 @@
                         android:id="@+id/notice"
                         />
                     <item
-                        android:title="Bus Information"
-                        android:icon="@drawable/ic_info_black_24dp"
-                        android:id="@+id/businfo"
-                        />
-                    <item
                         android:title="Bus Reservation"
                         android:icon="@drawable/ic_assignment_turned_in_black_24dp"
                         android:id="@+id/reservation"

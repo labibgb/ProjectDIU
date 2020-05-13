@@ -1,6 +1,7 @@
 package com.example.diushuttle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -30,6 +31,10 @@ import android.widget.TextView;
 
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -46,7 +51,7 @@ import java.util.Locale;
 
 import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL;
 
-public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
+public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener , com.google.android.gms.location.LocationListener {
 
     //Declare all the layout and View
     DrawerLayout drawerLayout;
@@ -59,7 +64,9 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
     TextView headername, headeremail , showspeed, showlocation;
     boolean flag = false;
     private GoogleMap mMap;
+    GoogleApiClient mGoogleApiClint;
     Location lastlocation;
+    LocationRequest mLocationRequest;
     LocationManager locationManager;
     LocationListener locationListener;
     ProgressDialog progressDialog;
@@ -114,20 +121,16 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
             final Intent intent = new Intent( this , user_profile.class );
             startActivity( intent );
         }
-        else if( menuItem.getItemId() == R.id.fare )
+        else if( menuItem.getItemId() == R.id.current_request )
         {
             final Intent intent = new Intent( this , fare_calculator.class );
             startActivity( intent );
         }
-        else if( menuItem.getItemId() == R.id.routemap )
+        else if( menuItem.getItemId() == R.id.complete_request )
         {
 
         }
         else if( menuItem.getItemId() == R.id.businfo )
-        {
-
-        }
-        else if( menuItem.getItemId() == R.id.reservation )
         {
 
         }
@@ -139,7 +142,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
         {
 
         }
-        else if( menuItem.getItemId() == R.id.nav_logout )
+        else if( menuItem.getItemId() == R.id.driver_logout )
         {
             isLogout = true;
             disconnect();
@@ -154,83 +157,87 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        mMap.setMapType(MAP_TYPE_NORMAL);
+        buildGoogleApiClint();
         mMap.setMyLocationEnabled(true);
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
+        if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
-                Log.i("loaction" , location.toString() );
-                //mMap.clear();
-                lastlocation = location;
-                progressDialog.dismiss();
-                LatLng mylocation = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
-                //mMap.addMarker(new MarkerOptions().position(sydney).title("You are here"));
-                //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15.0f) );
-                Geocoder geocoder = new Geocoder( getApplicationContext() , Locale.getDefault() );
-                try {
-                    List<Address > listAddress = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    if( listAddress != null && listAddress.size() > 0 )
-                    {
-                        showlocation = findViewById( R.id.current_location_name );
-                        String address = "";
-
-                        Log.i("Address" , listAddress.get(0).toString() );
-                        if( listAddress.get(0).getFeatureName() != null )
-                        {
-                            address  += listAddress.get(0).getFeatureName();
-
-                        }
-                        showlocation.setText(address);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                double speed = location.getSpeed();
-                speed *= 3.6;
-                int intSpeed = (int)Math.ceil( speed );
-                showspeed = findViewById(R.id.current_speed);
-                showspeed.setText( Integer.toString(intSpeed)+"Km/h" );
-                try {
-                    String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    if( userid != null ) {
-                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driverAvailable");
-                        GeoFire geoFire = new GeoFire(ref);
-                        geoFire.setLocation(userid, new GeoLocation(location.getLatitude(), location.getLongitude()));
-                    }
-                }
-                catch ( Exception e ) {
-                    e.printStackTrace();
-                }
-
-
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
+            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
+        }
+    }
+    protected synchronized void buildGoogleApiClint() {
+        mGoogleApiClint = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+        mGoogleApiClint.connect();
+    }
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(1000);
+        mLocationRequest.setFastestInterval(1000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
             ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
         }
         else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClint, mLocationRequest, this);
+        }
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+        lastlocation = location;
+        progressDialog.dismiss();
+        LatLng mylocation = new LatLng(location.getLatitude(), location.getLongitude());
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+        //mMap.addMarker(new MarkerOptions().position(sydney).title("You are here"));
+        //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15.0f) );
+        Geocoder geocoder = new Geocoder( getApplicationContext() , Locale.getDefault() );
+        try {
+            List<Address > listAddress = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+            if( listAddress != null && listAddress.size() > 0 )
+            {
+                showlocation = findViewById( R.id.current_location_name );
+                String address = "";
+
+                Log.i("Address" , listAddress.get(0).toString() );
+                if( listAddress.get(0).getFeatureName() != null )
+                {
+                    address  += listAddress.get(0).getFeatureName();
+
+                }
+                showlocation.setText(address);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        double speed = location.getSpeed();
+        speed *= 3.6;
+        int intSpeed = (int)Math.ceil( speed );
+        showspeed = findViewById(R.id.current_speed);
+        showspeed.setText( Integer.toString(intSpeed)+"Km/h" );
+
+        //Store Rider Last Location.
+        if( !isLogout ) {
+            String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driverAvailable");
+            GeoFire geoFire = new GeoFire(ref);
+            geoFire.setLocation(userid, new GeoLocation(lastlocation.getLatitude(), lastlocation.getLongitude()));
         }
     }
 
@@ -285,7 +292,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
     protected void onStop() {
         super.onStop();
         if( !isLogout )
-            disconnect();
+           disconnect();
 
     }
 }

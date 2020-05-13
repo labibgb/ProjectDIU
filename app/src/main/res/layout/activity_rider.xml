@@ -37,13 +37,22 @@
                     />
                 <TextView
                     android:id="@+id/current_location_name"
-                    android:layout_alignBottom="@+id/map"
+                    android:layout_above="@id/send_request"
                     android:layout_width="match_parent"
                     android:gravity="center"
                     android:background="@drawable/gardient_color"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:layout_height="60dp"/>
+                <Button
+                    android:id="@+id/send_request"
+                    android:layout_alignBottom="@+id/map"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:background="@color/button"
+                    android:text="Get the bus"
+                    android:textColor="@color/colorText"/>
                 <TextView
                     android:id="@+id/current_speed"
                     android:layout_alignTop="@+id/map"

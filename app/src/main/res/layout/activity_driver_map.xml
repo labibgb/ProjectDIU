@@ -10,7 +10,6 @@
     tools:openDrawer="end"
     >
 
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
         android:layout_width="280dp"
@@ -21,7 +20,7 @@
         app:itemTextColor="@color/colorText"
         app:itemHorizontalPadding="10dp"
         app:itemIconTint="@color/colorText"
-        app:menu="@menu/menu_item" />
+        app:menu="@menu/menu_driver" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
