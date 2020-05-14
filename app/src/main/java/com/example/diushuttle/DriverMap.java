@@ -145,7 +145,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
         else if( menuItem.getItemId() == R.id.driver_logout )
         {
             isLogout = true;
-            disconnect();
+            //disconnect();
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent( this , UserSelection.class );
             startActivity( intent );
@@ -228,7 +228,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
         }
         double speed = location.getSpeed();
         speed *= 3.6;
-        int intSpeed = (int)Math.ceil( speed );
+        int intSpeed = (int)Math.floor( speed );
         showspeed = findViewById(R.id.current_speed);
         showspeed.setText( Integer.toString(intSpeed)+"Km/h" );
 
@@ -291,8 +291,8 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
     @Override
     protected void onStop() {
         super.onStop();
-        if( !isLogout )
-           disconnect();
+        //if( !isLogout )
+           //disconnect();
 
     }
 }

@@ -44,13 +44,17 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -127,8 +131,21 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
             @Override
             public void onKeyEntered(String key, GeoLocation location) {
-                driverFound = true;
-                driverAvailableID = key;
+                if( !driverFound ) {
+                    driverFound = true;
+                    driverAvailableID = key;
+                    String customerId = FirebaseAuth.getInstance().getUid();
+                    DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
+                            .child(driverAvailableID)
+                            .child("customerRiderId").child(customerId);
+
+                    driverref.setValue(true);
+                    //HashMap hashMap = new HashMap();
+                    //hashMap.put("customerRiderId" , customerId );
+                    //driverref.updateChildren( hashMap );
+                    getDriverLocation();
+                    mRequest.setText("Looking for bus location");
+                }
             }
 
             @Override
@@ -152,12 +169,44 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                         radius = 1;
                         geoQuery.removeAllListeners();
                         mRequest.setText("no bus found, try again");
+                        return;
                     }
                 }
             }
 
             @Override
             public void onGeoQueryError(DatabaseError error) {
+
+            }
+        });
+    }
+    private Marker mDriverMarker;
+    private void getDriverLocation(){
+        DatabaseReference driverLocationref = FirebaseDatabase.getInstance().getReference().child("driverAvailable").child(driverAvailableID).child("l");
+        driverLocationref.addValueEventListener(new ValueEventListener(){
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if( dataSnapshot.exists() ){
+                    List<Object> map = (List<Object>) dataSnapshot.getValue();
+                    double lat = 0;
+                    double lng = 0;
+                    if( map.get( 0 ) != null ){
+                        lat = Double.parseDouble( map.get(0).toString() );
+                    }
+                    if( map.get( 1 ) != null ){
+                        lng = Double.parseDouble( map.get(1).toString() );
+                    }
+                    LatLng driverLatlng = new LatLng(lat, lng );
+                    if( mDriverMarker != null ){
+                        mDriverMarker.remove();
+                    }
+                    mDriverMarker = mMap.addMarker(new MarkerOptions().position(driverLatlng).title("Your bus is here"));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
@@ -223,6 +272,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         return true;
     }
 
+    ///Map Services
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -297,7 +347,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         }
         double speed = location.getSpeed();
         speed *= 3.6;
-        int intSpeed = (int)Math.ceil( speed );
+        int intSpeed = (int)Math.floor( speed );
         showspeed = findViewById(R.id.current_speed);
         showspeed.setText( Integer.toString(intSpeed)+"Km/h" );
 
@@ -351,5 +401,6 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     protected void onStop() {
         super.onStop();
     }
+
 
 }
