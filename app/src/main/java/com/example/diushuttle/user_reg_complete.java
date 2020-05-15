@@ -3,6 +3,7 @@ package com.example.diushuttle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,15 +16,27 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 public class user_reg_complete extends AppCompatActivity {
 
+    public  class User{
+        public String firstName, lastName, email, password;
+        public  User(){}
+        User( String firstName, String lastName, String email , String password ){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.password = password;
+        }
+    }
     private  EditText fname , lname , npass, cpass;
     private String firstName, lastName, email, password;
     private Button button;
+    ProgressDialog progressDialog;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
@@ -42,6 +55,7 @@ public class user_reg_complete extends AppCompatActivity {
 
                 if( user != null )
                 {
+                    progressDialog.dismiss();
                     Intent intent = new Intent( user_reg_complete.this , Rider.class );
                     startActivity( intent );
                     finish();
@@ -52,8 +66,10 @@ public class user_reg_complete extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startProgress();
                 if( getdata() == false )
                 {
+                    progressDialog.dismiss();
                     showerror();
                     return;
                 }
@@ -64,13 +80,27 @@ public class user_reg_complete extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if( !task.isSuccessful()) {
-                                Toast.makeText(user_reg_complete.this, "Somethings went wrong.", Toast.LENGTH_LONG).show();
+                                progressDialog.dismiss();
+                                try {
+                                   throw task.getException();
+                                }
+                                catch (FirebaseAuthWeakPasswordException weakPassword) {
+                                    Toast.makeText(user_reg_complete.this, "Password is too small.", Toast.LENGTH_SHORT).show();
+                                }
+                                catch (FirebaseAuthUserCollisionException existEmail){
+                                    Toast.makeText(user_reg_complete.this, "This email already exits.", Toast.LENGTH_SHORT).show();
+                                }
+                                catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
                             }
                             else
                             {
+                                User insertUser = new User( firstName , lastName , email, password );
                                 String user_id = mAuth.getCurrentUser().getUid();
                                 DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Rider").child(user_id);
-                                current_user_db.setValue(true);
+                                current_user_db.setValue(insertUser);
                             }
                         }
                     });
@@ -116,5 +146,10 @@ public class user_reg_complete extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         mAuth.removeAuthStateListener(firebaseAuthListener);
+    }
+    public  void startProgress() {
+        progressDialog = new ProgressDialog( user_reg_complete.this );
+        progressDialog.show();
+        progressDialog.setContentView( R.layout.progress_dialog);
     }
 }

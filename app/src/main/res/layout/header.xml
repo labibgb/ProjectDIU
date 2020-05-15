@@ -32,7 +32,6 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:gravity="left"
-            android:text="Paul Pial"
             android:textColor="@color/colorText"
             android:textSize="20dp" />
         <TextView
@@ -43,7 +42,6 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:gravity="left"
-            android:text="example@diu.edu.bd"
             android:textColor="@color/colorText"
             android:textSize="12sp" />
     </RelativeLayout>

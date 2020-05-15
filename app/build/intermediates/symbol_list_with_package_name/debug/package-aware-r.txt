@@ -1407,6 +1407,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable bus_icon
+drawable bus_icon1
 drawable bus_stops
 drawable button_round
 drawable calculate_fare
@@ -1488,6 +1490,9 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable person_point
+drawable pin_point
+drawable pin_point1
 drawable profile_icon
 drawable route_map
 drawable routemap

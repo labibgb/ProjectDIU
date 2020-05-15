@@ -180,8 +180,16 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_notifications_black_24dp.xml"
     },
     {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_person_point.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\drawable\\person_point.png"
+    },
+    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_profile_icon.png.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\profile_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pin_point1.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\drawable\\pin_point1.png"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
@@ -396,6 +404,10 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bus_icon1.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\drawable\\bus_icon1.png"
+    },
+    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\anim_mytranstion.xml.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\anim\\mytranstion.xml"
     },
@@ -408,12 +420,20 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pin_point.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\drawable\\pin_point.png"
+    },
+    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_profile_icon.png.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\profile_icon.png"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_home_content.xml.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\home_content.xml"
+    },
+    {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bus_icon.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\drawable\\bus_icon.png"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\font_gilroy.ttf.flat",

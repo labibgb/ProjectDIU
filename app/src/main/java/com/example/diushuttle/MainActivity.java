@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     Button login;
     ProgressDialog progressDialog;
+
     public void signupFunction( View view )
     {
         Intent intent = new Intent( this , user_registration.class );
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 String Password = password.getText().toString();
                 if( Email.isEmpty() == true || Password.isEmpty() == true )
                 {
+
                     Toast.makeText( MainActivity.this, "Please insert a valid email or password" , Toast.LENGTH_SHORT ).show();
                     return;
                 }
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if( !task.isSuccessful()) {
+                            progressDialog.dismiss();
                             Toast.makeText(MainActivity.this, "Email or Password doesn't match.", Toast.LENGTH_SHORT).show();
                         }
                     }

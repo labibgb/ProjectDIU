@@ -17,6 +17,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -31,6 +33,8 @@ import android.widget.TextView;
 
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
+import com.firebase.geofire.GeoQuery;
+import com.firebase.geofire.GeoQueryEventListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
@@ -39,13 +43,18 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -97,6 +106,66 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
 
     }
 
+    //Driver request list
+    List< Marker > markerList = new ArrayList<Marker>();
+    private void riderRequest(){
+        if( isLogout ){
+            return;
+        }
+        String driverId = FirebaseAuth.getInstance().getUid();
+        DatabaseReference allDrivers = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(driverId).child("customerRiderId");
+        GeoFire geoFire = new GeoFire( allDrivers );
+        GeoQuery geoQuery = geoFire.queryAtLocation( new GeoLocation( lastlocation.getLatitude(), lastlocation.getLongitude()), 5000 );
+        geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
+            @Override
+            public void onKeyEntered(String key, GeoLocation location) {
+                for( Marker marker : markerList ){
+                    if( marker.getTag().equals(key)){
+                        return;
+                    }
+                }
+                LatLng driverLocation = new LatLng( location.latitude , location.longitude );
+                int height = 75;
+                int width = 75;
+                Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.person_point);
+                Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+                BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
+                Marker mDriverMarker = mMap.addMarker( new MarkerOptions().position( driverLocation ).icon(smallMarkerIcon) );
+                mDriverMarker.setTag(key);
+                markerList.add(mDriverMarker);
+            }
+
+            @Override
+            public void onKeyExited(String key) {
+                for( Marker marker : markerList ){
+                    if( marker.getTag().equals(key)){
+                        marker.remove();
+                        markerList.remove(marker);
+                        return;
+                    }
+                }
+            }
+
+            @Override
+            public void onKeyMoved(String key, GeoLocation location) {
+                for (Marker marker : markerList) {
+                    if (marker.getTag().equals(key)) {
+                        marker.setPosition(new LatLng(location.latitude, location.longitude));
+                    }
+                }
+            }
+            @Override
+            public void onGeoQueryReady() {
+
+            }
+
+            @Override
+            public void onGeoQueryError(DatabaseError error) {
+
+            }
+        });
+
+    }
     ///Close Drawer after press the back button.
     @Override
     public void onBackPressed() {
@@ -201,6 +270,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
     public void onLocationChanged(Location location) {
 
         lastlocation = location;
+        riderRequest();
         progressDialog.dismiss();
         LatLng mylocation = new LatLng(location.getLatitude(), location.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLng(mylocation));

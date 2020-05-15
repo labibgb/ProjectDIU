@@ -17,6 +17,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -43,6 +46,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -54,6 +59,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -61,6 +67,7 @@ import java.util.Locale;
 import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL;
 
 public class Rider extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener , com.google.android.gms.location.LocationListener {
+
 
     //Declare all the layout and View
     DrawerLayout drawerLayout;
@@ -76,7 +83,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     LocationRequest mLocationRequest;
     LocationManager locationManager;
     LocationListener locationListener;
-
+    private boolean afterBusFound = false;
     private LatLng pickupLocation;
     ProgressDialog progressDialog;
     boolean isLogout = false;
@@ -113,7 +120,12 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                     GeoFire geoFire = new GeoFire(ref);
                     geoFire.setLocation(userid, new GeoLocation(lastlocation.getLatitude(), lastlocation.getLongitude()));
                     pickupLocation = new LatLng(lastlocation.getLatitude(), lastlocation.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(pickupLocation).title("Pickup Here"));
+                    int height = 150;
+                    int width = 150;
+                    Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.pin_point1);
+                    Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+                    BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
+                    mMap.addMarker(new MarkerOptions().position(pickupLocation).icon( smallMarkerIcon ));
                     mRequest.setText("Please wait...");
                     getClosestBus();
                 }
@@ -137,14 +149,14 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                     String customerId = FirebaseAuth.getInstance().getUid();
                     DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
                             .child(driverAvailableID)
-                            .child("customerRiderId").child(customerId);
-
-                    driverref.setValue(true);
+                            .child("customerRiderId");
+                    GeoFire userGeo = new GeoFire(  driverref );
+                    userGeo.setLocation(customerId, new GeoLocation(pickupLocation.latitude, pickupLocation.longitude));
                     //HashMap hashMap = new HashMap();
                     //hashMap.put("customerRiderId" , customerId );
                     //driverref.updateChildren( hashMap );
                     getDriverLocation();
-                    mRequest.setText("Looking for bus location");
+                    mRequest.setText("Looking for bus");
                 }
             }
 
@@ -182,12 +194,12 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     }
     private Marker mDriverMarker;
     private void getDriverLocation(){
-        DatabaseReference driverLocationref = FirebaseDatabase.getInstance().getReference().child("driverAvailable").child(driverAvailableID).child("l");
+        DatabaseReference driverLocationref = FirebaseDatabase.getInstance().getReference().child("driverAcceptRequest").child(driverAvailableID).child("l");
         driverLocationref.addValueEventListener(new ValueEventListener(){
-
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if( dataSnapshot.exists() ){
+                    afterBusFound = true;
                     List<Object> map = (List<Object>) dataSnapshot.getValue();
                     double lat = 0;
                     double lng = 0;
@@ -201,7 +213,12 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                     if( mDriverMarker != null ){
                         mDriverMarker.remove();
                     }
-                    mDriverMarker = mMap.addMarker(new MarkerOptions().position(driverLatlng).title("Your bus is here"));
+                    int height = 75;
+                    int width = 75;
+                    Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.bus_icon1);
+                    Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+                    BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
+                    mDriverMarker = mMap.addMarker(new MarkerOptions().position(driverLatlng).title("Your bus is here").icon( smallMarkerIcon ));
                 }
             }
 
@@ -210,6 +227,61 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
 
             }
         });
+    }
+    List< Marker > markerList = new ArrayList<Marker>();
+    private void driverAroundMe(){
+        DatabaseReference allDrivers = FirebaseDatabase.getInstance().getReference().child("driverAvailable");
+        GeoFire geoFire = new GeoFire( allDrivers );
+        GeoQuery geoQuery = geoFire.queryAtLocation( new GeoLocation( lastlocation.getLatitude(), lastlocation.getLongitude()), 5000 );
+        geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
+            @Override
+            public void onKeyEntered(String key, GeoLocation location) {
+                for( Marker marker : markerList ){
+                    if( marker.getTag().equals(key)){
+                        return;
+                    }
+                }
+                LatLng driverLocation = new LatLng( location.latitude , location.longitude );
+                int height = 75;
+                int width = 75;
+                Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.bus_icon1);
+                Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+                BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
+                Marker mDriverMarker = mMap.addMarker( new MarkerOptions().position( driverLocation ).icon(smallMarkerIcon) );
+                mDriverMarker.setTag(key);
+                markerList.add(mDriverMarker);
+            }
+
+            @Override
+            public void onKeyExited(String key) {
+                for( Marker marker : markerList ){
+                    if( marker.getTag().equals(key)){
+                        marker.remove();
+                        markerList.remove(marker);
+                        return;
+                    }
+                }
+            }
+
+            @Override
+            public void onKeyMoved(String key, GeoLocation location) {
+                for (Marker marker : markerList) {
+                    if (marker.getTag().equals(key)) {
+                        marker.setPosition(new LatLng(location.latitude, location.longitude));
+                    }
+                }
+            }
+            @Override
+            public void onGeoQueryReady() {
+
+            }
+
+            @Override
+            public void onGeoQueryError(DatabaseError error) {
+
+            }
+        });
+
     }
     ///Close Drawer after press the back button.
     @Override
@@ -320,6 +392,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     public void onLocationChanged(Location location) {
 
         lastlocation = location;
+        driverAroundMe();
         progressDialog.dismiss();
         LatLng mylocation = new LatLng(location.getLatitude(), location.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
@@ -375,9 +448,39 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         //Show header data from profile database
         View headerView = navigationView.getHeaderView(0);
         headername = headerView.findViewById( R.id.person_name);
-        headername.setText("Mahmudul Hasan Labib");
+
         headeremail = headerView.findViewById( R.id.person_email );
-        headeremail.setText("mahmudul-xx-xxxx@diu.edu.bd");
+        String customerId = FirebaseAuth.getInstance().getUid();
+        DatabaseReference userInfo = FirebaseDatabase.getInstance().getReference().child("Users").child("Rider").child(customerId);
+
+        userInfo.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if( dataSnapshot.exists() ){
+                    HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                    String firstName = "", lastName = "", uemail = "";
+                    if( dataMap.get("firstName") != null ){
+                        firstName = dataMap.get("firstName").toString();
+                    }
+                    if( dataMap.get("lastName") != null ){
+                        lastName = dataMap.get("lastName").toString();
+                    }
+                    if( dataMap.get("email") != null ){
+                        uemail = dataMap.get("email").toString();
+                    }
+                    headername.setText( firstName + " " + lastName );
+                    headeremail.setText(uemail);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
     public  void startProgress() {
         progressDialog = new ProgressDialog( Rider.this );
@@ -396,6 +499,10 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         catch ( Exception e ) {
             e.printStackTrace();
         }
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
     @Override
     protected void onStop() {
