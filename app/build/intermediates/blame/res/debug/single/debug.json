@@ -352,6 +352,10 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\profile_icon.png"
     },
     {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_bus_stoppage.xml.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_bus_stoppage.xml"
+    },
+    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_send_black_24dp.png.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_send_black_24dp.png"
     },

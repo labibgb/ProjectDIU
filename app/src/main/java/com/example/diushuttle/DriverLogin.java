@@ -3,6 +3,7 @@ package com.example.diushuttle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,7 @@ public class DriverLogin extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     EditText email , password;
     Button mLogin;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,7 @@ public class DriverLogin extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if( user != null )
                 {
+                    progressDialog.dismiss();
                     openHome();
                     return;
                 }
@@ -53,11 +56,12 @@ public class DriverLogin extends AppCompatActivity {
                     Toast.makeText( DriverLogin.this, "Please insert a valid email or password" , Toast.LENGTH_SHORT ).show();
                     return;
                 }
+                startProgress();
                 mAuth.signInWithEmailAndPassword( Email , Password ).addOnCompleteListener(DriverLogin.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if( !task.isSuccessful()) {
-
+                            progressDialog.dismiss();
                             mAuth.createUserWithEmailAndPassword( Email, Password ).addOnCompleteListener(DriverLogin.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -65,8 +69,8 @@ public class DriverLogin extends AppCompatActivity {
                                     if( !task.isSuccessful()) {
                                         Toast.makeText(DriverLogin.this, "Somethings went wrong.", Toast.LENGTH_SHORT).show();
                                     }
-                                    else
-                                    {
+                                    else {
+
                                         String user_id = mAuth.getCurrentUser().getUid();
                                         DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(user_id);
                                         current_user_db.setValue(true);
@@ -96,5 +100,10 @@ public class DriverLogin extends AppCompatActivity {
         Intent intent = new Intent( this , DriverMap.class );
         startActivity( intent );
         finish();
+    }
+    public  void startProgress() {
+        progressDialog = new ProgressDialog( DriverLogin.this );
+        progressDialog.show();
+        progressDialog.setContentView( R.layout.progress_dialog);
     }
 }

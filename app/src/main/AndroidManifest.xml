@@ -27,8 +27,16 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DriverMap" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".DriverLogin" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".BusStoppage"
+            android:parentActivityName=".Rider"
+            android:label="Bus Stoppage"
+            />
+        <activity
+            android:name=".DriverMap"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DriverLogin"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UserSelection"
             android:theme="@style/AppTheme.NoActionBar" />

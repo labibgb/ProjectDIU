@@ -45,6 +45,10 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.example.diushuttle.BusStoppage"
+            android:label="Bus Stoppage"
+            android:parentActivityName="com.example.diushuttle.Rider" />
+        <activity
             android:name="com.example.diushuttle.DriverMap"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

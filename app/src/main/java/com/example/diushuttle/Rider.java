@@ -87,6 +87,9 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     private LatLng pickupLocation;
     ProgressDialog progressDialog;
     boolean isLogout = false;
+    private boolean isRequest = false;
+    private int radius = 1;
+    SupportMapFragment mapFragment;
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
@@ -95,7 +98,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
 
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+                    mapFragment.getMapAsync(Rider.this);
                 }
             }
         }
@@ -105,8 +108,15 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rider);
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
+
+            ActivityCompat.requestPermissions( Rider.this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
+        }
+        else{
+            mapFragment.getMapAsync(this);
+        }
+
         setupLayout();
         startProgress();
         mRequest = findViewById(R.id.send_request);
@@ -127,12 +137,13 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                     BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
                     mMap.addMarker(new MarkerOptions().position(pickupLocation).icon( smallMarkerIcon ));
                     mRequest.setText("Please wait...");
+                    radius = 1;
                     getClosestBus();
                 }
             }
         });
     }
-    private int radius = 1;
+
     private boolean driverFound = false;
     private String driverAvailableID;
     private void getClosestBus(){
@@ -194,6 +205,15 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     }
     private Marker mDriverMarker;
     private void getDriverLocation(){
+        if(isRequest){
+            mRequest.setText("Get the bus");
+            isRequest = false;
+            if( !isLogout ){
+                removeRider();
+            }
+            return;
+        }
+        isRequest = true;
         DatabaseReference driverLocationref = FirebaseDatabase.getInstance().getReference().child("driverAcceptRequest").child(driverAvailableID).child("l");
         driverLocationref.addValueEventListener(new ValueEventListener(){
             @Override
@@ -212,6 +232,24 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                     LatLng driverLatlng = new LatLng(lat, lng );
                     if( mDriverMarker != null ){
                         mDriverMarker.remove();
+                    }
+                    if( !isLogout ){
+                        disconnect();
+                    }
+
+                    Location lo1 = new Location("");
+                    Location lo2 = new Location("");
+                    lo1.setLatitude(pickupLocation.latitude);
+                    lo1.setLongitude(pickupLocation.latitude);
+
+                    lo2.setLatitude(lat);
+                    lo2.setLongitude(lng);
+                    double distance = lo1.distanceTo(lo2);
+                    if( distance < 100 ){
+                        mRequest.setText("Bus's here");
+                    }
+                    else{
+                        mRequest.setText("Bus found, please wait...");
                     }
                     int height = 75;
                     int width = 75;
@@ -236,6 +274,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
             @Override
             public void onKeyEntered(String key, GeoLocation location) {
+                if( afterBusFound ) return;
                 for( Marker marker : markerList ){
                     if( marker.getTag().equals(key)){
                         return;
@@ -254,6 +293,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
 
             @Override
             public void onKeyExited(String key) {
+                if( afterBusFound ) return;
                 for( Marker marker : markerList ){
                     if( marker.getTag().equals(key)){
                         marker.remove();
@@ -265,6 +305,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
 
             @Override
             public void onKeyMoved(String key, GeoLocation location) {
+                if( afterBusFound ) return;
                 for (Marker marker : markerList) {
                     if (marker.getTag().equals(key)) {
                         marker.setPosition(new LatLng(location.latitude, location.longitude));
@@ -316,9 +357,10 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         {
 
         }
-        else if( menuItem.getItemId() == R.id.businfo )
+        else if( menuItem.getItemId() == R.id.stoppages )
         {
-
+            final Intent intent = new Intent( this , BusStoppage.class );
+            startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.reservation )
         {
@@ -336,6 +378,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         {
             isLogout = true;
             disconnect();
+            removeRider();
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent( this , UserSelection.class );
             startActivity( intent );
@@ -348,12 +391,14 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        buildGoogleApiClint();
-        mMap.setMyLocationEnabled(true);
+
         if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
-            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
+            ActivityCompat.requestPermissions( Rider.this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
         }
+        buildGoogleApiClint();
+        mMap.setMyLocationEnabled(true);
+
     }
     protected synchronized void buildGoogleApiClint() {
         mGoogleApiClint = new GoogleApiClient.Builder(this)
@@ -371,11 +416,12 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
-            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
+            ActivityCompat.requestPermissions( Rider.this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
         }
-        else {
-            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClint, mLocationRequest, this);
+        else{
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClint , mLocationRequest , this );
         }
+
     }
 
     @Override
@@ -494,11 +540,28 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("riderAvailable");
                 GeoFire geoFire = new GeoFire(ref);
                 geoFire.removeLocation(userid);
+
             }
         }
         catch ( Exception e ) {
             e.printStackTrace();
         }
+    }
+    public void removeRider() {
+        try {
+            String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
+                    .child(driverAvailableID)
+                    .child("customerRiderId");
+            GeoFire geoFire1 = new GeoFire(driverref);
+            geoFire1.removeLocation(userid);
+            driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(driverAvailableID);
+            driverref.setValue(true);
+        }
+        catch ( Exception e ){
+
+        }
+
     }
     @Override
     protected void onStart() {

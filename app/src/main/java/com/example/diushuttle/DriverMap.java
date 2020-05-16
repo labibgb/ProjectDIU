@@ -79,6 +79,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
     LocationManager locationManager;
     LocationListener locationListener;
     ProgressDialog progressDialog;
+    SupportMapFragment mapFragment;
     boolean isLogout = false;
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -88,7 +89,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
 
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+                    mapFragment.getMapAsync(DriverMap.this);
                 }
             }
         }
@@ -98,8 +99,14 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_map);
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.drivermap);
-        mapFragment.getMapAsync(this);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.drivermap);
+        if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
+
+            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
+        }
+        else{
+            mapFragment.getMapAsync(this);
+        }
         setupLayout();
         startProgress();
         //fragmentManager = getSupportFragmentManager();
@@ -131,8 +138,18 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
                 Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
                 BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
                 Marker mDriverMarker = mMap.addMarker( new MarkerOptions().position( driverLocation ).icon(smallMarkerIcon) );
-                mDriverMarker.setTag(key);
-                markerList.add(mDriverMarker);
+
+                if( markerList.size() < 36 ) {
+                    if( !isLogout ) {
+                        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driverAcceptRequest");
+                        GeoFire geoFire = new GeoFire(ref);
+                        geoFire.setLocation(userid, new GeoLocation(lastlocation.getLatitude(), lastlocation.getLongitude()));
+                    }
+                    mDriverMarker.setTag(key);
+                    markerList.add(mDriverMarker);
+                }
+
             }
 
             @Override
@@ -214,7 +231,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
         else if( menuItem.getItemId() == R.id.driver_logout )
         {
             isLogout = true;
-            //disconnect();
+            disconnect();
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent( this , UserSelection.class );
             startActivity( intent );
@@ -226,12 +243,13 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        buildGoogleApiClint();
-        mMap.setMyLocationEnabled(true);
+
         if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
-            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
+            ActivityCompat.requestPermissions( DriverMap.this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
         }
+        buildGoogleApiClint();
+        mMap.setMyLocationEnabled(true);
     }
     protected synchronized void buildGoogleApiClint() {
         mGoogleApiClint = new GoogleApiClient.Builder(this)
@@ -249,7 +267,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
-            ActivityCompat.requestPermissions( this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
+            ActivityCompat.requestPermissions( DriverMap.this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION} , 1 );
         }
         else {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClint, mLocationRequest, this);
@@ -303,7 +321,11 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
         showspeed.setText( Integer.toString(intSpeed)+"Km/h" );
 
         //Store Rider Last Location.
-        if( !isLogout ) {
+        //System.out.println("Marker list " + markerList.size());
+        if( !isLogout && markerList.size() == 36 ){
+            disconnect();
+        }
+        if( !isLogout && markerList.size() < 36 ) {
             String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driverAvailable");
             GeoFire geoFire = new GeoFire(ref);
@@ -346,17 +368,12 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
 
     public  void disconnect()
     {
-        try {
             String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             if( userid != null ) {
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driverAvailable");
                 GeoFire geoFire = new GeoFire(ref);
                 geoFire.removeLocation(userid);
             }
-        }
-        catch ( Exception e ) {
-            e.printStackTrace();
-        }
     }
     @Override
     protected void onStop() {

@@ -46,7 +46,7 @@ public class user_profile extends AppCompatActivity {
     }
     private  static TextView updatePasswor;
     public  static FragmentManager fragmentManager;
-    TextView name , email;
+    TextView name , email, fixedEmail;
     EditText fname, lname;
     private Button button;
     @Override
@@ -84,7 +84,7 @@ public class user_profile extends AppCompatActivity {
         email = (TextView)findViewById(R.id.person_email);
         fname = (EditText)findViewById(R.id.fname);
         lname = (EditText)findViewById(R.id.lname);
-
+        fixedEmail = (TextView)findViewById(R.id.email);
         String customerId = FirebaseAuth.getInstance().getUid();
         DatabaseReference userInfo = FirebaseDatabase.getInstance().getReference().child("Users").child("Rider").child(customerId);
         userInfo.addValueEventListener(new ValueEventListener() {
@@ -107,6 +107,7 @@ public class user_profile extends AppCompatActivity {
                     fname.setText(firstName);
                     lname.setText(lastName);
                     email.setText(uemail);
+                    fixedEmail.setText(uemail);
 
                 }
             }
