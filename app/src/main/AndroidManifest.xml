@@ -27,10 +27,12 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BusStoppage"
-            android:parentActivityName=".Rider"
+        <activity android:name=".FeedBack"></activity>
+        <activity android:name=".NoticeBoard" />
+        <activity
+            android:name=".BusStoppage"
             android:label="Bus Stoppage"
-            />
+            android:parentActivityName=".Rider" />
         <activity
             android:name=".DriverMap"
             android:theme="@style/AppTheme.NoActionBar" />

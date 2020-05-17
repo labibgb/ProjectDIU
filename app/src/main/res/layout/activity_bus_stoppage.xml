@@ -7,11 +7,12 @@
     android:orientation="horizontal"
     android:background="@drawable/gardient_color"
     tools:context=".BusStoppage">
+
     <ListView
         android:id="@+id/bus_stops"
-        android:textColor="@color/colorText"
+        style="@android:style/Widget.DeviceDefault.Light.ExpandableListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:textColor="@color/colorText" />
 
 </LinearLayout>

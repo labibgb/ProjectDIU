@@ -199,34 +199,38 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
     ///Work some stuff with navigation menuItem
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
+        Bundle bundle = new Bundle();
+        bundle.putString("goto", "Driver");
         ///Close the drawer after select some item.
         drawerLayout.closeDrawer(GravityCompat.START);
         if( menuItem.getItemId() == R.id.userprofile )
         {
+
             final Intent intent = new Intent( this , user_profile.class );
+            intent.putExtras( bundle );
             startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.current_request )
         {
-            final Intent intent = new Intent( this , fare_calculator.class );
-            startActivity( intent );
+
         }
         else if( menuItem.getItemId() == R.id.complete_request )
         {
 
         }
-        else if( menuItem.getItemId() == R.id.businfo )
-        {
+        else if( menuItem.getItemId() == R.id.businfo ) {
 
         }
-        else if( menuItem.getItemId() == R.id.feedback )
-        {
+        else if( menuItem.getItemId() == R.id.feedback ) {
+            final Intent intent = new Intent( this , FeedBack.class );
+            intent.putExtras( bundle );
+            startActivity( intent );
 
         }
-        else if( menuItem.getItemId() == R.id.notice )
-        {
-
+        else if( menuItem.getItemId() == R.id.notice ) {
+            final Intent intent = new Intent( this , NoticeBoard.class );
+            intent.putExtras( bundle );
+            startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.driver_logout )
         {

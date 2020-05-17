@@ -3,6 +3,8 @@
     <string name="DrawOpen">DrawerOpen</string>
     <string name="DrawClose">DrawerClose</string>
     <string name="title_activity_maps">Map</string>
+    <string name="FareFrom">From</string>
+    <string name="FareTo">To</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -1496,6 +1496,8 @@ drawable pin_point1
 drawable profile_icon
 drawable route_map
 drawable routemap
+drawable spinner_dropdown
+drawable spinner_item
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1652,11 +1654,9 @@ id expand_activities_button
 id expanded_menu
 id fade
 id fare
-id fare_from
 id fare_liner
 id fare_result
 id fare_submit
-id fare_to
 id feedback
 id fill
 id fill_horizontal
@@ -1812,6 +1812,8 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spiner1
+id spiner2
 id split_action_bar
 id spread
 id spread_inside
@@ -1939,10 +1941,13 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_bus_stoppage
+layout activity_driver_bus_stoppage
 layout activity_driver_login
 layout activity_driver_map
 layout activity_fare_calculator
+layout activity_feed_back
 layout activity_main
+layout activity_notice_board
 layout activity_rider
 layout activity_splash
 layout activity_update_password
@@ -2016,6 +2021,8 @@ layout progress_dialog
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout style_listview
+layout style_spinner
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_design_checkbox
@@ -2036,6 +2043,8 @@ mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 string DrawClose
 string DrawOpen
+string FareFrom
+string FareTo
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

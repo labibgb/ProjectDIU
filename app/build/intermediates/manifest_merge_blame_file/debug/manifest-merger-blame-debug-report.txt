@@ -57,7 +57,7 @@
 35-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 36
 37    <application
-37-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:23:5-101:19
+37-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:23:5-103:19
 38        android:allowBackup="true"
 38-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:24:9-35
 39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -74,229 +74,235 @@
 45        android:testOnly="true"
 46        android:theme="@style/AppTheme" >
 46-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:29:9-40
-47        <activity
-47-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:30:9-33:15
-48            android:name="com.example.diushuttle.BusStoppage"
-48-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:30:19-46
-49            android:label="Bus Stoppage"
-49-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:32:13-41
-50            android:parentActivityName="com.example.diushuttle.Rider" />
-50-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:31:13-48
-51        <activity
-51-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:34:9-36:59
-52            android:name="com.example.diushuttle.DriverMap"
-52-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:35:13-38
-53            android:theme="@style/AppTheme.NoActionBar" />
-53-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:36:13-56
-54        <activity
-54-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:37:9-39:59
-55            android:name="com.example.diushuttle.DriverLogin"
-55-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:38:13-40
-56            android:theme="@style/AppTheme.NoActionBar" />
-56-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:39:13-56
-57        <activity
-57-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:40:9-42:59
-58            android:name="com.example.diushuttle.UserSelection"
-58-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:41:13-42
-59            android:theme="@style/AppTheme.NoActionBar" />
-59-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:42:13-56
-60        <!--
-61             The API key for Google Maps-based APIs is defined as a string resource.
-62             (See the file "res/values/google_maps_api.xml").
-63             Note that the API key is linked to the encryption key used to sign the APK.
-64             You need a different API key for each encryption key, including the release key that is used to
-65             sign the APK for publishing.
-66             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-67        -->
-68        <meta-data
-68-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:51:9-53:55
-69            android:name="com.google.android.geo.API_KEY"
-69-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:52:13-58
-70            android:value="@string/google_maps_key" />
-70-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:53:13-52
-71
-72        <activity
-72-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:55:9-59:55
-73            android:name="com.example.diushuttle.fare_calculator"
-73-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:56:13-44
-74            android:label="Fare"
-74-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:57:13-33
-75            android:parentActivityName="com.example.diushuttle.Rider"
-75-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:58:13-48
-76            android:windowSoftInputMode="adjustPan" /> <!-- android:theme="@style/AppTheme.NoActionBar" -->
-76-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:59:13-52
-77        <activity
-77-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:60:9-64:55
-78            android:name="com.example.diushuttle.user_reg_complete"
-78-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:61:13-46
-79            android:label="Register"
-79-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:62:13-37
-80            android:parentActivityName="com.example.diushuttle.user_registration"
-80-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:63:13-60
-81            android:windowSoftInputMode="adjustPan" />
-81-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:64:13-52
-82        <activity
-82-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:65:9-69:55
-83            android:name="com.example.diushuttle.user_registration"
-83-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:66:13-46
-84            android:label="Register"
-84-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:67:13-37
-85            android:parentActivityName="com.example.diushuttle.MainActivity"
-85-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:68:13-55
-86            android:windowSoftInputMode="adjustPan" />
-86-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:69:13-52
-87        <activity
-87-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:70:9-74:55
-88            android:name="com.example.diushuttle.user_profile"
-88-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:71:13-41
-89            android:label="Profile"
-89-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:72:13-36
-90            android:parentActivityName="com.example.diushuttle.Rider"
-90-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:73:13-48
-91            android:windowSoftInputMode="adjustPan" />
-91-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:74:13-52
-92        <activity
-92-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:75:9-79:55
-93            android:name="com.example.diushuttle.UpdatePassword"
-93-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:76:13-43
-94            android:label="Change Password"
-94-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:77:13-44
-95            android:parentActivityName="com.example.diushuttle.user_profile"
-95-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:78:13-55
-96            android:windowSoftInputMode="adjustPan" />
-96-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:79:13-52
-97        <activity
-97-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:80:9-88:20
-98            android:name="com.example.diushuttle.splash"
-98-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:81:13-35
-99            android:theme="@style/AppTheme.NoActionBar" >
-99-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:82:13-56
-100            <intent-filter>
-100-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:83:13-87:29
-101                <action android:name="android.intent.action.MAIN" />
-101-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:84:17-69
-101-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:84:25-66
-102
-103                <category android:name="android.intent.category.LAUNCHER" />
-103-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:86:17-77
-103-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:86:27-74
-104            </intent-filter>
-105        </activity>
-106        <activity
-106-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:89:9-91:59
-107            android:name="com.example.diushuttle.Rider"
-107-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:90:13-34
-108            android:theme="@style/AppTheme.NoActionBar" />
-108-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:91:13-56
-109        <activity
-109-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:92:9-96:55
-110            android:name="com.example.diushuttle.MainActivity"
-110-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:93:13-41
-111            android:label="Login"
-111-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:94:13-34
-112            android:theme="@style/AppTheme.NoActionBar"
-112-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:95:13-56
-113            android:windowSoftInputMode="adjustPan" />
-113-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:96:13-52
-114
-115        <meta-data
-115-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:98:9-100:57
-116            android:name="preloaded_fonts"
-116-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:99:13-43
-117            android:resource="@array/preloaded_fonts" />
-117-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:100:13-54
-118
-119        <service
-119-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:29:9-35:19
-120            android:name="com.google.firebase.components.ComponentDiscoveryService"
-120-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:30:13-84
-121            android:directBootAware="true"
-121-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
-122            android:exported="false" >
-122-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:31:13-37
-123            <meta-data
-123-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:32:13-34:85
-124                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-124-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:33:17-109
-125                android:value="com.google.firebase.components.ComponentRegistrar" />
-125-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:34:17-82
-126            <meta-data
-126-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:36:13-38:85
-127                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-127-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:37:17-109
-128                android:value="com.google.firebase.components.ComponentRegistrar" />
-128-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:38:17-82
-129        </service>
-130
-131        <activity
-131-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:24:9-31:50
-132            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
-132-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:25:13-85
-133            android:excludeFromRecents="true"
-133-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:26:13-46
-134            android:exported="true"
-134-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:27:13-36
-135            android:launchMode="singleTask"
-135-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:28:13-44
-136            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-136-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:29:13-102
-137            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-137-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:30:13-72
-138        <activity
-138-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:23:9-27:75
-139            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-139-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:24:13-93
-140            android:excludeFromRecents="true"
-140-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:25:13-46
-141            android:exported="false"
-141-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:26:13-37
-142            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-142-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:27:13-72
-143        <!--
-144            Service handling Google Sign-In user revocation. For apps that do not integrate with
-145            Google Sign-In, this service will never be started.
-146        -->
-147        <service
-147-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:33:9-36:110
-148            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-148-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:34:13-89
-149            android:exported="true"
-149-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:35:13-36
-150            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
-150-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:36:13-107
-151        <uses-library
-151-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
-152            android:name="org.apache.http.legacy"
-152-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
-153            android:required="false" />
-153-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
-154
-155        <activity
-155-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
-156            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-156-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
-157            android:exported="false"
-157-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
-158            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-158-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
-159
-160        <provider
-160-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
-161            android:name="com.google.firebase.provider.FirebaseInitProvider"
-161-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
-162            android:authorities="com.example.diushuttle.firebaseinitprovider"
-162-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
-163            android:exported="false"
-163-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
-164            android:initOrder="100" />
-164-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
-165
-166        <meta-data
-166-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5651dba254cf8fbf19521c2cfe936503\jetified-play-services-basement-17.1.1\AndroidManifest.xml:23:9-25:69
-167            android:name="com.google.android.gms.version"
-167-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5651dba254cf8fbf19521c2cfe936503\jetified-play-services-basement-17.1.1\AndroidManifest.xml:24:13-58
-168            android:value="@integer/google_play_services_version" />
-168-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5651dba254cf8fbf19521c2cfe936503\jetified-play-services-basement-17.1.1\AndroidManifest.xml:25:13-66
-169    </application>
-170
-171</manifest>
+47        <activity android:name="com.example.diushuttle.FeedBack" />
+47-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:30:9-55
+47-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:30:19-43
+48        <activity android:name="com.example.diushuttle.NoticeBoard" />
+48-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:31:9-49
+48-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:31:19-46
+49        <activity
+49-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:32:9-35:51
+50            android:name="com.example.diushuttle.BusStoppage"
+50-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:33:13-40
+51            android:label="Bus Stoppage"
+51-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:34:13-41
+52            android:parentActivityName="com.example.diushuttle.Rider" />
+52-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:35:13-48
+53        <activity
+53-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:36:9-38:59
+54            android:name="com.example.diushuttle.DriverMap"
+54-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:37:13-38
+55            android:theme="@style/AppTheme.NoActionBar" />
+55-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:38:13-56
+56        <activity
+56-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:39:9-41:59
+57            android:name="com.example.diushuttle.DriverLogin"
+57-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:40:13-40
+58            android:theme="@style/AppTheme.NoActionBar" />
+58-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:41:13-56
+59        <activity
+59-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:42:9-44:59
+60            android:name="com.example.diushuttle.UserSelection"
+60-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:43:13-42
+61            android:theme="@style/AppTheme.NoActionBar" />
+61-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:44:13-56
+62        <!--
+63             The API key for Google Maps-based APIs is defined as a string resource.
+64             (See the file "res/values/google_maps_api.xml").
+65             Note that the API key is linked to the encryption key used to sign the APK.
+66             You need a different API key for each encryption key, including the release key that is used to
+67             sign the APK for publishing.
+68             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+69        -->
+70        <meta-data
+70-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:53:9-55:55
+71            android:name="com.google.android.geo.API_KEY"
+71-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:54:13-58
+72            android:value="@string/google_maps_key" />
+72-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:55:13-52
+73
+74        <activity
+74-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:57:9-61:55
+75            android:name="com.example.diushuttle.fare_calculator"
+75-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:58:13-44
+76            android:label="Fare"
+76-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:59:13-33
+77            android:parentActivityName="com.example.diushuttle.Rider"
+77-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:60:13-48
+78            android:windowSoftInputMode="adjustPan" /> <!-- android:theme="@style/AppTheme.NoActionBar" -->
+78-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:61:13-52
+79        <activity
+79-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:62:9-66:55
+80            android:name="com.example.diushuttle.user_reg_complete"
+80-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:63:13-46
+81            android:label="Register"
+81-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:64:13-37
+82            android:parentActivityName="com.example.diushuttle.user_registration"
+82-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:65:13-60
+83            android:windowSoftInputMode="adjustPan" />
+83-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:66:13-52
+84        <activity
+84-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:67:9-71:55
+85            android:name="com.example.diushuttle.user_registration"
+85-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:68:13-46
+86            android:label="Register"
+86-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:69:13-37
+87            android:parentActivityName="com.example.diushuttle.MainActivity"
+87-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:70:13-55
+88            android:windowSoftInputMode="adjustPan" />
+88-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:71:13-52
+89        <activity
+89-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:72:9-76:55
+90            android:name="com.example.diushuttle.user_profile"
+90-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:73:13-41
+91            android:label="Profile"
+91-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:74:13-36
+92            android:parentActivityName="com.example.diushuttle.Rider"
+92-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:75:13-48
+93            android:windowSoftInputMode="adjustPan" />
+93-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:76:13-52
+94        <activity
+94-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:77:9-81:55
+95            android:name="com.example.diushuttle.UpdatePassword"
+95-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:78:13-43
+96            android:label="Change Password"
+96-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:79:13-44
+97            android:parentActivityName="com.example.diushuttle.user_profile"
+97-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:80:13-55
+98            android:windowSoftInputMode="adjustPan" />
+98-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:81:13-52
+99        <activity
+99-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:82:9-90:20
+100            android:name="com.example.diushuttle.splash"
+100-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:83:13-35
+101            android:theme="@style/AppTheme.NoActionBar" >
+101-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:84:13-56
+102            <intent-filter>
+102-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:85:13-89:29
+103                <action android:name="android.intent.action.MAIN" />
+103-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:86:17-69
+103-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:86:25-66
+104
+105                <category android:name="android.intent.category.LAUNCHER" />
+105-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:88:17-77
+105-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:88:27-74
+106            </intent-filter>
+107        </activity>
+108        <activity
+108-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:91:9-93:59
+109            android:name="com.example.diushuttle.Rider"
+109-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:92:13-34
+110            android:theme="@style/AppTheme.NoActionBar" />
+110-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:93:13-56
+111        <activity
+111-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:94:9-98:55
+112            android:name="com.example.diushuttle.MainActivity"
+112-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:95:13-41
+113            android:label="Login"
+113-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:96:13-34
+114            android:theme="@style/AppTheme.NoActionBar"
+114-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:97:13-56
+115            android:windowSoftInputMode="adjustPan" />
+115-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:98:13-52
+116
+117        <meta-data
+117-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:100:9-102:57
+118            android:name="preloaded_fonts"
+118-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:101:13-43
+119            android:resource="@array/preloaded_fonts" />
+119-->C:\Users\mahmu\Downloads\ProjectDIU\app\src\main\AndroidManifest.xml:102:13-54
+120
+121        <service
+121-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:29:9-35:19
+122            android:name="com.google.firebase.components.ComponentDiscoveryService"
+122-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:30:13-84
+123            android:directBootAware="true"
+123-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
+124            android:exported="false" >
+124-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:31:13-37
+125            <meta-data
+125-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:32:13-34:85
+126                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+126-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:33:17-109
+127                android:value="com.google.firebase.components.ComponentRegistrar" />
+127-->[com.google.firebase:firebase-database:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\a858482f0d85511048b88d680e761880\jetified-firebase-database-19.3.0\AndroidManifest.xml:34:17-82
+128            <meta-data
+128-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:36:13-38:85
+129                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+129-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:37:17-109
+130                android:value="com.google.firebase.components.ComponentRegistrar" />
+130-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:38:17-82
+131        </service>
+132
+133        <activity
+133-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:24:9-31:50
+134            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+134-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:25:13-85
+135            android:excludeFromRecents="true"
+135-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:26:13-46
+136            android:exported="true"
+136-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:27:13-36
+137            android:launchMode="singleTask"
+137-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:28:13-44
+138            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+138-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:29:13-102
+139            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+139-->[com.google.firebase:firebase-auth:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\4189c7719053123afa41922c68903b5b\jetified-firebase-auth-19.3.0\AndroidManifest.xml:30:13-72
+140        <activity
+140-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:23:9-27:75
+141            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+141-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:24:13-93
+142            android:excludeFromRecents="true"
+142-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:25:13-46
+143            android:exported="false"
+143-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:26:13-37
+144            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+144-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:27:13-72
+145        <!--
+146            Service handling Google Sign-In user revocation. For apps that do not integrate with
+147            Google Sign-In, this service will never be started.
+148        -->
+149        <service
+149-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:33:9-36:110
+150            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+150-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:34:13-89
+151            android:exported="true"
+151-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:35:13-36
+152            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
+152-->[com.google.android.gms:play-services-auth:18.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\715d3680c52f5e5fa6f70b390bbdc028\jetified-play-services-auth-18.0.0\AndroidManifest.xml:36:13-107
+153        <uses-library
+153-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+154            android:name="org.apache.http.legacy"
+154-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+155            android:required="false" />
+155-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+156
+157        <activity
+157-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+158            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+158-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+159            android:exported="false"
+159-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+160            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+160-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\75e7c473eccef2b3a0eec97fa3a7825b\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+161
+162        <provider
+162-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+163            android:name="com.google.firebase.provider.FirebaseInitProvider"
+163-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+164            android:authorities="com.example.diushuttle.firebaseinitprovider"
+164-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+165            android:exported="false"
+165-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+166            android:initOrder="100" />
+166-->[com.google.firebase:firebase-common:19.3.0] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\3deb10f8139ef5717b3d54ada2a19ca4\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+167
+168        <meta-data
+168-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5651dba254cf8fbf19521c2cfe936503\jetified-play-services-basement-17.1.1\AndroidManifest.xml:23:9-25:69
+169            android:name="com.google.android.gms.version"
+169-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5651dba254cf8fbf19521c2cfe936503\jetified-play-services-basement-17.1.1\AndroidManifest.xml:24:13-58
+170            android:value="@integer/google_play_services_version" />
+170-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\mahmu\.gradle\caches\transforms-2\files-2.1\5651dba254cf8fbf19521c2cfe936503\jetified-play-services-basement-17.1.1\AndroidManifest.xml:25:13-66
+171    </application>
+172
+173</manifest>

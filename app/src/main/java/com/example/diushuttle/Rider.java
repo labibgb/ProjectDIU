@@ -342,15 +342,20 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         ///Close the drawer after select some item.
+        Bundle bundle = new Bundle();
+        bundle.putString("goto", "Rider");
         drawerLayout.closeDrawer(GravityCompat.START);
         if( menuItem.getItemId() == R.id.userprofile )
         {
+
             final Intent intent = new Intent( this , user_profile.class );
+            intent.putExtras(bundle);
             startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.fare )
         {
             final Intent intent = new Intent( this , fare_calculator.class );
+            intent.putExtras(bundle);
             startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.routemap )
@@ -360,6 +365,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         else if( menuItem.getItemId() == R.id.stoppages )
         {
             final Intent intent = new Intent( this , BusStoppage.class );
+            intent.putExtras(bundle);
             startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.reservation )
@@ -368,11 +374,15 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         }
         else if( menuItem.getItemId() == R.id.feedback )
         {
-
+            final Intent intent = new Intent( this , FeedBack.class );
+            intent.putExtras(bundle);
+            startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.notice )
         {
-
+            final Intent intent = new Intent( this , NoticeBoard.class );
+            intent.putExtras(bundle);
+            startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.nav_logout )
         {
