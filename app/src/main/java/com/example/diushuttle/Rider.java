@@ -81,8 +81,6 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     GoogleApiClient mGoogleApiClint;
     Location lastlocation;
     LocationRequest mLocationRequest;
-    LocationManager locationManager;
-    LocationListener locationListener;
     private boolean afterBusFound = false;
     private LatLng pickupLocation;
     ProgressDialog progressDialog;

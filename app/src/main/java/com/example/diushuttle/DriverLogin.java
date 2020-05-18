@@ -11,6 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -18,6 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class DriverLogin extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -74,6 +85,14 @@ public class DriverLogin extends AppCompatActivity {
                                         String user_id = mAuth.getCurrentUser().getUid();
                                         DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(user_id);
                                         current_user_db.setValue(true);
+                                        JSONObject jsonObject = new JSONObject();
+                                        try {
+                                            jsonObject.put("username",email);
+                                            jsonObject.put("password",password );
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                        loginData( jsonObject );
                                     }
                                 }
                             });
@@ -105,5 +124,39 @@ public class DriverLogin extends AppCompatActivity {
         progressDialog = new ProgressDialog( DriverLogin.this );
         progressDialog.show();
         progressDialog.setContentView( R.layout.progress_dialog);
+    }
+    public  void loginData( JSONObject jsonObject ){
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final String url = "http://mytestservice.live:8080/api/login";
+
+        System.out.println( jsonObject );
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                jsonObject,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        String userId = mAuth.getCurrentUser().getUid();
+                        DatabaseReference token = FirebaseDatabase.getInstance().getReference().child("Token").child(userId);
+                        //token.setValue( response );
+                        HashMap map = new HashMap();
+                        try {
+                            map.put("Token", response.getString("jwt"));
+                            token.setValue(map);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        System.out.println("Response: " + response.toString());
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("some error");
+                    }
+                }
+        );
+        requestQueue.add(jsonObjectRequest);
     }
 }

@@ -27,36 +27,7 @@ public class splash extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.logo );
         Animation myanimation = AnimationUtils.loadAnimation(this, R.anim.mytranstion );
         image.startAnimation( myanimation );
-        final Intent[] intent = new Intent[1];
-        final boolean[] flag = {false};
-        final String userid;
-        if(FirebaseAuth.getInstance().getCurrentUser() != null ) {
-            userid = FirebaseAuth.getInstance().getUid();
-            DatabaseReference who = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(userid);
-            who.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if( dataSnapshot.exists() ){
-                        flag[0] = true;
-                    }
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
-            if( flag[0] == true ) {
-                intent[0] = new Intent(this, DriverMap.class);
-            }
-            else {
-                intent[0] = new Intent(this, Rider.class);
-            }
-        }
-        else {
-            intent[0] = new Intent(this, UserSelection.class);
-        }
         Thread timer = new Thread() {
             public  void  run()
             {
@@ -68,8 +39,37 @@ public class splash extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finally {
-                    startActivity(intent[0]);
-                    finish();
+                    String userid;
+                    if(FirebaseAuth.getInstance().getCurrentUser() != null ) {
+                        userid = FirebaseAuth.getInstance().getUid();
+                        DatabaseReference who = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(userid);
+                        who.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if( dataSnapshot.exists() ){
+                                    Intent intent = new Intent( splash.this , DriverMap.class );
+                                    startActivity( intent );
+                                    finish();
+                                }
+                                else {
+                                    Intent intent = new Intent( splash.this , Rider.class );
+                                    startActivity( intent );
+                                    finish();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                    }
+                    else {
+                        Intent intent = new Intent( splash.this , UserSelection.class );
+                        startActivity( intent );
+                        finish();
+                    }
                 }
             }
         };
