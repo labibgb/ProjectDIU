@@ -24,11 +24,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class fare_calculator extends AppCompatActivity {
 
@@ -70,8 +78,8 @@ public class fare_calculator extends AppCompatActivity {
         spinner2 = (Spinner) findViewById(R.id.spiner2);
         button = (Button) findViewById(R.id.fare_submit);
         fareResult = (TextView) findViewById(R.id.fare_result);
-        addItemSpinner();
-        addListenerOnItemSelection();
+        getToken();
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +95,29 @@ public class fare_calculator extends AppCompatActivity {
                 }
                 String res = Integer.toString( taka );
                 fareResult.setText(res+" tk");
+            }
+        });
+    }
+    private String token = null;
+    private void getToken(){
+        String customerId = FirebaseAuth.getInstance().getUid();
+        DatabaseReference findToken = FirebaseDatabase.getInstance().getReference().child("Token").child(customerId);
+        findToken.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if( dataSnapshot.exists() ) {
+                    HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                    if( dataMap.get("Token") != null ){
+                        token = "Bearer "+dataMap.get("Token").toString();
+                        addItemSpinner();
+                        addListenerOnItemSelection();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }
@@ -126,7 +157,15 @@ public class fare_calculator extends AppCompatActivity {
 
                     }
                 }
-        );
+        ){
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", token );
+                //  params.put("content-type", "application/json");
+                return params;
+            }
+        };
         requestQueue.add( jsonArrayRequest );
     }
     public void addListenerOnItemSelection(){

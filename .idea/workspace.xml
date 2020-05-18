@@ -18,16 +18,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61abcd2a-92cf-4662-8ca8-2dcb576c4052" name="Default Changelist" comment="First Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/BusStoppage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/BusStoppage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/DriverLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/DriverLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/DriverMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/DriverMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/Rider.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/Rider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/splash.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/splash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/user_reg_complete.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/diushuttle/user_reg_complete.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +25,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.1.100:5555" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />

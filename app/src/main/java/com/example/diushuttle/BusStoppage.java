@@ -82,7 +82,7 @@ public class BusStoppage extends AppCompatActivity {
                 if( dataSnapshot.exists() ) {
                     HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
                     if( dataMap.get("Token") != null ){
-                        token = "Bearer"+dataMap.get("Token").toString();
+                        token = "Bearer "+dataMap.get("Token").toString();
                         getStoppage();
                     }
                 }
