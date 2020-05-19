@@ -1,4 +1,4 @@
-#Tue May 19 17:14:30 BDT 2020
+#Tue May 19 23:36:52 BDT 2020
 base.0=C\:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

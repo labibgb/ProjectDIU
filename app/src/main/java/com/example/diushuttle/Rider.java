@@ -32,6 +32,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -171,6 +172,10 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                         if( mPickupMarker != null ){
                             mPickupMarker.remove();
                         }
+                        if (mDriverMarker != null) {
+                            mDriverMarker.remove();
+                        }
+                        afterBusFound = false;
                         mRequest.setText("Get the bus");
                     }
                     else {
@@ -220,6 +225,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                     DatabaseReference desti = driverref.child("Dest");
                     LatLng destLatLng;
                     if( dest != null ){
+                        System.out.println("come: " + dest );
                         desti.setValue( dest );
                         destLatLng = new LatLng( dest.getLat() , dest.getLng() );
                         getRouteToDest( destLatLng );
@@ -307,6 +313,10 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                     else{
                         mRequest.setText("Bus found, please wait or Cancel request");
                     }
+                    if( allDriverMarker != null){
+                        allDriverMarker.remove();
+                    }
+                    markerList.clear();
                     allBus.removeAllListeners();
                     int height = 75;
                     int width = 75;
@@ -325,6 +335,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     }
     List< Marker > markerList = new ArrayList<Marker>();
     GeoQuery allBus;
+    Marker allDriverMarker;
     private void driverAroundMe(){
         DatabaseReference allDrivers = FirebaseDatabase.getInstance().getReference().child("driverAvailable");
         GeoFire geoFire = new GeoFire( allDrivers );
@@ -332,9 +343,8 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         allBus.addGeoQueryEventListener(new GeoQueryEventListener() {
             @Override
             public void onKeyEntered(String key, GeoLocation location) {
-                //if( afterBusFound ) return;
                 for( Marker marker : markerList ){
-                    if( marker.getTag().equals(key)){
+                    if(  marker.getTag().equals(key)){
                         return;
                     }
                 }
@@ -344,14 +354,13 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                 Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.bus_icon1);
                 Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
                 BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
-                Marker mDriverMarker = mMap.addMarker( new MarkerOptions().position( driverLocation ).icon(smallMarkerIcon) );
-                mDriverMarker.setTag(key);
-                markerList.add(mDriverMarker);
+                allDriverMarker = mMap.addMarker(new MarkerOptions().position(driverLocation).icon(smallMarkerIcon));
+                allDriverMarker.setTag(key);
+                markerList.add(allDriverMarker);
             }
 
             @Override
             public void onKeyExited(String key) {
-                if( afterBusFound ) return;
                 for( Marker marker : markerList ){
                     if( marker.getTag().equals(key)){
                         marker.remove();
@@ -363,7 +372,6 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
 
             @Override
             public void onKeyMoved(String key, GeoLocation location) {
-                if( afterBusFound ) return;
                 for (Marker marker : markerList) {
                     if (marker.getTag().equals(key)) {
                         marker.setPosition(new LatLng(location.latitude, location.longitude));
@@ -506,7 +514,9 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     public void onLocationChanged(Location location) {
 
         lastlocation = location;
-        driverAroundMe();
+        if( !afterBusFound ) {
+            driverAroundMe();
+        }
         progressDialog.dismiss();
         LatLng mylocation = new LatLng(location.getLatitude(), location.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
@@ -767,6 +777,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                                 }
                             };
                             autoCompleteTextView.setAdapter(arrayAdapter);
+                            autoCompleteTextView.setThreshold(1);
 
                         }
                         catch (Exception e ){
@@ -795,6 +806,8 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                in.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
                 dest = (Stoppage) parent.getAdapter().getItem( position );
             }
         });
