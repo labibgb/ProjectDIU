@@ -27,18 +27,37 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.directions.route.AbstractRouting;
+import com.directions.route.Route;
+import com.directions.route.RouteException;
+import com.directions.route.Routing;
+import com.directions.route.RoutingListener;
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
 import com.firebase.geofire.GeoQueryEventListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.internal.GoogleApiAvailabilityCache;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
@@ -51,6 +70,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -59,14 +83,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL;
 
-public class Rider extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener , com.google.android.gms.location.LocationListener {
+public class Rider extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener , com.google.android.gms.location.LocationListener, RoutingListener {
 
 
     //Declare all the layout and View
@@ -88,6 +117,8 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     private boolean isRequest = false;
     private int radius = 1;
     SupportMapFragment mapFragment;
+    private Marker mPickupMarker;
+    AutoCompleteTextView autoCompleteTextView;
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
@@ -106,6 +137,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rider);
+        polylines = new ArrayList<>();
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         if( ContextCompat.checkSelfPermission( this , Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
 
@@ -114,29 +146,51 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         else{
             mapFragment.getMapAsync(this);
         }
-
+        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.destination);
         setupLayout();
         startProgress();
+        getToken();
         mRequest = findViewById(R.id.send_request);
         mRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Store Rider Last Location.
                 if( !isLogout) {
-                    String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("riderAvailable");
-                    GeoFire geoFire = new GeoFire(ref);
-                    geoFire.setLocation(userid, new GeoLocation(lastlocation.getLatitude(), lastlocation.getLongitude()));
-                    pickupLocation = new LatLng(lastlocation.getLatitude(), lastlocation.getLongitude());
-                    int height = 150;
-                    int width = 150;
-                    Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.pin_point1);
-                    Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
-                    BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
-                    mMap.addMarker(new MarkerOptions().position(pickupLocation).icon( smallMarkerIcon ));
-                    mRequest.setText("Please wait...");
-                    radius = 1;
-                    getClosestBus();
+                    if( isRequest ){
+                        removeMarker();
+                        isRequest = false;
+                        geoQuery.removeAllListeners();
+                        if( driverFound ) {
+                            driverLocationref.removeEventListener(driverLocationrefListener);
+                        }
+                        if( driverAvailableID != null ) {
+                            removeRider();
+                        }
+                        driverAvailableID = null;
+                        driverFound = false;
+                        if( mPickupMarker != null ){
+                            mPickupMarker.remove();
+                        }
+                        mRequest.setText("Get the bus");
+                    }
+                    else {
+                        isRequest = true;
+                        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("riderAvailable");
+                        GeoFire geoFire = new GeoFire(ref);
+                        geoFire.setLocation(userid, new GeoLocation(lastlocation.getLatitude(), lastlocation.getLongitude()));
+                        pickupLocation = new LatLng(lastlocation.getLatitude(), lastlocation.getLongitude());
+                        int height = 150;
+                        int width = 150;
+                        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.pin_point1);
+                        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+                        BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
+                        mPickupMarker = mMap.addMarker(new MarkerOptions().position(pickupLocation).icon(smallMarkerIcon));
+                        mRequest.setText("Please wait or Cancel request");
+                        radius = 1;
+                        getItemSelectListener();
+                        getClosestBus();
+                    }
                 }
             }
         });
@@ -144,28 +198,37 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
 
     private boolean driverFound = false;
     private String driverAvailableID;
+    GeoQuery geoQuery;
     private void getClosestBus(){
         DatabaseReference driverLocation = FirebaseDatabase.getInstance().getReference().child("driverAvailable");
         GeoFire geoFire = new GeoFire(driverLocation);
-        GeoQuery geoQuery = geoFire.queryAtLocation( new GeoLocation(pickupLocation.latitude, pickupLocation.longitude), radius );
+        geoQuery = geoFire.queryAtLocation( new GeoLocation(pickupLocation.latitude, pickupLocation.longitude), radius );
         geoQuery.removeAllListeners();
         geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
             @Override
             public void onKeyEntered(String key, GeoLocation location) {
-                if( !driverFound ) {
+                if( !driverFound && isRequest ) {
                     driverFound = true;
                     driverAvailableID = key;
                     String customerId = FirebaseAuth.getInstance().getUid();
                     DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
                             .child(driverAvailableID)
                             .child("customerRiderId");
-                    GeoFire userGeo = new GeoFire(  driverref );
+                    DatabaseReference source = driverref.child("Source");
+                    GeoFire userGeo = new GeoFire(  source );
                     userGeo.setLocation(customerId, new GeoLocation(pickupLocation.latitude, pickupLocation.longitude));
+                    DatabaseReference desti = driverref.child("Dest");
+                    LatLng destLatLng;
+                    if( dest != null ){
+                        desti.setValue( dest );
+                        destLatLng = new LatLng( dest.getLat() , dest.getLng() );
+                        getRouteToDest( destLatLng );
+                    }
                     //HashMap hashMap = new HashMap();
                     //hashMap.put("customerRiderId" , customerId );
                     //driverref.updateChildren( hashMap );
                     getDriverLocation();
-                    mRequest.setText("Looking for bus");
+                    mRequest.setText("Looking for bus or Cancel request");
                 }
             }
 
@@ -183,15 +246,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
             public void onGeoQueryReady() {
                 if( !driverFound ){
                     radius++;
-                    if( radius < 101 ) {
-                        getClosestBus();
-                    }
-                    else{
-                        radius = 1;
-                        geoQuery.removeAllListeners();
-                        mRequest.setText("no bus found, try again");
-                        return;
-                    }
+                    getClosestBus();
                 }
             }
 
@@ -201,22 +256,25 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
             }
         });
     }
+
+    private void getRouteToDest(LatLng destLatLng) {
+        Routing routing = new Routing.Builder()
+                .travelMode(Routing.TravelMode.DRIVING)
+                .withListener(this)
+                .waypoints(new LatLng(lastlocation.getLatitude(), lastlocation.getLongitude()), destLatLng)
+                .build();
+        routing.execute();
+    }
+
     private Marker mDriverMarker;
+    private DatabaseReference driverLocationref;
+    private  ValueEventListener driverLocationrefListener;
     private void getDriverLocation(){
-        if(isRequest){
-            mRequest.setText("Get the bus");
-            isRequest = false;
-            if( !isLogout ){
-                removeRider();
-            }
-            return;
-        }
-        isRequest = true;
-        DatabaseReference driverLocationref = FirebaseDatabase.getInstance().getReference().child("driverAcceptRequest").child(driverAvailableID).child("l");
-        driverLocationref.addValueEventListener(new ValueEventListener(){
+        driverLocationref = FirebaseDatabase.getInstance().getReference().child("driverAcceptRequest").child(driverAvailableID).child("l");
+        driverLocationrefListener = driverLocationref.addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if( dataSnapshot.exists() ){
+                if( dataSnapshot.exists() && isRequest ){
                     afterBusFound = true;
                     List<Object> map = (List<Object>) dataSnapshot.getValue();
                     double lat = 0;
@@ -247,8 +305,9 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                         mRequest.setText("Bus's here");
                     }
                     else{
-                        mRequest.setText("Bus found, please wait...");
+                        mRequest.setText("Bus found, please wait or Cancel request");
                     }
+                    allBus.removeAllListeners();
                     int height = 75;
                     int width = 75;
                     Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.bus_icon1);
@@ -265,14 +324,15 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         });
     }
     List< Marker > markerList = new ArrayList<Marker>();
+    GeoQuery allBus;
     private void driverAroundMe(){
         DatabaseReference allDrivers = FirebaseDatabase.getInstance().getReference().child("driverAvailable");
         GeoFire geoFire = new GeoFire( allDrivers );
-        GeoQuery geoQuery = geoFire.queryAtLocation( new GeoLocation( lastlocation.getLatitude(), lastlocation.getLongitude()), 5000 );
-        geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
+        allBus = geoFire.queryAtLocation( new GeoLocation( lastlocation.getLatitude(), lastlocation.getLongitude()), 5000 );
+        allBus.addGeoQueryEventListener(new GeoQueryEventListener() {
             @Override
             public void onKeyEntered(String key, GeoLocation location) {
-                if( afterBusFound ) return;
+                //if( afterBusFound ) return;
                 for( Marker marker : markerList ){
                     if( marker.getTag().equals(key)){
                         return;
@@ -579,6 +639,170 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     protected void onStop() {
         super.onStop();
     }
+    private String url = "http://159.203.79.216:8080/api/stoppage/GLOBAL/getAll";
+    public String token = null;
+    private void getToken(){
+        String customerId = FirebaseAuth.getInstance().getUid();
+        DatabaseReference findToken = FirebaseDatabase.getInstance().getReference().child("Token").child(customerId);
+        findToken.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if( dataSnapshot.exists() ) {
+                    HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                    if( dataMap.get("Token") != null ){
+                        token = "Bearer "+dataMap.get("Token").toString();
+                        getStoppage();
+                    }
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+    }
+    private List<Polyline> polylines;
+    private static final int[] COLORS = new int[]{R.color.primary_dark_material_light};
+    @Override
+    public void onRoutingFailure(RouteException e) {
+
+    }
+
+    @Override
+    public void onRoutingStart() {
+
+    }
+
+    @Override
+    public void onRoutingSuccess(ArrayList<Route> route, int shortRouterIndex ) {
+
+        if(polylines.size()>0) {
+            for (Polyline poly : polylines) {
+                poly.remove();
+            }
+        }
+
+        polylines = new ArrayList<>();
+        //add route(s) to the map.
+        for (int i = 0; i <route.size(); i++) {
+
+            //In case of more than 5 alternative routes
+            int colorIndex = i % COLORS.length;
+
+            PolylineOptions polyOptions = new PolylineOptions();
+            polyOptions.color(getResources().getColor(COLORS[colorIndex]));
+            polyOptions.width(10 + i * 3);
+            polyOptions.addAll(route.get(i).getPoints());
+            Polyline polyline = mMap.addPolyline(polyOptions);
+            polylines.add(polyline);
+
+            Toast.makeText(getApplicationContext(),"Route "+ (i+1) +": distance - "+ route.get(i).getDistanceValue()+": duration - "+ route.get(i).getDurationValue(),Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    public void onRoutingCancelled() {
+
+    }
+
+    public class Stoppage{
+        private int id;
+        private String StoppageName;
+        private double lat,lng;
+        Stoppage(){};
+        Stoppage( int id , String StoppageName, double lat , double lng ){
+            this.id = id;
+            this.StoppageName = StoppageName;
+            this.lat = lat;
+            this.lng = lng;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return this.StoppageName;
+        }
+        public double getLat(){
+            return this.lat;
+        }
+        public double getLng(){
+            return this.lng;
+        }
+    }
+    Stoppage dest;
+    public void getStoppage(){
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            ArrayList<Object> allstops = new ArrayList<Object>();
+                            for( int i = 0 ; i < response.length(); i++ )
+                            {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                Stoppage stoppage = new Stoppage(jsonObject.getInt("stoppageId"), jsonObject.getString("stoppageName"
+                                ), jsonObject.getDouble("latitude"), jsonObject.getDouble("longitude") );
+                                allstops.add(stoppage);
+                            }
+                            ArrayAdapter arrayAdapter = new ArrayAdapter(Rider.this, android.R.layout.simple_list_item_1,allstops){
+                                @NonNull
+                                @Override
+                                public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                                    View view =  super.getView(position, convertView, parent);
+                                    TextView tv = (TextView) view.findViewById(android.R.id.text1);
+
+                                    // Set the text color of TextView (ListView Item)
+                                    tv.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                                    tv.setTextSize(25);
+                                    tv.setGravity(Gravity.CENTER);
+
+                                    // Generate ListView Item using TextView
+                                    return view;
+                                }
+                            };
+                            autoCompleteTextView.setAdapter(arrayAdapter);
+
+                        }
+                        catch (Exception e ){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        ){
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", token );
+                //  params.put("content-type", "application/json");
+                return params;
+            }
+        };
+        requestQueue.add( jsonArrayRequest );
+    }
+    public void getItemSelectListener() {
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                dest = (Stoppage) parent.getAdapter().getItem( position );
+            }
+        });
+    }
+    public void removeMarker() {
+        for( Polyline line : polylines ){
+            line.remove();
+        }
+        polylines.clear();
+    }
 }

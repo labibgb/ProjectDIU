@@ -62,5 +62,17 @@
                     android:textStyle="bold"
                     android:textColor="@color/backgroundColor"
                     android:layout_height="60dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/current_speed"
+                    android:layout_margin="20dp">
+                        <AutoCompleteTextView
+                            android:id="@+id/destination"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp">
+                        </AutoCompleteTextView>
+                </androidx.cardview.widget.CardView>
+
         </RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

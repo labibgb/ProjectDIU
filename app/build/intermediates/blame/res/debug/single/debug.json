@@ -4,12 +4,12 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_notifications_black_24dp.png.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_edit_round.xml.flat",
@@ -76,12 +76,12 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_notifications_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_info_black_24dp.png.flat",
-        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_info_black_24dp.png"
-    },
-    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_info_black_24dp.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_info_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_profile_icon.xml.flat",
@@ -132,20 +132,20 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_send_black_24dp.png.flat",
-        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_send_black_24dp.png"
-    },
-    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_item.xml.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\menu\\menu_item.xml"
     },
     {
-        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_send_black_24dp.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_send_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_notifications_black_24dp.png.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_drawer_toolbar.xml.flat",
@@ -204,12 +204,12 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_send_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_profile_icon.png.flat",
-        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\profile_icon.png"
-    },
-    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_fare_calculator.xml.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_fare_calculator.xml"
+    },
+    {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_profile_icon.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\profile_icon.png"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_style_spinner.xml.flat",
@@ -276,12 +276,12 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_assignment_turned_in_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_routemap.png.flat",
-        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\drawable\\routemap.png"
-    },
-    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_driver_bus_stoppage.xml.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_driver_bus_stoppage.xml"
+    },
+    {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_routemap.png.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\drawable\\routemap.png"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_user.jpg.flat",
@@ -312,12 +312,12 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_assignment_turned_in_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_user_selection.xml.flat",
-        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_user_selection.xml"
-    },
-    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_user_selection.xml.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_user_selection.xml"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_headerbackground.jpg.flat",
@@ -412,12 +412,12 @@
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_driver_map.xml"
     },
     {
-        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_user_reg_complete.xml.flat",
-        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_user_reg_complete.xml"
-    },
-    {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_notice_board.xml.flat",
         "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_notice_board.xml"
+    },
+    {
+        "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_user_reg_complete.xml.flat",
+        "source": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_user_reg_complete.xml"
     },
     {
         "merged": "C:\\Users\\mahmu\\Downloads\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_send_black_24dp.png.flat",
