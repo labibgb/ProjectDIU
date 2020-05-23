@@ -628,11 +628,9 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
             String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
                     .child(driverAvailableID)
-                    .child("customerRiderId");
+                    .child("customerRiderId").child(userid);
             GeoFire geoFire1 = new GeoFire(driverref);
             geoFire1.removeLocation(userid);
-            driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(driverAvailableID);
-            driverref.setValue(true);
         }
         catch ( Exception e ){
 
