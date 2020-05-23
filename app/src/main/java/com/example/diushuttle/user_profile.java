@@ -28,7 +28,7 @@ import java.util.HashMap;
 public class user_profile extends AppCompatActivity {
 
     public  class User{
-        public String firstName, lastName, email;
+        public String firstName, lastName, email ;
         public  User(){}
         User( String firstName, String lastName, String email  ){
             this.firstName = firstName;
@@ -48,8 +48,9 @@ public class user_profile extends AppCompatActivity {
     private  static TextView updatePasswor;
     public  static FragmentManager fragmentManager;
     TextView name , email, fixedEmail;
-    EditText fname, lname;
+    EditText fname, lname, phone;
     private Button button;
+    public String roll;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,12 +63,15 @@ public class user_profile extends AppCompatActivity {
                 setNewPassword();
             }
         });
+
         button = findViewById(R.id.submit_update);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = getIntent().getExtras();
+                roll = bundle.getString("goto");
                 String customerId = FirebaseAuth.getInstance().getUid();
-                DatabaseReference userInfo = FirebaseDatabase.getInstance().getReference().child("Users").child("Rider").child(customerId);
+                DatabaseReference userInfo = FirebaseDatabase.getInstance().getReference().child("Users").child(roll).child(customerId);
                 DatabaseReference frname = userInfo.child("firstName") , lsname = userInfo.child("lastName");
                 frname.setValue(fname.getText().toString());
                 lsname.setValue(lname.getText().toString());
@@ -81,20 +85,24 @@ public class user_profile extends AppCompatActivity {
         startActivity( intent );
     }
     public void showUserInfo(){
+        Bundle bundle = getIntent().getExtras();
+        roll = bundle.getString("goto");
+        System.out.println(roll);
         name = (TextView)findViewById(R.id.person_name);
         email = (TextView)findViewById(R.id.person_email);
         fname = (EditText)findViewById(R.id.fname);
         lname = (EditText)findViewById(R.id.lname);
         fixedEmail = (TextView)findViewById(R.id.email);
+        phone = (EditText) findViewById(R.id.edit_number);
         String customerId = FirebaseAuth.getInstance().getUid();
-        DatabaseReference userInfo = FirebaseDatabase.getInstance().getReference().child("Users").child("Rider").child(customerId);
+        DatabaseReference userInfo = FirebaseDatabase.getInstance().getReference().child("Users").child(roll).child(customerId);
         userInfo.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if( dataSnapshot.exists() ){
                     System.out.println("Datasnap");
                     HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
-                    String firstName = "", lastName = "", uemail = "";
+                    String firstName = "", lastName = "", uemail = "", uphone = "";
                     if( dataMap.get("firstName") != null ){
                         firstName = dataMap.get("firstName").toString();
                     }
@@ -104,10 +112,14 @@ public class user_profile extends AppCompatActivity {
                     if( dataMap.get("email") != null ){
                         uemail = dataMap.get("email").toString();
                     }
+                    if( dataMap.get("phone") != null ){
+                        uphone = dataMap.get("phone").toString();
+                    }
                     name.setText( firstName + " " + lastName );
                     fname.setText(firstName);
                     lname.setText(lastName);
                     email.setText(uemail);
+                    phone.setText(uphone);
                     fixedEmail.setText(uemail);
 
                 }

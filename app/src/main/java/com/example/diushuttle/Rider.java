@@ -530,8 +530,6 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
             {
                 showlocation = findViewById( R.id.current_location_name );
                 String address = "";
-
-                Log.i("Address" , listAddress.get(0).toString() );
                 if( listAddress.get(0).getFeatureName() != null )
                 {
                     address  += listAddress.get(0).getFeatureName();
@@ -699,14 +697,12 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
 
             //In case of more than 5 alternative routes
             int colorIndex = i % COLORS.length;
-
             PolylineOptions polyOptions = new PolylineOptions();
             polyOptions.color(getResources().getColor(COLORS[colorIndex]));
             polyOptions.width(10 + i * 3);
             polyOptions.addAll(route.get(i).getPoints());
             Polyline polyline = mMap.addPolyline(polyOptions);
             polylines.add(polyline);
-
             Toast.makeText(getApplicationContext(),"Route "+ (i+1) +": distance - "+ route.get(i).getDistanceValue()+": duration - "+ route.get(i).getDurationValue(),Toast.LENGTH_SHORT).show();
         }
 

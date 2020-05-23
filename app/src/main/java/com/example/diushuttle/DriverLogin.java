@@ -17,10 +17,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.auth0.android.jwt.Claim;
+import com.auth0.android.jwt.JWT;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,6 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class DriverLogin extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -68,38 +73,14 @@ public class DriverLogin extends AppCompatActivity {
                     return;
                 }
                 startProgress();
-                mAuth.signInWithEmailAndPassword( Email , Password ).addOnCompleteListener(DriverLogin.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if( !task.isSuccessful()) {
-                            progressDialog.dismiss();
-                            mAuth.createUserWithEmailAndPassword( Email, Password ).addOnCompleteListener(DriverLogin.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-
-                                    if( !task.isSuccessful()) {
-                                        Toast.makeText(DriverLogin.this, "Somethings went wrong.", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else {
-
-                                        String user_id = mAuth.getCurrentUser().getUid();
-                                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(user_id);
-                                        current_user_db.setValue(true);
-                                        JSONObject jsonObject = new JSONObject();
-                                        try {
-                                            jsonObject.put("username",email);
-                                            jsonObject.put("password",password );
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
-                                        loginData( jsonObject );
-                                    }
-                                }
-                            });
-                            return;
-                        }
-                    }
-                });
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("username",Email);
+                    jsonObject.put("password",Password );
+                    loginData( jsonObject );
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -125,7 +106,7 @@ public class DriverLogin extends AppCompatActivity {
         progressDialog.show();
         progressDialog.setContentView( R.layout.progress_dialog);
     }
-    public  void loginData( JSONObject jsonObject ){
+    public void loginData( JSONObject jsonObject ){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "http://mytestservice.live:8080/api/login";
 
@@ -137,13 +118,18 @@ public class DriverLogin extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        String userId = mAuth.getCurrentUser().getUid();
-                        DatabaseReference token = FirebaseDatabase.getInstance().getReference().child("Token").child(userId);
+                       // String userId = mAuth.getCurrentUser().getUid();
+                        //DatabaseReference Token = FirebaseDatabase.getInstance().getReference().child("Token").child(userId);
                         //token.setValue( response );
+                        String token = null;
                         HashMap map = new HashMap();
                         try {
-                            map.put("Token", response.getString("jwt"));
-                            token.setValue(map);
+                            token = response.getString("jwt");
+                            map.put("Token", token);
+                            //Token.setValue(map);
+                            JWT jwt = new JWT( token );
+                            String email =  jwt.getClaim("sub").asString();
+                            signup( email , token , jsonObject.getString("password"));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -153,10 +139,98 @@ public class DriverLogin extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        System.out.println("some error");
+                        progressDialog.dismiss();
+                        Toast.makeText(DriverLogin.this, "Email or Password doesn't match.", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
+        requestQueue.add(jsonObjectRequest);
+    }
+    public  class User{
+        public String firstName, lastName, email, phone;
+        public  User(){}
+        User( String firstName, String lastName, String email , String phone ){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.phone = phone;
+        }
+    }
+    public void signup( String email , String token , String password ){
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final String url = "http://mytestservice.live:8080/api/user/GLOBAL/"+email;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        mAuth.createUserWithEmailAndPassword( email , password ).addOnCompleteListener(DriverLogin.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if( !task.isSuccessful()) {
+                                    try {
+                                        throw task.getException();
+                                    }
+
+                                    catch (FirebaseAuthUserCollisionException existEmail){
+                                        mAuth.signInWithEmailAndPassword( email, password ).addOnCompleteListener(DriverLogin.this, new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                String userId = mAuth.getCurrentUser().getUid();
+                                                DatabaseReference Token = FirebaseDatabase.getInstance().getReference().child("Token").child(userId);
+                                                //token.setValue( response );
+                                                HashMap map = new HashMap();
+                                                map.put("Token", token );
+                                                Token.setValue(map);
+                                                return;
+                                            }
+                                        });
+                                    }
+                                    catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                                else {
+                                    User insertUser = null;
+                                    try {
+                                        insertUser = new User( response.getString("firstName") , response.getString("lastName") , response.getString("email"), response.getString("mobileNo") );
+                                        String user_id = mAuth.getCurrentUser().getUid();
+                                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(user_id);
+                                        current_user_db.setValue(insertUser);
+                                        DatabaseReference Token = FirebaseDatabase.getInstance().getReference().child("Token").child(user_id);
+                                        HashMap map = new HashMap();
+                                        map.put("Token", token );
+                                        Token.setValue(map);
+                                        return;
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                            }
+                        });
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("some error");
+                    }
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "Bearer "+token);
+                //  params.put("content-type", "application/json");
+                return params;
+            }
+        };
         requestQueue.add(jsonObjectRequest);
     }
 }
