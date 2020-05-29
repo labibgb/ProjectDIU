@@ -72,9 +72,10 @@ public class user_profile extends AppCompatActivity {
                 roll = bundle.getString("goto");
                 String customerId = FirebaseAuth.getInstance().getUid();
                 DatabaseReference userInfo = FirebaseDatabase.getInstance().getReference().child("Users").child(roll).child(customerId);
-                DatabaseReference frname = userInfo.child("firstName") , lsname = userInfo.child("lastName");
+                DatabaseReference frname = userInfo.child("firstName") , lsname = userInfo.child("lastName"), mobile = userInfo.child("phone");
                 frname.setValue(fname.getText().toString());
                 lsname.setValue(lname.getText().toString());
+                mobile.setValue(phone.getText().toString());
                 Toast.makeText( user_profile.this, "Update Successful." , Toast.LENGTH_SHORT ).show();
             }
         });

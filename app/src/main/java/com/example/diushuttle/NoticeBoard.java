@@ -1,17 +1,52 @@
 package com.example.diushuttle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class NoticeBoard extends AppCompatActivity {
+
+    private String url = "http://159.203.79.216:8080/api/announcement/GLOBAL/all";
+    public String token = null;
+    private ListView notice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_board);
+        notice = (ListView) findViewById(R.id.notice_board );
+        getToken();
     }
 
     @Nullable
@@ -39,5 +74,113 @@ public class NoticeBoard extends AppCompatActivity {
         }
         intent.setFlags( intent.FLAG_ACTIVITY_CLEAR_TOP | intent.FLAG_ACTIVITY_SINGLE_TOP );
         return  intent;
+    }
+    private void getToken(){
+        String customerId = FirebaseAuth.getInstance().getUid();
+        DatabaseReference findToken = FirebaseDatabase.getInstance().getReference().child("Token").child(customerId);
+        findToken.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if( dataSnapshot.exists() ) {
+                    HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                    if( dataMap.get("Token") != null ){
+                        token = "Bearer "+dataMap.get("Token").toString();
+                        getNotice();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+    ArrayList<String> all = new ArrayList<String>();
+    public void getNotice(){
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+
+                            for( int i = 0 ; i < response.length(); i++ )
+                            {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                String date = jsonObject.getString("date");
+                                date = date.substring( 0 , 10 );
+                                String announcement = jsonObject.getString("announcement");
+                                all.add("Date: "+date+"\n"+"Announcement: " + announcement );
+                            }
+                            Collections.reverse( all );
+                            ArrayAdapter arrayAdapter = new ArrayAdapter(NoticeBoard.this, android.R.layout.simple_list_item_1,all){
+                                @NonNull
+                                @Override
+                                public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                                    View view =  super.getView(position, convertView, parent);
+                                    TextView tv = (TextView) view.findViewById(android.R.id.text1);
+
+                                    // Set the text color of TextView (ListView Item)
+                                    tv.setTextColor(getResources().getColor(R.color.colorText));
+                                    tv.setTextSize(25);
+
+                                    // Generate ListView Item using TextView
+                                    return view;
+                                }
+                            };
+                            notice.setAdapter(arrayAdapter);
+                        }
+                        catch (Exception e ){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        ){
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", token );
+                //  params.put("content-type", "application/json");
+                return params;
+            }
+        };
+        requestQueue.add( jsonArrayRequest );
+    }
+    public  String  getEmail(){
+        Bundle bundle = getIntent().getExtras();
+        String roll = bundle.getString("goto");
+        String customerId = FirebaseAuth.getInstance().getUid();
+        DatabaseReference userInfo = FirebaseDatabase.getInstance().getReference().child("Users").child(roll).child(customerId);
+        userInfo.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if( dataSnapshot.exists() ) {
+                    HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
+
+                    if (dataMap.get("email") != null) {
+                        String email = dataMap.get("email").toString();
+                        String Url = "http://159.203.79.216:8080/api/user/GLOBAL/";
+                        Url += email;
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }

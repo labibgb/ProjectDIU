@@ -165,6 +165,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                             driverLocationref.removeEventListener(driverLocationrefListener);
                         }
                         if( driverAvailableID != null ) {
+                            System.out.println("Come here");
                             removeRider();
                         }
                         driverAvailableID = null;
@@ -217,16 +218,16 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                     driverAvailableID = key;
                     String customerId = FirebaseAuth.getInstance().getUid();
                     DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
-                            .child(driverAvailableID)
-                            .child("customerRiderId");
-                    DatabaseReference source = driverref.child("Source");
+                            .child(driverAvailableID);
+                    DatabaseReference source = driverref.child("PickUp");
                     GeoFire userGeo = new GeoFire(  source );
                     userGeo.setLocation(customerId, new GeoLocation(pickupLocation.latitude, pickupLocation.longitude));
                     DatabaseReference desti = driverref.child("Dest");
                     LatLng destLatLng;
                     if( dest != null ){
                         System.out.println("come: " + dest );
-                        desti.setValue( dest );
+                        GeoFire userDesti = new GeoFire( desti );
+                        userDesti.setLocation(customerId, new GeoLocation(dest.getLat(), dest.getLng()) );
                         destLatLng = new LatLng( dest.getLat() , dest.getLng() );
                         getRouteToDest( destLatLng );
                     }
@@ -624,17 +625,18 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         }
     }
     public void removeRider() {
-        try {
-            String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
-                    .child(driverAvailableID)
-                    .child("customerRiderId").child(userid);
-            GeoFire geoFire1 = new GeoFire(driverref);
-            geoFire1.removeLocation(userid);
+        if( isLogout ){
+            return;
         }
-        catch ( Exception e ){
-
-        }
+        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
+                .child(driverAvailableID);
+        DatabaseReference source = driverref.child("PickUp");
+        DatabaseReference end = driverref.child("Dest");
+        GeoFire geoFire = new GeoFire(source);
+        geoFire.removeLocation( userid );
+        geoFire = new GeoFire( end );
+        geoFire.removeLocation( userid );
 
     }
     @Override

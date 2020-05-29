@@ -123,7 +123,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
             return;
         }
         String driverId = FirebaseAuth.getInstance().getUid();
-        DatabaseReference allDrivers = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(driverId).child("customerRiderId").child("Source");
+        DatabaseReference allDrivers = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(driverId).child("PickUp");
         GeoFire geoFire = new GeoFire( allDrivers );
         GeoQuery geoQuery = geoFire.queryAtLocation( new GeoLocation( lastlocation.getLatitude(), lastlocation.getLongitude()), 5000 );
         geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {

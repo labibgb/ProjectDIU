@@ -2130,6 +2130,7 @@ id noScroll
 id none
 id normal
 id notice
+id notice_board
 id notification_background
 id notification_main_column
 id notification_main_column_container
