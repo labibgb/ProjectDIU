@@ -2045,6 +2045,7 @@ id fare
 id fare_liner
 id fare_result
 id fare_submit
+id feedSubmit
 id feedback
 id fill
 id fill_horizontal
@@ -2182,6 +2183,7 @@ id profile_image
 id progress_circular
 id progress_horizontal
 id radio
+id ratingBar
 id reg_email
 id register
 id reservation
