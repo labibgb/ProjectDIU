@@ -399,7 +399,7 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
         progressDialog.setContentView( R.layout.progress_dialog);
     }
 
-    public  void disconnect() {
+    public static void disconnect() {
             String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             if( userid != null ) {
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driverAvailable");

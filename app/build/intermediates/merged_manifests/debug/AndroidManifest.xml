@@ -43,6 +43,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.diushuttle.routeMap" />
         <activity
             android:name="com.example.diushuttle.FeedBack"
             android:label="Feedback"

@@ -47,7 +47,7 @@ public class user_profile extends AppCompatActivity {
     }
     private  static TextView updatePasswor;
     public  static FragmentManager fragmentManager;
-    TextView name , email, fixedEmail;
+    TextView name , email, fixedEmail, number;
     EditText fname, lname, phone;
     private Button button;
     public String roll;
@@ -91,6 +91,7 @@ public class user_profile extends AppCompatActivity {
         System.out.println(roll);
         name = (TextView)findViewById(R.id.person_name);
         email = (TextView)findViewById(R.id.person_email);
+        number = (TextView)findViewById(R.id.person_number);
         fname = (EditText)findViewById(R.id.fname);
         lname = (EditText)findViewById(R.id.lname);
         fixedEmail = (TextView)findViewById(R.id.email);
@@ -121,6 +122,7 @@ public class user_profile extends AppCompatActivity {
                     lname.setText(lastName);
                     email.setText(uemail);
                     phone.setText(uphone);
+                    number.setText(uphone);
                     fixedEmail.setText(uemail);
 
                 }

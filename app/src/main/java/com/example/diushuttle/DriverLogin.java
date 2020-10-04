@@ -26,8 +26,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,22 +43,40 @@ public class DriverLogin extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     EditText email , password;
     Button mLogin;
+    boolean driverOk;
     ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_login);
-
+        driverOk = false;
         mAuth = FirebaseAuth.getInstance();
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
                 if( user != null )
                 {
                     progressDialog.dismiss();
                     openHome();
                     return;
+
+                   // checkDriver(user.getUid());
+
+//                    if( driverOk == true) {
+//
+//
+//                    }
+//                    else {
+//                        Toast.makeText( DriverLogin.this, "You are not a driver." , Toast.LENGTH_SHORT ).show();
+//                        DriverMap.disconnect();
+//                        FirebaseAuth.getInstance().signOut();
+//                        Intent intent = new Intent( DriverLogin.this , UserSelection.class );
+//                        startActivity( intent );
+//                        finish();
+//                        return;
+//                    }
                 }
             }
         };
@@ -156,6 +177,24 @@ public class DriverLogin extends AppCompatActivity {
             this.phone = phone;
         }
     }
+    public  void checkDriver(String driverId){
+        DatabaseReference who = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver").child(driverId);
+
+        who.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if( dataSnapshot.exists() ) {
+                    driverOk = true;
+                    return;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
     public void signup( String email , String token , String password ){
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -180,12 +219,15 @@ public class DriverLogin extends AppCompatActivity {
                                         mAuth.signInWithEmailAndPassword( email, password ).addOnCompleteListener(DriverLogin.this, new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                                String userId = mAuth.getCurrentUser().getUid();
-                                                DatabaseReference Token = FirebaseDatabase.getInstance().getReference().child("Token").child(userId);
-                                                //token.setValue( response );
-                                                HashMap map = new HashMap();
-                                                map.put("Token", token );
-                                                Token.setValue(map);
+                                                FirebaseUser user = mAuth.getCurrentUser();
+                                                if( user != null ) {
+                                                    String userId = user.getUid();
+                                                    DatabaseReference Token = FirebaseDatabase.getInstance().getReference().child("Token").child(userId);
+                                                    //token.setValue( response );
+                                                    HashMap map = new HashMap();
+                                                    map.put("Token", token);
+                                                    Token.setValue(map);
+                                                }
                                                 return;
                                             }
                                         });
