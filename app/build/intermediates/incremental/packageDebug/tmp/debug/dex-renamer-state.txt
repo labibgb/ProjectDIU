@@ -1,4 +1,4 @@
-#Mon Oct 05 16:53:28 BDT 2020
+#Mon Oct 05 17:00:48 BDT 2020
 base.0=C\:\\Users\\Labib\\Desktop\\diunew\\ProjectDIU\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

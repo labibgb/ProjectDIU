@@ -189,7 +189,9 @@ public class busReservation extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        System.out.println("Response: " + response.toString());
+                        numberOfBuses.setText("");
+                        numberOfDays.setText("");
+                        reason.setText("");
                         Toast.makeText(busReservation.this, "Request send successfully", Toast.LENGTH_SHORT).show();
                     }
                 },
