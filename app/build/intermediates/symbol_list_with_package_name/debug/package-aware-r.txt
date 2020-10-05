@@ -2135,6 +2135,8 @@ id notice_board
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id number_of_bus
+id number_of_days
 id off
 id old_pass
 id on
@@ -2184,9 +2186,12 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratingBar
+id reason
 id reg_email
 id register
 id reservation
+id reservation_date
+id reserve_bus
 id rider
 id right
 id right_icon
@@ -2357,6 +2362,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_bus_reservation
 layout activity_bus_stoppage
 layout activity_driver_bus_stoppage
 layout activity_driver_login

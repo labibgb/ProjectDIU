@@ -31,7 +31,14 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".routeMap"></activity>
+        <activity android:name=".busReservation"
+            android:label="Bus Reservation"
+            android:parentActivityName=".Rider"
+            />
+        <activity android:name=".routeMap"
+            android:label="Route Map"
+            android:parentActivityName=".Rider"
+            />
         <activity
             android:name=".FeedBack"
             android:label="Feedback"

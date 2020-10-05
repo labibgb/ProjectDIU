@@ -439,7 +439,9 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         }
         else if( menuItem.getItemId() == R.id.reservation )
         {
-
+            final Intent intent = new Intent( this , busReservation.class );
+            intent.putExtras(bundle);
+            startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.feedback )
         {

@@ -267,7 +267,25 @@ public class NoticeBoard extends AppCompatActivity {
                                 String announcement = jsonObject.getString("notification");
                                 all.add(new allNotice(  date , announcement ));
                             }
+                            Collections.sort(all, new SortByName());
+                            Collections.reverse(all);
+                            System.out.println(all);
+                            ArrayAdapter arrayAdapter = new ArrayAdapter(NoticeBoard.this, android.R.layout.simple_list_item_1,all){
+                                @NonNull
+                                @Override
+                                public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                                    View view =  super.getView(position, convertView, parent);
+                                    TextView tv = (TextView) view.findViewById(android.R.id.text1);
 
+                                    // Set the text color of TextView (ListView Item)
+                                    tv.setTextColor(getResources().getColor(R.color.colorText));
+                                    tv.setTextSize(25);
+
+                                    // Generate ListView Item using TextView
+                                    return view;
+                                }
+                            };
+                            notice.setAdapter(arrayAdapter);
                         }
                         catch (Exception e ){
                             e.printStackTrace();
@@ -290,24 +308,6 @@ public class NoticeBoard extends AppCompatActivity {
             }
         };
         requestQueue.add( jsonArrayRequest );
-        Collections.sort(all, new SortByName());
-        Collections.reverse(all);
-        System.out.println(all);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(NoticeBoard.this, android.R.layout.simple_list_item_1,all){
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View view =  super.getView(position, convertView, parent);
-                TextView tv = (TextView) view.findViewById(android.R.id.text1);
 
-                // Set the text color of TextView (ListView Item)
-                tv.setTextColor(getResources().getColor(R.color.colorText));
-                tv.setTextSize(25);
-
-                // Generate ListView Item using TextView
-                return view;
-            }
-        };
-        notice.setAdapter(arrayAdapter);
     }
 }
