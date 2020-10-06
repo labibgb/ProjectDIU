@@ -32,12 +32,6 @@
                     android:icon="@drawable/ic_notifications_black_24dp"
                     android:id="@+id/notice"
                     />
-
-                <item
-                    android:title="Send Feedback"
-                    android:icon="@drawable/ic_send_black_24dp"
-                    android:id="@+id/feedback"
-                    />
                 <item
                     android:id="@+id/driver_logout"
                     android:icon="@drawable/ic_logout"

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/gardient_color"
+    tools:context=".busInfo">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:id="@+id/bus_info"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="Bus Info"
+            android:textSize="30dp"
+            android:textStyle="bold"
+
+            android:textColor="@color/colorText"
+            />
+        <TextView
+            android:id="@+id/bus_id"
+            android:layout_below="@id/bus_info"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:gravity="center"
+            android:text=""
+
+            android:textColor="@color/colorText"
+            />
+        <TextView
+            android:id="@+id/bus_number"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/bus_id"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:gravity="center"
+
+            android:textColor="@color/colorText"
+             />
+        <TextView
+            android:id="@+id/oil"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/bus_number"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:gravity="center"
+
+            android:textColor="@color/colorText"
+            />
+        <TextView
+            android:id="@+id/gass"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/oil"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_round"
+            android:gravity="center"
+            android:textAlignment="gravity"
+            android:text=""
+
+            android:textColor="@color/colorText"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -42,8 +42,19 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.diushuttle.completeRequest"
+            android:label="Complete Request"
+            android:parentActivityName="com.example.diushuttle.Rider" />
+        <activity
+            android:name="com.example.diushuttle.currentRequest"
+            android:label="Current Request"
+            android:parentActivityName="com.example.diushuttle.Rider" />
+        <activity
+            android:name="com.example.diushuttle.busInfo"
+            android:label="Bus Information"
+            android:parentActivityName="com.example.diushuttle.Rider" />
         <activity
             android:name="com.example.diushuttle.busReservation"
             android:label="Bus Reservation"

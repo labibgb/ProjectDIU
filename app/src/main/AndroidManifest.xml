@@ -31,14 +31,24 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".busReservation"
+        <activity android:name=".completeRequest"
+            android:label="Complete Request"
+            android:parentActivityName=".Rider"></activity>
+        <activity android:name=".currentRequest"
+            android:label="Current Request"
+            android:parentActivityName=".Rider"/>
+        <activity
+            android:name=".busInfo"
+            android:label="Bus Information"
+            android:parentActivityName=".Rider" />
+        <activity
+            android:name=".busReservation"
             android:label="Bus Reservation"
-            android:parentActivityName=".Rider"
-            />
-        <activity android:name=".routeMap"
+            android:parentActivityName=".Rider" />
+        <activity
+            android:name=".routeMap"
             android:label="Route Map"
-            android:parentActivityName=".Rider"
-            />
+            android:parentActivityName=".Rider" />
         <activity
             android:name=".FeedBack"
             android:label="Feedback"

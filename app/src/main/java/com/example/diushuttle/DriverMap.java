@@ -215,20 +215,20 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
         }
         else if( menuItem.getItemId() == R.id.current_request )
         {
-
+            final Intent intent = new Intent( this , currentRequest.class );
+            intent.putExtras( bundle );
+            startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.complete_request )
         {
-
-        }
-        else if( menuItem.getItemId() == R.id.businfo ) {
-
-        }
-        else if( menuItem.getItemId() == R.id.feedback ) {
-            final Intent intent = new Intent( this , FeedBack.class );
+            final Intent intent = new Intent( this , completeRequest.class );
             intent.putExtras( bundle );
             startActivity( intent );
-
+        }
+        else if( menuItem.getItemId() == R.id.businfo ) {
+            final Intent intent = new Intent( this , busInfo.class );
+            intent.putExtras( bundle );
+            startActivity( intent );
         }
         else if( menuItem.getItemId() == R.id.notice ) {
             final Intent intent = new Intent( this , NoticeBoard.class );

@@ -1974,6 +1974,9 @@ id btn_login
 id btn_post_reg
 id btn_pre_reg
 id btn_signup
+id bus_id
+id bus_info
+id bus_number
 id bus_stops
 id businfo
 id buttonPanel
@@ -1993,6 +1996,7 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id complete_req
 id complete_request
 id confirm_button
 id confirm_pass
@@ -2057,6 +2061,7 @@ id fixed
 id fname
 id forever
 id fragment_container_view_tag
+id gass
 id ghost_view
 id ghost_view_holder
 id gone
@@ -2138,6 +2143,7 @@ id notification_main_column_container
 id number_of_bus
 id number_of_days
 id off
+id oil
 id old_pass
 id on
 id outline
@@ -2192,7 +2198,10 @@ id register
 id reservation
 id reservation_date
 id reserve_bus
+id ride_complete
 id rider
+id rider_email
+id rider_name
 id right
 id right_icon
 id right_side
@@ -2292,6 +2301,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userRecycle
 id user_header
 id userprofile
 id view_offset_helper
@@ -2362,8 +2372,11 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_bus_info
 layout activity_bus_reservation
 layout activity_bus_stoppage
+layout activity_complete_request
+layout activity_current_request
 layout activity_driver_bus_stoppage
 layout activity_driver_login
 layout activity_driver_map
@@ -2457,6 +2470,7 @@ layout places_autocomplete_prediction
 layout places_autocomplete_progress
 layout places_autocomplete_search_bar
 layout progress_dialog
+layout request_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

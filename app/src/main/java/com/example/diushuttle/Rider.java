@@ -106,7 +106,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
     ActionBarDrawerToggle toggle;
 
     TextView headername, headeremail , showspeed, showlocation;
-    Button mRequest;
+    public Button mRequest;
     private GoogleMap mMap;
     GoogleApiClient mGoogleApiClint;
     Location lastlocation;
@@ -151,6 +151,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         setupLayout();
         startProgress();
         getToken();
+        isComplete();
         mRequest = findViewById(R.id.send_request);
         mRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,6 +179,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                         }
                         afterBusFound = false;
                         mRequest.setText("Get the bus");
+
                     }
                     else {
                         isRequest = true;
@@ -196,10 +198,36 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                         radius = 1;
                         getItemSelectListener();
                         getClosestBus();
+
                     }
                 }
             }
         });
+    }
+
+    private void isComplete() {
+        if( driverFound && isRequest ) {
+            String customerId = FirebaseAuth.getInstance().getUid();
+            DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
+                    .child(driverAvailableID);
+            DatabaseReference source = driverref.child("PickUp");
+            source.child(customerId).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+
+                    } else {
+                        mRequest.setText("Get the bus");
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     private boolean driverFound = false;
@@ -220,6 +248,11 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
                     DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
                             .child(driverAvailableID);
                     DatabaseReference source = driverref.child("PickUp");
+                    if( source.child(customerId) == null )
+                    {
+                        mRequest.setText("Complete");
+                    }
+                    //source.child(customerId+"riderId").setValue(customerId);
                     GeoFire userGeo = new GeoFire(  source );
                     userGeo.setLocation(customerId, new GeoLocation(pickupLocation.latitude, pickupLocation.longitude));
                     DatabaseReference desti = driverref.child("Dest");
@@ -636,6 +669,7 @@ public class Rider extends AppCompatActivity implements OnMapReadyCallback, Goog
         DatabaseReference driverref = FirebaseDatabase.getInstance().getReference().child("Users").child("Driver")
                 .child(driverAvailableID);
         DatabaseReference source = driverref.child("PickUp");
+        //source.child(userid+"riderId").setValue(null);
         DatabaseReference end = driverref.child("Dest");
         GeoFire geoFire = new GeoFire(source);
         geoFire.removeLocation( userid );

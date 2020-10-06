@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-123:12
-INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-123:12
-INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-123:12
-INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-123:12
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-133:12
+INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-133:12
+INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-133:12
+INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-133:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\6029c1862846be4a7ec1743d4d20ec64\material-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.libraries.places:places:2.2.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\1e6e0b218ccfeb7492b94f8f5863d2cc\jetified-places-2.2.0\AndroidManifest.xml:2:1-23:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\6c5a1a33c151bf1b1b969a4997bc8337\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -69,20 +69,20 @@ MERGED from [androidx.lifecycle:lifecycle-service:2.1.0] C:\Users\Labib\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\99a7c89823844cfa06d168fcce794e33\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\a2ae4022237bbaf198d3d05422530051\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.datatransport:transport-api:2.1.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\f436af6fbc948f2be8b24811beb844cf\jetified-transport-api-2.1.0\AndroidManifest.xml:15:1-22:12
-INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-123:12
-INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-123:12
-INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-123:12
+INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-133:12
+INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-133:12
+INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-133:12
 	package
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-123:12
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-133:12
 		INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-123:12
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:1-133:12
 		INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:2:11-69
@@ -155,7 +155,7 @@ ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest
 	android:name
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:24:9-53
 application
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:27:5-121:19
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:27:5-131:19
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\6029c1862846be4a7ec1743d4d20ec64\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\6029c1862846be4a7ec1743d4d20ec64\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.libraries.places:places:2.2.0] C:\Users\Labib\.gradle\caches\transforms-2\files-2.1\1e6e0b218ccfeb7492b94f8f5863d2cc\jetified-places-2.2.0\AndroidManifest.xml:13:5-21:19
@@ -216,158 +216,182 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Labib\.gradle\
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:28:9-35
 	android:theme
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:33:9-40
-activity#com.example.diushuttle.busReservation
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:34:9-37:15
+activity#com.example.diushuttle.completeRequest
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:34:9-36:60
 	android:parentActivityName
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:36:13-48
 	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:35:13-44
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:35:13-45
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:34:19-49
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:34:19-50
+activity#com.example.diushuttle.currentRequest
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:37:9-39:50
+	android:parentActivityName
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:39:13-48
+	android:label
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:38:13-44
+	android:name
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:37:19-49
+activity#com.example.diushuttle.busInfo
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:40:9-43:51
+	android:parentActivityName
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:43:13-48
+	android:label
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:42:13-44
+	android:name
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:41:13-36
+activity#com.example.diushuttle.busReservation
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:44:9-47:51
+	android:parentActivityName
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:47:13-48
+	android:label
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:46:13-44
+	android:name
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:45:13-43
 activity#com.example.diushuttle.routeMap
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:38:9-41:15
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:48:9-51:51
 	android:parentActivityName
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:40:13-48
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:51:13-48
 	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:39:13-38
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:50:13-38
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:38:19-43
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:49:13-37
 activity#com.example.diushuttle.FeedBack
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:42:9-45:51
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:52:9-55:51
 	android:parentActivityName
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:45:13-48
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:55:13-48
 	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:44:13-37
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:54:13-37
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:43:13-37
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:53:13-37
 activity#com.example.diushuttle.NoticeBoard
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:46:9-49:51
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:56:9-59:51
 	android:parentActivityName
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:49:13-48
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:59:13-48
 	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:48:13-41
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:58:13-41
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:47:13-40
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:57:13-40
 activity#com.example.diushuttle.BusStoppage
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:50:9-53:51
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:60:9-63:51
 	android:parentActivityName
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:53:13-48
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:63:13-48
 	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:52:13-41
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:62:13-41
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:51:13-40
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:61:13-40
 activity#com.example.diushuttle.DriverMap
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:54:9-56:59
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:64:9-66:59
 	android:theme
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:56:13-56
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:66:13-56
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:55:13-38
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:65:13-38
 activity#com.example.diushuttle.DriverLogin
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:57:9-59:59
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:67:9-69:59
 	android:theme
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:59:13-56
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:69:13-56
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:58:13-40
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:68:13-40
 activity#com.example.diushuttle.UserSelection
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:60:9-62:59
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:70:9-72:59
 	android:theme
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:62:13-56
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:72:13-56
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:61:13-42
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:71:13-42
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:71:9-73:55
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:81:9-83:55
 	android:value
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:73:13-52
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:83:13-52
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:72:13-58
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:82:13-58
 activity#com.example.diushuttle.fare_calculator
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:75:9-79:55
-	android:parentActivityName
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:78:13-48
-	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:77:13-33
-	android:windowSoftInputMode
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:79:13-52
-	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:76:13-44
-activity#com.example.diushuttle.user_reg_complete
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:80:9-84:55
-	android:parentActivityName
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:83:13-60
-	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:82:13-37
-	android:windowSoftInputMode
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:84:13-52
-	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:81:13-46
-activity#com.example.diushuttle.user_registration
 ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:85:9-89:55
 	android:parentActivityName
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:88:13-55
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:88:13-48
 	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:87:13-37
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:87:13-33
 	android:windowSoftInputMode
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:89:13-52
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:86:13-46
-activity#com.example.diushuttle.user_profile
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:86:13-44
+activity#com.example.diushuttle.user_reg_complete
 ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:90:9-94:55
 	android:parentActivityName
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:93:13-48
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:93:13-60
 	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:92:13-36
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:92:13-37
 	android:windowSoftInputMode
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:94:13-52
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:91:13-41
-activity#com.example.diushuttle.UpdatePassword
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:91:13-46
+activity#com.example.diushuttle.user_registration
 ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:95:9-99:55
 	android:parentActivityName
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:98:13-55
 	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:97:13-44
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:97:13-37
 	android:windowSoftInputMode
 		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:99:13-52
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:96:13-43
-activity#com.example.diushuttle.splash
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:100:9-108:20
-	android:theme
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:102:13-56
-	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:101:13-35
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:103:13-107:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:104:17-69
-	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:104:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:106:17-77
-	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:106:27-74
-activity#com.example.diushuttle.Rider
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:109:9-111:59
-	android:theme
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:111:13-56
-	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:110:13-34
-activity#com.example.diushuttle.MainActivity
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:112:9-116:55
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:96:13-46
+activity#com.example.diushuttle.user_profile
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:100:9-104:55
+	android:parentActivityName
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:103:13-48
 	android:label
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:114:13-34
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:102:13-36
 	android:windowSoftInputMode
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:116:13-52
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:104:13-52
+	android:name
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:101:13-41
+activity#com.example.diushuttle.UpdatePassword
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:105:9-109:55
+	android:parentActivityName
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:108:13-55
+	android:label
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:107:13-44
+	android:windowSoftInputMode
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:109:13-52
+	android:name
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:106:13-43
+activity#com.example.diushuttle.splash
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:110:9-118:20
 	android:theme
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:115:13-56
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:112:13-56
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:113:13-41
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:111:13-35
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:113:13-117:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:114:17-69
+	android:name
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:114:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:116:17-77
+	android:name
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:116:27-74
+activity#com.example.diushuttle.Rider
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:119:9-121:59
+	android:theme
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:121:13-56
+	android:name
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:120:13-34
+activity#com.example.diushuttle.MainActivity
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:122:9-126:55
+	android:label
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:124:13-34
+	android:windowSoftInputMode
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:126:13-52
+	android:theme
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:125:13-56
+	android:name
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:123:13-41
 meta-data#preloaded_fonts
-ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:118:9-120:57
+ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:128:9-130:57
 	android:resource
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:120:13-54
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:130:13-54
 	android:name
-		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:119:13-43
+		ADDED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml:129:13-43
 uses-sdk
 INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Labib\Desktop\diunew\ProjectDIU\app\src\main\AndroidManifest.xml
