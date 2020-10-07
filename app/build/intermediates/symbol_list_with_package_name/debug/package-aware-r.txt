@@ -1977,6 +1977,7 @@ id btn_signup
 id bus_id
 id bus_info
 id bus_number
+id bus_report
 id bus_stops
 id businfo
 id buttonPanel
@@ -2195,6 +2196,7 @@ id ratingBar
 id reason
 id reg_email
 id register
+id report
 id reservation
 id reservation_date
 id reserve_bus
@@ -2259,6 +2261,7 @@ id stretch
 id submenuarrow
 id submit_area
 id submit_password
+id submit_report
 id submit_update
 id tabMode
 id tag_accessibility_actions
@@ -2373,6 +2376,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_bus_info
+layout activity_bus_report
 layout activity_bus_reservation
 layout activity_bus_stoppage
 layout activity_complete_request

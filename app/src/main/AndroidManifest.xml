@@ -31,12 +31,18 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".completeRequest"
+        <activity android:name=".busReport"
+            android:label="Report"
+            android:parentActivityName=".Rider"
+            ></activity>
+        <activity
+            android:name=".completeRequest"
             android:label="Complete Request"
-            android:parentActivityName=".Rider"></activity>
-        <activity android:name=".currentRequest"
+            android:parentActivityName=".Rider" />
+        <activity
+            android:name=".currentRequest"
             android:label="Current Request"
-            android:parentActivityName=".Rider"/>
+            android:parentActivityName=".Rider" />
         <activity
             android:name=".busInfo"
             android:label="Bus Information"

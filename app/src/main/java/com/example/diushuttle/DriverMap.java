@@ -225,6 +225,12 @@ public class DriverMap extends AppCompatActivity implements OnMapReadyCallback, 
             intent.putExtras( bundle );
             startActivity( intent );
         }
+        else if( menuItem.getItemId() == R.id.report )
+        {
+            final Intent intent = new Intent( this , busReport.class );
+            intent.putExtras( bundle );
+            startActivity( intent );
+        }
         else if( menuItem.getItemId() == R.id.businfo ) {
             final Intent intent = new Intent( this , busInfo.class );
             intent.putExtras( bundle );

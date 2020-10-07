@@ -33,6 +33,11 @@
                     android:id="@+id/notice"
                     />
                 <item
+                    android:title="Send Report"
+                    android:icon="@drawable/ic_assignment_turned_in_black_24dp"
+                    android:id="@+id/report"
+                    />
+                <item
                     android:id="@+id/driver_logout"
                     android:icon="@drawable/ic_logout"
                     android:title="Logout" />

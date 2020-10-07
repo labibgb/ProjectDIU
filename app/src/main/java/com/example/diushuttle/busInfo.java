@@ -90,8 +90,8 @@ public class busInfo extends AppCompatActivity {
 
                             int id = response.getInt("userId");
                             String ID = Integer.toString( id );
-                            String UrlId = "http://mytestservice.live:8080/api/driver/GLOBAL/schedules/"+ID;
-                            showInfo(UrlId, bearer);
+                            String UrlId = "http://mytestservice.live:8080/api/schedule/GLOBAL/all";
+                            showInfo(UrlId, bearer, id );
                         }
                         catch (Exception e ){
                             e.printStackTrace();
@@ -115,7 +115,7 @@ public class busInfo extends AppCompatActivity {
         };
         requestQueue.add( jsonObjectRequest );
     }
-    public void showInfo(String url, String bearer) {
+    public void showInfo(String url, String bearer, int Id) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -132,11 +132,16 @@ public class busInfo extends AppCompatActivity {
                                 Boolean complete = jsonObject.getBoolean("isComplete");
                                 if( !complete ){
                                     JSONObject bus = (JSONObject) jsonObject.get("bus");
-                                    id = Integer.toString(bus.getInt("busId"));
-                                    numb = bus.getString("number");
-                                    ol = Integer.toString((int) bus.getDouble("oilTankCapacity"));
-                                    gs = Integer.toString((int)bus.getDouble("gasCylinderCapacity"));
-                                    break;
+                                    JSONObject driver = (JSONObject) jsonObject.get("driver");
+                                    JSONObject u = (JSONObject) driver.get("user");
+                                    int idd = u.getInt("userId");
+                                    if( idd == Id) {
+                                        id = Integer.toString(bus.getInt("busId"));
+                                        numb = bus.getString("number");
+                                        ol = Integer.toString((int) bus.getDouble("oilTankCapacity"));
+                                        gs = Integer.toString((int) bus.getDouble("gasCylinderCapacity"));
+                                        break;
+                                    }
                                 }
                             }
                             busId.setText("Bus id: "+id);

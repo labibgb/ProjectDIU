@@ -244,6 +244,10 @@
         "source": "C:\\Users\\Labib\\Desktop\\diunew\\ProjectDIU\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_send_black_24dp.png"
     },
     {
+        "merged": "C:\\Users\\Labib\\Desktop\\diunew\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_bus_report.xml.flat",
+        "source": "C:\\Users\\Labib\\Desktop\\diunew\\ProjectDIU\\app\\src\\main\\res\\layout\\activity_bus_report.xml"
+    },
+    {
         "merged": "C:\\Users\\Labib\\Desktop\\diunew\\ProjectDIU\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icons8_bus.png.flat",
         "source": "C:\\Users\\Labib\\Desktop\\diunew\\ProjectDIU\\app\\src\\main\\res\\drawable\\icons8_bus.png"
     },
